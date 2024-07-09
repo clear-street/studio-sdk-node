@@ -1,6 +1,6 @@
 {
   "name": "studio-sdk",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.1-alpha.1",
   "description": "The official TypeScript library for the Studio SDK API",
   "author": "Studio SDK <dev-feedback@studio-sdk.com>",
   "types": "dist/index.d.ts",
