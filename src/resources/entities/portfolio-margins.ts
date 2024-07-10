@@ -4,7 +4,7 @@ import { APIResource } from '@clear-street/studio-sdk/resource';
 import * as Core from '@clear-street/studio-sdk/core';
 import * as EntitiesAPI from '@clear-street/studio-sdk/resources/entities/entities';
 
-export class PortfolioMargin extends APIResource {
+export class PortfolioMargins extends APIResource {
   /**
    * Get latest portfolio margin calculation for the given entity
    */

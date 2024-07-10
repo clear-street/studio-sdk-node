@@ -4,11 +4,11 @@ import { APIResource } from '@clear-street/studio-sdk/resource';
 import * as Core from '@clear-street/studio-sdk/core';
 import * as EntitiesAPI from '@clear-street/studio-sdk/resources/entities/entities';
 
-export class RegtMargin extends APIResource {
+export class PnlSummaries extends APIResource {
   /**
-   * Get the latest Reg-T margin calculation for the given entity
+   * Get PNL summary for all accounts in an entity.
    */
-  retrieve(entityId: string, options?: Core.RequestOptions): Core.APIPromise<EntitiesAPI.RegtMargin> {
-    return this._client.get(`/entities/${entityId}/regt-margin`, options);
+  retrieve(entityId: string, options?: Core.RequestOptions): Core.APIPromise<EntitiesAPI.PnlSummary> {
+    return this._client.get(`/entities/${entityId}/pnl-summary`, options);
   }
 }
