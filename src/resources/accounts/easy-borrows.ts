@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
-import * as EasyBorrowsAPI from './easy-borrows';
+import { APIResource } from '@clear-street/studio-sdk/resource';
+import * as Core from '@clear-street/studio-sdk/core';
+import * as EasyBorrowsAPI from '@clear-street/studio-sdk/resources/accounts/easy-borrows';
 
 export class EasyBorrows extends APIResource {
   /**

@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
-import * as LocateOrdersAPI from './locate-orders';
-import * as Shared from '../shared';
+import { APIResource } from '@clear-street/studio-sdk/resource';
+import * as Core from '@clear-street/studio-sdk/core';
+import * as LocateOrdersAPI from '@clear-street/studio-sdk/resources/accounts/locate-orders';
+import * as Shared from '@clear-street/studio-sdk/resources/shared';
 
 export class LocateOrders extends APIResource {
   /**

@@ -1,6 +1,6 @@
-import { multipartFormRequestOptions, createForm } from 'studio-sdk/core';
-import { Blob } from 'studio-sdk/_shims/index';
-import { toFile } from 'studio-sdk';
+import { multipartFormRequestOptions, createForm } from '@clear-street/studio-sdk/core';
+import { Blob } from '@clear-street/studio-sdk/_shims/index';
+import { toFile } from '@clear-street/studio-sdk';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

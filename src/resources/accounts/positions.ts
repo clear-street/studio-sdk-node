@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
-import * as PositionsAPI from './positions';
-import * as Shared from '../shared';
+import { APIResource } from '@clear-street/studio-sdk/resource';
+import { isRequestOptions } from '@clear-street/studio-sdk/core';
+import * as Core from '@clear-street/studio-sdk/core';
+import * as PositionsAPI from '@clear-street/studio-sdk/resources/accounts/positions';
+import * as Shared from '@clear-street/studio-sdk/resources/shared';
 
 export class Positions extends APIResource {
   /**
