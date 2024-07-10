@@ -1,20 +1,19 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
-import { PnlSummary } from './pnl-summary';
-import { RegtMargin } from './regt-margin';
-import { PortfolioMargin } from './portfolio-margin';
-import * as EntitiesAPI from './entities';
-import * as PnlSummaryAPI from './pnl-summary';
-import * as PortfolioMarginAPI from './portfolio-margin';
-import * as RegtMarginAPI from './regt-margin';
-import * as RegtMarginSimulationsAPI from './regt-margin-simulations';
+import { APIResource } from '@clear-street/studio-sdk/resource';
+import * as Core from '@clear-street/studio-sdk/core';
+import * as EntitiesAPI from '@clear-street/studio-sdk/resources/entities/entities';
+import * as PnlSummariesAPI from '@clear-street/studio-sdk/resources/entities/pnl-summaries';
+import * as PortfolioMarginsAPI from '@clear-street/studio-sdk/resources/entities/portfolio-margins';
+import * as RegtMarginSimulationsAPI from '@clear-street/studio-sdk/resources/entities/regt-margin-simulations';
+import * as RegtMarginsAPI from '@clear-street/studio-sdk/resources/entities/regt-margins';
 
 export class Entities extends APIResource {
-  pnlSummary: PnlSummaryAPI.PnlSummary = new PnlSummaryAPI.PnlSummary(this._client);
-  regtMargin: RegtMarginAPI.RegtMargin = new RegtMarginAPI.RegtMargin(this._client);
-  portfolioMargin: PortfolioMarginAPI.PortfolioMargin = new PortfolioMarginAPI.PortfolioMargin(this._client);
+  pnlSummaries: PnlSummariesAPI.PnlSummaries = new PnlSummariesAPI.PnlSummaries(this._client);
+  regtMargins: RegtMarginsAPI.RegtMargins = new RegtMarginsAPI.RegtMargins(this._client);
+  portfolioMargins: PortfolioMarginsAPI.PortfolioMargins = new PortfolioMarginsAPI.PortfolioMargins(
+    this._client,
+  );
   regtMarginSimulations: RegtMarginSimulationsAPI.RegtMarginSimulations =
     new RegtMarginSimulationsAPI.RegtMarginSimulations(this._client);
 
@@ -553,6 +552,9 @@ export namespace Entities {
   export import PortfolioMargin = EntitiesAPI.PortfolioMargin;
   export import RegtMargin = EntitiesAPI.RegtMargin;
   export import EntityListResponse = EntitiesAPI.EntityListResponse;
+  export import PnlSummaries = PnlSummariesAPI.PnlSummaries;
+  export import RegtMargins = RegtMarginsAPI.RegtMargins;
+  export import PortfolioMargins = PortfolioMarginsAPI.PortfolioMargins;
   export import RegtMarginSimulations = RegtMarginSimulationsAPI.RegtMarginSimulations;
   export import SimulationID = RegtMarginSimulationsAPI.SimulationID;
   export import RegtMarginSimulationCreateResponse = RegtMarginSimulationsAPI.RegtMarginSimulationCreateResponse;

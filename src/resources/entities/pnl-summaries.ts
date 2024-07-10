@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
-import * as EntitiesAPI from './entities';
+import { APIResource } from '@clear-street/studio-sdk/resource';
+import * as Core from '@clear-street/studio-sdk/core';
+import * as EntitiesAPI from '@clear-street/studio-sdk/resources/entities/entities';
 
-export class PnlSummary extends APIResource {
+export class PnlSummaries extends APIResource {
   /**
    * Get PNL summary for all accounts in an entity.
    */

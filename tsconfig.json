@@ -9,9 +9,9 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "studio-sdk/_shims/auto/*": ["src/_shims/auto/*-node"],
-      "studio-sdk/*": ["src/*"],
-      "studio-sdk": ["src/index.ts"],
+      "@clear-street/studio-sdk/_shims/auto/*": ["src/_shims/auto/*-node"],
+      "@clear-street/studio-sdk/*": ["src/*"],
+      "@clear-street/studio-sdk": ["src/index.ts"],
     },
     "noEmit": true,
 

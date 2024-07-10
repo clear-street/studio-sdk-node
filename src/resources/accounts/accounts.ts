@@ -1,16 +1,16 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
-import * as AccountsAPI from './accounts';
-import * as BulkOrdersAPI from './bulk-orders';
-import * as EasyBorrowsAPI from './easy-borrows';
-import * as LocateOrdersAPI from './locate-orders';
-import * as OrdersAPI from './orders';
-import * as PnlDetailsAPI from './pnl-details';
-import * as PnlSummaryAPI from './pnl-summary';
-import * as PositionsAPI from './positions';
-import * as TradesAPI from './trades';
+import { APIResource } from '@clear-street/studio-sdk/resource';
+import * as Core from '@clear-street/studio-sdk/core';
+import * as AccountsAPI from '@clear-street/studio-sdk/resources/accounts/accounts';
+import * as BulkOrdersAPI from '@clear-street/studio-sdk/resources/accounts/bulk-orders';
+import * as EasyBorrowsAPI from '@clear-street/studio-sdk/resources/accounts/easy-borrows';
+import * as LocateOrdersAPI from '@clear-street/studio-sdk/resources/accounts/locate-orders';
+import * as OrdersAPI from '@clear-street/studio-sdk/resources/accounts/orders';
+import * as PnlDetailsAPI from '@clear-street/studio-sdk/resources/accounts/pnl-details';
+import * as PnlSummaryAPI from '@clear-street/studio-sdk/resources/accounts/pnl-summary';
+import * as PositionsAPI from '@clear-street/studio-sdk/resources/accounts/positions';
+import * as TradesAPI from '@clear-street/studio-sdk/resources/accounts/trades';
 
 export class Accounts extends APIResource {
   bulkOrders: BulkOrdersAPI.BulkOrders = new BulkOrdersAPI.BulkOrders(this._client);
