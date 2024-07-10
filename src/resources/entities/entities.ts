@@ -1,15 +1,15 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '@clear-street/studio-sdk/resource';
+import * as Core from '@clear-street/studio-sdk/core';
 import { PnlSummary } from './pnl-summary';
 import { RegtMargin } from './regt-margin';
 import { PortfolioMargin } from './portfolio-margin';
-import * as EntitiesAPI from './entities';
-import * as PnlSummaryAPI from './pnl-summary';
-import * as PortfolioMarginAPI from './portfolio-margin';
-import * as RegtMarginAPI from './regt-margin';
-import * as RegtMarginSimulationsAPI from './regt-margin-simulations';
+import * as EntitiesAPI from '@clear-street/studio-sdk/resources/entities/entities';
+import * as PnlSummaryAPI from '@clear-street/studio-sdk/resources/entities/pnl-summary';
+import * as PortfolioMarginAPI from '@clear-street/studio-sdk/resources/entities/portfolio-margin';
+import * as RegtMarginAPI from '@clear-street/studio-sdk/resources/entities/regt-margin';
+import * as RegtMarginSimulationsAPI from '@clear-street/studio-sdk/resources/entities/regt-margin-simulations';
 
 export class Entities extends APIResource {
   pnlSummary: PnlSummaryAPI.PnlSummary = new PnlSummaryAPI.PnlSummary(this._client);

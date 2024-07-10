@@ -4,8 +4,8 @@
 /**
  * Types will get added to this namespace when you import one of the following:
  *
- *   import 'studio-sdk/shims/node'
- *   import 'studio-sdk/shims/web'
+ *   import '@clear-street/studio-sdk/shims/node'
+ *   import '@clear-street/studio-sdk/shims/web'
  *
  * Importing more than one will cause type and runtime errors.
  */

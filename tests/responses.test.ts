@@ -1,5 +1,5 @@
-import { createResponseHeaders } from 'studio-sdk/core';
-import { Headers } from 'studio-sdk/_shims/index';
+import { createResponseHeaders } from '@clear-street/studio-sdk/core';
+import { Headers } from '@clear-street/studio-sdk/_shims/index';
 
 describe('response parsing', () => {
   // TODO: test unicode characters

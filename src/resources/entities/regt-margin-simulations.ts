@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
-import * as RegtMarginSimulationsAPI from './regt-margin-simulations';
-import * as Shared from '../shared';
+import { APIResource } from '@clear-street/studio-sdk/resource';
+import * as Core from '@clear-street/studio-sdk/core';
+import * as RegtMarginSimulationsAPI from '@clear-street/studio-sdk/resources/entities/regt-margin-simulations';
+import * as Shared from '@clear-street/studio-sdk/resources/shared';
 
 export class RegtMarginSimulations extends APIResource {
   /**

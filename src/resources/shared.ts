@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as EntitiesAPI from './entities/entities';
-import * as RegtMarginSimulationsAPI from './entities/regt-margin-simulations';
+import * as EntitiesAPI from '@clear-street/studio-sdk/resources/entities/entities';
+import * as RegtMarginSimulationsAPI from '@clear-street/studio-sdk/resources/entities/regt-margin-simulations';
 
 export interface LocateOrder {
   /**

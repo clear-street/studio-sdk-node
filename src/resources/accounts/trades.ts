@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
-import * as TradesAPI from './trades';
-import * as Shared from '../shared';
+import { APIResource } from '@clear-street/studio-sdk/resource';
+import { isRequestOptions } from '@clear-street/studio-sdk/core';
+import * as Core from '@clear-street/studio-sdk/core';
+import * as TradesAPI from '@clear-street/studio-sdk/resources/accounts/trades';
+import * as Shared from '@clear-street/studio-sdk/resources/shared';
 
 export class Trades extends APIResource {
   /**
