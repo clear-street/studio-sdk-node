@@ -8,9 +8,9 @@ const studioSDK = new StudioSDK({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource pnlSummary', () => {
+describe('resource regtMargins', () => {
   test('retrieve', async () => {
-    const responsePromise = studioSDK.entities.pnlSummary.retrieve('x');
+    const responsePromise = studioSDK.entities.regtMargins.retrieve('x');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -23,7 +23,7 @@ describe('resource pnlSummary', () => {
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      studioSDK.entities.pnlSummary.retrieve('x', { path: '/_stainless_unknown_path' }),
+      studioSDK.entities.regtMargins.retrieve('x', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(StudioSDK.NotFoundError);
   });
 });
