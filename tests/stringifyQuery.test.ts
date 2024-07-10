@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { StudioSDK } from 'studio-sdk';
+import { StudioSDK } from '@clear-street/studio-sdk';
 
 const { stringifyQuery } = StudioSDK.prototype as any;
 

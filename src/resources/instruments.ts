@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import { isRequestOptions } from '../core';
-import * as Core from '../core';
-import * as InstrumentsAPI from './instruments';
+import { APIResource } from '@clear-street/studio-sdk/resource';
+import { isRequestOptions } from '@clear-street/studio-sdk/core';
+import * as Core from '@clear-street/studio-sdk/core';
+import * as InstrumentsAPI from '@clear-street/studio-sdk/resources/instruments';
 
 export class Instruments extends APIResource {
   /**

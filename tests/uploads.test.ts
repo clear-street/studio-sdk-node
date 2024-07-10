@@ -1,6 +1,6 @@
 import fs from 'fs';
-import { toFile, type ResponseLike } from 'studio-sdk/uploads';
-import { File } from 'studio-sdk/_shims/index';
+import { toFile, type ResponseLike } from '@clear-street/studio-sdk/uploads';
+import { File } from '@clear-street/studio-sdk/_shims/index';
 
 class MyClass {
   name: string = 'foo';

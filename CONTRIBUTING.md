@@ -55,12 +55,12 @@ cd studio-sdk-node
 # With yarn
 yarn link
 cd ../my-package
-yarn link studio-sdk
+yarn link @clear-street/studio-sdk
 
 # With pnpm
 pnpm link --global
 cd ../my-package
-pnpm link -—global studio-sdk
+pnpm link -—global @clear-street/studio-sdk
 ```
 
 ## Running tests

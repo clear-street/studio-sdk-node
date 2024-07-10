@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
-import * as BulkOrdersAPI from './bulk-orders';
+import { APIResource } from '@clear-street/studio-sdk/resource';
+import * as Core from '@clear-street/studio-sdk/core';
+import * as BulkOrdersAPI from '@clear-street/studio-sdk/resources/accounts/bulk-orders';
 
 export class BulkOrders extends APIResource {
   /**

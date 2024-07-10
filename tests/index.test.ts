@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import StudioSDK from 'studio-sdk';
-import { APIUserAbortError } from 'studio-sdk';
-import { Headers } from 'studio-sdk/core';
+import StudioSDK from '@clear-street/studio-sdk';
+import { APIUserAbortError } from '@clear-street/studio-sdk';
+import { Headers } from '@clear-street/studio-sdk/core';
 import defaultFetch, { Response, type RequestInit, type RequestInfo } from 'node-fetch';
 
 describe('instantiate client', () => {

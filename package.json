@@ -1,6 +1,6 @@
 {
-  "name": "studio-sdk",
-  "version": "0.1.0-alpha.2",
+  "name": "@clear-street/studio-sdk",
+  "version": "0.1.0-alpha.1",
   "description": "The official TypeScript library for the Studio SDK API",
   "author": "Studio SDK <studiosupport@clearstreet.io>",
   "types": "dist/index.d.ts",
@@ -60,8 +60,8 @@
     "./shims/web.mjs"
   ],
   "imports": {
-    "studio-sdk": ".",
-    "studio-sdk/*": "./src/*"
+    "@clear-street/studio-sdk": ".",
+    "@clear-street/studio-sdk/*": "./src/*"
   },
   "exports": {
     "./_shims/auto/*": {
