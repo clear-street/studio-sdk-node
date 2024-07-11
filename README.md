@@ -25,7 +25,7 @@ import StudioSDK from '@clear-street/studio-sdk';
 const studioSDK = new StudioSDK();
 
 async function main() {
-  const entity = await studioSDK.entities.retrieve('<your-entity-id>');
+  const entity = await studioSDK.entities.retrieve('<your_entity_id>');
 
   console.log(entity.entity_id);
 }
@@ -44,7 +44,7 @@ import StudioSDK from '@clear-street/studio-sdk';
 const studioSDK = new StudioSDK();
 
 async function main() {
-  const entity: StudioSDK.Entity = await studioSDK.entities.retrieve('<your-entity-id>');
+  const entity: StudioSDK.Entity = await studioSDK.entities.retrieve('<your_entity_id>');
 }
 
 main();
@@ -61,7 +61,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const entity = await studioSDK.entities.retrieve('<your-entity-id>').catch(async (err) => {
+  const entity = await studioSDK.entities.retrieve('<your_entity_id>').catch(async (err) => {
     if (err instanceof StudioSDK.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -104,7 +104,7 @@ const studioSDK = new StudioSDK({
 });
 
 // Or, configure per-request:
-await studioSDK.entities.retrieve('<your-entity-id>', {
+await studioSDK.entities.retrieve('<your_entity_id>', {
   maxRetries: 5,
 });
 ```
@@ -121,7 +121,7 @@ const studioSDK = new StudioSDK({
 });
 
 // Override per-request:
-await studioSDK.entities.retrieve('<your-entity-id>', {
+await studioSDK.entities.retrieve('<your_entity_id>', {
   timeout: 5 * 1000,
 });
 ```
@@ -142,11 +142,11 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const studioSDK = new StudioSDK();
 
-const response = await studioSDK.entities.retrieve('<your-entity-id>').asResponse();
+const response = await studioSDK.entities.retrieve('<your_entity_id>').asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: entity, response: raw } = await studioSDK.entities.retrieve('<your-entity-id>').withResponse();
+const { data: entity, response: raw } = await studioSDK.entities.retrieve('<your_entity_id>').withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(entity.entity_id);
 ```
@@ -252,7 +252,7 @@ const studioSDK = new StudioSDK({
 });
 
 // Override per-request:
-await studioSDK.entities.retrieve('<your-entity-id>', {
+await studioSDK.entities.retrieve('<your_entity_id>', {
   httpAgent: new http.Agent({ keepAlive: false }),
 });
 ```
