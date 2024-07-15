@@ -50,7 +50,7 @@ describe('resource positions', () => {
     await expect(
       studioSDK.accounts.positions.list(
         'x',
-        { page_size: 1, page_token: 'string' },
+        { page_size: 1, page_token: 'page_token' },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(StudioSDK.NotFoundError);

@@ -10,7 +10,7 @@ const studioSDK = new StudioSDK({
 
 describe('resource regtMarginSimulations', () => {
   test('create: only required params', async () => {
-    const responsePromise = studioSDK.entities.regtMarginSimulations.create('x', { name: 'string' });
+    const responsePromise = studioSDK.entities.regtMarginSimulations.create('x', { name: 'name' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,7 +22,7 @@ describe('resource regtMarginSimulations', () => {
 
   test('create: required and optional params', async () => {
     const response = await studioSDK.entities.regtMarginSimulations.create('x', {
-      name: 'string',
+      name: 'name',
       ignore_existing: true,
       prices: [
         { symbol: 'AAPL', symbol_format: 'cms', price: 'x' },
