@@ -83,7 +83,7 @@ describe('resource orders', () => {
     await expect(
       studioSDK.accounts.orders.list(
         'x',
-        { from: 1710613560668, page_size: 1, page_token: 'string', to: 1710613560668 },
+        { from: 1710613560668, page_size: 1, page_token: 'page_token', to: 1710613560668 },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(StudioSDK.NotFoundError);

@@ -31,7 +31,7 @@ describe('resource locateOrders', () => {
       quantity: 'x',
       reference_id: 'my-order-id-123',
       symbol: 'AAPL',
-      comments: 'string',
+      comments: 'comments',
     });
   });
 
