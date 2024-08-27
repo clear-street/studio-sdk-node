@@ -1,9 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@clear-street/studio-sdk/core'
-import * as EntitiesAPI from '@clear-street/studio-sdk/resources/entities/entities';
-import { type PnlSummary } from '@clear-street/studio-sdk/resources/entities/entities';
-import * as RegtMarginSimulationsAPI from '@clear-street/studio-sdk/resources/entities/regt-margin-simulations';
+import * as EntitiesAPI from './entities/entities';
+import { type PnlSummary } from './entities/entities';
+import * as RegtMarginSimulationsAPI from './entities/regt-margin-simulations';
 
 export interface LocateOrder {
   /**
@@ -146,7 +145,22 @@ export interface Order {
    * Granular order status using
    * [standard values come FIX tag 39](https://www.fixtrading.org/online-specification/order-state-changes).
    */
-  status: 'new' | 'partially-filled' | 'filled' | 'canceled' | 'replaced' | 'pending-cancel' | 'stopped' | 'rejected' | 'suspended' | 'pending-new' | 'calculated' | 'expired' | 'accepted-for-bidding' | 'pending-replace' | 'done-for-day';
+  status:
+    | 'new'
+    | 'partially-filled'
+    | 'filled'
+    | 'canceled'
+    | 'replaced'
+    | 'pending-cancel'
+    | 'stopped'
+    | 'rejected'
+    | 'suspended'
+    | 'pending-new'
+    | 'calculated'
+    | 'expired'
+    | 'accepted-for-bidding'
+    | 'pending-replace'
+    | 'done-for-day';
 
   symbol: string;
 
@@ -203,7 +217,13 @@ export interface Order {
   /**
    * The execution strategy used for this order.
    */
-  strategy?: Order.BaseStrategy | Order.BaseStrategy | Order.BaseStrategy | Order.BaseStrategy | Order.BaseStrategy | Order.BaseStrategy;
+  strategy?:
+    | Order.BaseStrategy
+    | Order.BaseStrategy
+    | Order.BaseStrategy
+    | Order.BaseStrategy
+    | Order.BaseStrategy
+    | Order.BaseStrategy;
 
   /**
    * Free form text typically contains reasons for a reject.
