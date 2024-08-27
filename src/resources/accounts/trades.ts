@@ -2,6 +2,7 @@
 
 import { APIResource } from '@clear-street/studio-sdk/resource';
 import { isRequestOptions } from '@clear-street/studio-sdk/core';
+import { APIPromise } from '@clear-street/studio-sdk/core';
 import * as Core from '@clear-street/studio-sdk/core';
 import * as TradesAPI from '@clear-street/studio-sdk/resources/accounts/trades';
 import * as Shared from '@clear-street/studio-sdk/resources/shared';
@@ -17,17 +18,9 @@ export class Trades extends APIResource {
   /**
    * List trades for a given account for the current trading day.
    */
-  list(
-    accountId: string,
-    query?: TradeListParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<TradeListResponse>;
-  list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<TradeListResponse>;
-  list(
-    accountId: string,
-    query: TradeListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<TradeListResponse> {
+  list(accountId: string, query?: TradeListParams, options?: Core.RequestOptions): Core.APIPromise<TradeListResponse>
+  list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<TradeListResponse>
+  list(accountId: string, query: TradeListParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<TradeListResponse> {
     if (isRequestOptions(query)) {
       return this.list(accountId, {}, query);
     }

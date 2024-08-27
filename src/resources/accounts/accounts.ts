@@ -1,7 +1,17 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '@clear-street/studio-sdk/resource';
+import { isRequestOptions } from '@clear-street/studio-sdk/core';
+import { APIPromise } from '@clear-street/studio-sdk/core';
 import * as Core from '@clear-street/studio-sdk/core';
+import { BulkOrders } from './bulk-orders';
+import { Orders } from './orders';
+import { Trades } from './trades';
+import { Positions } from './positions';
+import { LocateOrders } from './locate-orders';
+import { EasyBorrows } from './easy-borrows';
+import { PnlSummary } from './pnl-summary';
+import { PnlDetails } from './pnl-details';
 import * as AccountsAPI from '@clear-street/studio-sdk/resources/accounts/accounts';
 import * as BulkOrdersAPI from '@clear-street/studio-sdk/resources/accounts/bulk-orders';
 import * as EasyBorrowsAPI from '@clear-street/studio-sdk/resources/accounts/easy-borrows';
