@@ -22,10 +22,10 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import StudioSDK from '@clear-street/studio-sdk';
 
-const studioSDK = new StudioSDK();
+const client = new StudioSDK();
 
 async function main() {
-  const entity = await studioSDK.entities.retrieve('<your_entity_id>');
+  const entity = await client.entities.retrieve('<your_entity_id>');
 
   console.log(entity.entity_id);
 }
@@ -41,10 +41,10 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import StudioSDK from '@clear-street/studio-sdk';
 
-const studioSDK = new StudioSDK();
+const client = new StudioSDK();
 
 async function main() {
-  const entity: StudioSDK.Entity = await studioSDK.entities.retrieve('<your_entity_id>');
+  const entity: StudioSDK.Entity = await client.entities.retrieve('<your_entity_id>');
 }
 
 main();
@@ -61,7 +61,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const entity = await studioSDK.entities.retrieve('<your_entity_id>').catch(async (err) => {
+  const entity = await client.entities.retrieve('<your_entity_id>').catch(async (err) => {
     if (err instanceof StudioSDK.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -99,12 +99,12 @@ You can use the `maxRetries` option to configure or disable this:
 <!-- prettier-ignore -->
 ```js
 // Configure the default for all requests:
-const studioSDK = new StudioSDK({
+const client = new StudioSDK({
   maxRetries: 0, // default is 2
 });
 
 // Or, configure per-request:
-await studioSDK.entities.retrieve('<your_entity_id>', {
+await client.entities.retrieve('<your_entity_id>', {
   maxRetries: 5,
 });
 ```
@@ -116,12 +116,12 @@ Requests time out after 1 minute by default. You can configure this with a `time
 <!-- prettier-ignore -->
 ```ts
 // Configure the default for all requests:
-const studioSDK = new StudioSDK({
+const client = new StudioSDK({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
 });
 
 // Override per-request:
-await studioSDK.entities.retrieve('<your_entity_id>', {
+await client.entities.retrieve('<your_entity_id>', {
   timeout: 5 * 1000,
 });
 ```
@@ -140,13 +140,13 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 
 <!-- prettier-ignore -->
 ```ts
-const studioSDK = new StudioSDK();
+const client = new StudioSDK();
 
-const response = await studioSDK.entities.retrieve('<your_entity_id>').asResponse();
+const response = await client.entities.retrieve('<your_entity_id>').asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: entity, response: raw } = await studioSDK.entities.retrieve('<your_entity_id>').withResponse();
+const { data: entity, response: raw } = await client.entities.retrieve('<your_entity_id>').withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(entity.entity_id);
 ```
@@ -247,12 +247,12 @@ import http from 'http';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // Configure the default for all requests:
-const studioSDK = new StudioSDK({
+const client = new StudioSDK({
   httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
 });
 
 // Override per-request:
-await studioSDK.entities.retrieve('<your_entity_id>', {
+await client.entities.retrieve('<your_entity_id>', {
   httpAgent: new http.Agent({ keepAlive: false }),
 });
 ```
@@ -274,14 +274,6 @@ We are keen for your feedback; please open an [issue](https://www.github.com/cle
 TypeScript >= 4.5 is supported.
 
 The following runtimes are supported:
-
-- Node.js 18 LTS or later ([non-EOL](https://endoflife.date/nodejs)) versions.
-- Deno v1.28.0 or higher, using `import StudioSDK from "npm:@clear-street/studio-sdk"`.
-- Bun 1.0 or later.
-- Cloudflare Workers.
-- Vercel Edge Runtime.
-- Jest 28 or greater with the `"node"` environment (`"jsdom"` is not supported at this time).
-- Nitro v2.6 or greater.
 
 Note that React Native is not supported at this time.
 

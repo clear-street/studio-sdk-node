@@ -1,13 +1,16 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import StudioSDK, { toFile } from '@clear-street/studio-sdk';
+import StudioSDK from '@clear-street/studio-sdk';
 import { Response } from 'node-fetch';
 
-const studioSDK = new StudioSDK({ bearerToken: 'My Bearer Token', baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010' });
+const client = new StudioSDK({
+  bearerToken: 'My Bearer Token',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+});
 
 describe('resource accounts', () => {
   test('retrieve', async () => {
-    const responsePromise = studioSDK.accounts.retrieve('x');
+    const responsePromise = client.accounts.retrieve('x');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -19,13 +22,13 @@ describe('resource accounts', () => {
 
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(studioSDK.accounts.retrieve('x', { path: '/_stainless_unknown_path' }))
-      .rejects
-      .toThrow(StudioSDK.NotFoundError);
+    await expect(client.accounts.retrieve('x', { path: '/_stainless_unknown_path' })).rejects.toThrow(
+      StudioSDK.NotFoundError,
+    );
   });
 
   test('list', async () => {
-    const responsePromise = studioSDK.accounts.list();
+    const responsePromise = client.accounts.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -37,8 +40,8 @@ describe('resource accounts', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(studioSDK.accounts.list({ path: '/_stainless_unknown_path' }))
-      .rejects
-      .toThrow(StudioSDK.NotFoundError);
+    await expect(client.accounts.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+      StudioSDK.NotFoundError,
+    );
   });
 });

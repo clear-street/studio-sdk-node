@@ -1,10 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@clear-street/studio-sdk/resource';
-import { isRequestOptions } from '@clear-street/studio-sdk/core';
-import { APIPromise } from '@clear-street/studio-sdk/core';
-import * as Core from '@clear-street/studio-sdk/core';
-import * as BulkOrdersAPI from '@clear-street/studio-sdk/resources/accounts/bulk-orders';
+import { APIResource } from '../../resource';
+import * as Core from '../../core';
+import * as BulkOrdersAPI from './bulk-orders';
 
 export class BulkOrders extends APIResource {
   /**
@@ -22,7 +20,11 @@ export class BulkOrders extends APIResource {
    * submitted, that doesn't mean it was _accepted_, and may still be rejected by
    * downstream venues.
    */
-  create(accountId: string, body: BulkOrderCreateParams, options?: Core.RequestOptions): Core.APIPromise<BulkOrderCreateResponse> {
+  create(
+    accountId: string,
+    body: BulkOrderCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<BulkOrderCreateResponse> {
     return this._client.post(`/accounts/${accountId}/bulk-orders`, { body, ...options });
   }
 }
@@ -141,7 +143,13 @@ export namespace BulkOrderCreateParams {
      * The execution strategy to use for this order. If not provided, our smart
      * order-router will handle execution for your order.
      */
-    strategy?: Order.BaseStrategy | Order.BaseStrategy | Order.BaseStrategy | Order.BaseStrategy | Order.BaseStrategy | Order.BaseStrategy;
+    strategy?:
+      | Order.BaseStrategy
+      | Order.BaseStrategy
+      | Order.BaseStrategy
+      | Order.BaseStrategy
+      | Order.BaseStrategy
+      | Order.BaseStrategy;
 
     /**
      * Denotes the format of the provided `symbol` field.
