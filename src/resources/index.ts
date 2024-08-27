@@ -2,5 +2,12 @@
 
 export * from './shared';
 export { Account, AccountListResponse, Accounts } from './accounts/accounts';
-export { Entity, PnlSummary, PortfolioMargin, RegtMargin, EntityListResponse, Entities } from './entities/entities';
+export {
+  Entity,
+  PnlSummary,
+  PortfolioMargin,
+  RegtMargin,
+  EntityListResponse,
+  Entities,
+} from './entities/entities';
 export { Instrument, InstrumentRetrieveParams, Instruments } from './instruments';

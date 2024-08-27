@@ -1,11 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@clear-street/studio-sdk/resource';
-import { isRequestOptions } from '@clear-street/studio-sdk/core';
-import { APIPromise } from '@clear-street/studio-sdk/core';
-import * as Core from '@clear-street/studio-sdk/core';
-import * as OrdersAPI from '@clear-street/studio-sdk/resources/accounts/orders';
-import * as Shared from '@clear-street/studio-sdk/resources/shared';
+import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import * as Core from '../../core';
+import * as OrdersAPI from './orders';
+import * as Shared from '../shared';
 
 export class Orders extends APIResource {
   /**
@@ -14,14 +13,22 @@ export class Orders extends APIResource {
    * accepted, e.g. a downstream venue might reject your order. You should therefore
    * utilize our WebSocket APIs to listen for changes in order lifecycle events.
    */
-  create(accountId: string, body: OrderCreateParams, options?: Core.RequestOptions): Core.APIPromise<OrderCreateResponse> {
+  create(
+    accountId: string,
+    body: OrderCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<OrderCreateResponse> {
     return this._client.post(`/accounts/${accountId}/orders`, { body, ...options });
   }
 
   /**
    * Get an order that was previously created.
    */
-  retrieve(accountId: string, orderId: string, options?: Core.RequestOptions): Core.APIPromise<OrderRetrieveResponse> {
+  retrieve(
+    accountId: string,
+    orderId: string,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<OrderRetrieveResponse> {
     return this._client.get(`/accounts/${accountId}/orders/${orderId}`, options);
   }
 
@@ -29,9 +36,17 @@ export class Orders extends APIResource {
    * List orders for a given account for the current trading day, filtered on the
    * given query parameters.
    */
-  list(accountId: string, query?: OrderListParams, options?: Core.RequestOptions): Core.APIPromise<OrderListResponse>
-  list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<OrderListResponse>
-  list(accountId: string, query: OrderListParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<OrderListResponse> {
+  list(
+    accountId: string,
+    query?: OrderListParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<OrderListResponse>;
+  list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<OrderListResponse>;
+  list(
+    accountId: string,
+    query: OrderListParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<OrderListResponse> {
     if (isRequestOptions(query)) {
       return this.list(accountId, {}, query);
     }
@@ -42,14 +57,25 @@ export class Orders extends APIResource {
    * Attempts to cancel all open orders for a given account. Cancelling an order
    * cannot be guaranteed as there might be in-flight executions.
    */
-  delete(accountId: string, params?: OrderDeleteParams, options?: Core.RequestOptions): Core.APIPromise<OrderDeleteResponse>
-  delete(accountId: string, options?: Core.RequestOptions): Core.APIPromise<OrderDeleteResponse>
-  delete(accountId: string, params: OrderDeleteParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<OrderDeleteResponse> {
+  delete(
+    accountId: string,
+    params?: OrderDeleteParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<OrderDeleteResponse>;
+  delete(accountId: string, options?: Core.RequestOptions): Core.APIPromise<OrderDeleteResponse>;
+  delete(
+    accountId: string,
+    params: OrderDeleteParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<OrderDeleteResponse> {
     if (isRequestOptions(params)) {
       return this.delete(accountId, {}, params);
     }
     const { symbol, symbol_format } = params;
-    return this._client.delete(`/accounts/${accountId}/orders`, { query: { symbol, symbol_format }, ...options });
+    return this._client.delete(`/accounts/${accountId}/orders`, {
+      query: { symbol, symbol_format },
+      ...options,
+    });
   }
 
   /**
@@ -57,7 +83,10 @@ export class Orders extends APIResource {
    * as there might be in-flight executions.
    */
   cancel(accountId: string, orderId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/accounts/${accountId}/orders/${orderId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
+    return this._client.delete(`/accounts/${accountId}/orders/${orderId}`, {
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
   }
 }
 
@@ -154,7 +183,13 @@ export interface OrderCreateParams {
    * The execution strategy to use for this order. If not provided, our smart
    * order-router will handle execution for your order.
    */
-  strategy?: OrderCreateParams.BaseStrategy | OrderCreateParams.BaseStrategy | OrderCreateParams.BaseStrategy | OrderCreateParams.BaseStrategy | OrderCreateParams.BaseStrategy | OrderCreateParams.BaseStrategy;
+  strategy?:
+    | OrderCreateParams.BaseStrategy
+    | OrderCreateParams.BaseStrategy
+    | OrderCreateParams.BaseStrategy
+    | OrderCreateParams.BaseStrategy
+    | OrderCreateParams.BaseStrategy
+    | OrderCreateParams.BaseStrategy;
 
   /**
    * Denotes the format of the provided `symbol` field.
