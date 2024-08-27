@@ -1,10 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@clear-street/studio-sdk/resource';
-import { isRequestOptions } from '@clear-street/studio-sdk/core';
-import { APIPromise } from '@clear-street/studio-sdk/core';
-import * as Core from '@clear-street/studio-sdk/core';
-import * as PnlDetailsAPI from '@clear-street/studio-sdk/resources/accounts/pnl-details';
+import { APIResource } from '../../resource';
+import * as Core from '../../core';
+import * as PnlDetailsAPI from './pnl-details';
 
 export class PnlDetails extends APIResource {
   /**

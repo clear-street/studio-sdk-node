@@ -1,11 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@clear-street/studio-sdk/resource';
-import { isRequestOptions } from '@clear-street/studio-sdk/core';
-import { APIPromise } from '@clear-street/studio-sdk/core';
-import * as Core from '@clear-street/studio-sdk/core';
-import * as TradesAPI from '@clear-street/studio-sdk/resources/accounts/trades';
-import * as Shared from '@clear-street/studio-sdk/resources/shared';
+import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import * as Core from '../../core';
+import * as TradesAPI from './trades';
+import * as Shared from '../shared';
 
 export class Trades extends APIResource {
   /**
@@ -18,9 +17,17 @@ export class Trades extends APIResource {
   /**
    * List trades for a given account for the current trading day.
    */
-  list(accountId: string, query?: TradeListParams, options?: Core.RequestOptions): Core.APIPromise<TradeListResponse>
-  list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<TradeListResponse>
-  list(accountId: string, query: TradeListParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<TradeListResponse> {
+  list(
+    accountId: string,
+    query?: TradeListParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<TradeListResponse>;
+  list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<TradeListResponse>;
+  list(
+    accountId: string,
+    query: TradeListParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<TradeListResponse> {
     if (isRequestOptions(query)) {
       return this.list(accountId, {}, query);
     }

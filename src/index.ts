@@ -2,10 +2,9 @@
 
 import * as Errors from './error';
 import * as Uploads from './uploads';
-import { isRequestOptions } from './core';
-import { type Agent, type RequestInit } from './_shims/index';
-import * as Core from '@clear-street/studio-sdk/core';
-import * as API from '@clear-street/studio-sdk/resources/index';
+import { type Agent } from './_shims/index';
+import * as Core from './core';
+import * as API from './resources/index';
 
 export interface ClientOptions {
   /**
@@ -71,7 +70,7 @@ export interface ClientOptions {
 }
 
 /**
- * API Client for interfacing with the Studio SDK API. 
+ * API Client for interfacing with the Studio SDK API.
  */
 export class StudioSDK extends Core.APIClient {
   bearerToken: string;
@@ -97,7 +96,7 @@ export class StudioSDK extends Core.APIClient {
   }: ClientOptions = {}) {
     if (bearerToken === undefined) {
       throw new Errors.StudioSDKError(
-        'The STUDIO_SDK_BEARER_TOKEN environment variable is missing or empty; either provide it, or instantiate the StudioSDK client with an bearerToken option, like new StudioSDK({ bearerToken: \'My Bearer Token\' }).'
+        "The STUDIO_SDK_BEARER_TOKEN environment variable is missing or empty; either provide it, or instantiate the StudioSDK client with an bearerToken option, like new StudioSDK({ bearerToken: 'My Bearer Token' }).",
       );
     }
 
@@ -125,7 +124,7 @@ export class StudioSDK extends Core.APIClient {
   instruments: API.Instruments = new API.Instruments(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
-    return this._options.defaultQuery
+    return this._options.defaultQuery;
   }
 
   protected override defaultHeaders(opts: Core.FinalRequestOptions): Core.Headers {
@@ -140,6 +139,7 @@ export class StudioSDK extends Core.APIClient {
   }
 
   static StudioSDK = this;
+  static DEFAULT_TIMEOUT = 60000; // 1 minute
 
   static StudioSDKError = Errors.StudioSDKError;
   static APIError = Errors.APIError;
@@ -159,7 +159,21 @@ export class StudioSDK extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const { StudioSDKError, APIError, APIConnectionError, APIConnectionTimeoutError, APIUserAbortError, NotFoundError, ConflictError, RateLimitError, BadRequestError, AuthenticationError, InternalServerError, PermissionDeniedError, UnprocessableEntityError } = Errors
+export const {
+  StudioSDKError,
+  APIError,
+  APIConnectionError,
+  APIConnectionTimeoutError,
+  APIUserAbortError,
+  NotFoundError,
+  ConflictError,
+  RateLimitError,
+  BadRequestError,
+  AuthenticationError,
+  InternalServerError,
+  PermissionDeniedError,
+  UnprocessableEntityError,
+} = Errors;
 
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
