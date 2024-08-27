@@ -2,6 +2,7 @@
 
 import { APIResource } from '@clear-street/studio-sdk/resource';
 import { isRequestOptions } from '@clear-street/studio-sdk/core';
+import { APIPromise } from '@clear-street/studio-sdk/core';
 import * as Core from '@clear-street/studio-sdk/core';
 import * as OrdersAPI from '@clear-street/studio-sdk/resources/accounts/orders';
 import * as Shared from '@clear-street/studio-sdk/resources/shared';
@@ -13,22 +14,14 @@ export class Orders extends APIResource {
    * accepted, e.g. a downstream venue might reject your order. You should therefore
    * utilize our WebSocket APIs to listen for changes in order lifecycle events.
    */
-  create(
-    accountId: string,
-    body: OrderCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OrderCreateResponse> {
+  create(accountId: string, body: OrderCreateParams, options?: Core.RequestOptions): Core.APIPromise<OrderCreateResponse> {
     return this._client.post(`/accounts/${accountId}/orders`, { body, ...options });
   }
 
   /**
    * Get an order that was previously created.
    */
-  retrieve(
-    accountId: string,
-    orderId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OrderRetrieveResponse> {
+  retrieve(accountId: string, orderId: string, options?: Core.RequestOptions): Core.APIPromise<OrderRetrieveResponse> {
     return this._client.get(`/accounts/${accountId}/orders/${orderId}`, options);
   }
 
@@ -36,17 +29,9 @@ export class Orders extends APIResource {
    * List orders for a given account for the current trading day, filtered on the
    * given query parameters.
    */
-  list(
-    accountId: string,
-    query?: OrderListParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OrderListResponse>;
-  list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<OrderListResponse>;
-  list(
-    accountId: string,
-    query: OrderListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OrderListResponse> {
+  list(accountId: string, query?: OrderListParams, options?: Core.RequestOptions): Core.APIPromise<OrderListResponse>
+  list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<OrderListResponse>
+  list(accountId: string, query: OrderListParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<OrderListResponse> {
     if (isRequestOptions(query)) {
       return this.list(accountId, {}, query);
     }
@@ -57,25 +42,14 @@ export class Orders extends APIResource {
    * Attempts to cancel all open orders for a given account. Cancelling an order
    * cannot be guaranteed as there might be in-flight executions.
    */
-  delete(
-    accountId: string,
-    params?: OrderDeleteParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OrderDeleteResponse>;
-  delete(accountId: string, options?: Core.RequestOptions): Core.APIPromise<OrderDeleteResponse>;
-  delete(
-    accountId: string,
-    params: OrderDeleteParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OrderDeleteResponse> {
+  delete(accountId: string, params?: OrderDeleteParams, options?: Core.RequestOptions): Core.APIPromise<OrderDeleteResponse>
+  delete(accountId: string, options?: Core.RequestOptions): Core.APIPromise<OrderDeleteResponse>
+  delete(accountId: string, params: OrderDeleteParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<OrderDeleteResponse> {
     if (isRequestOptions(params)) {
       return this.delete(accountId, {}, params);
     }
     const { symbol, symbol_format } = params;
-    return this._client.delete(`/accounts/${accountId}/orders`, {
-      query: { symbol, symbol_format },
-      ...options,
-    });
+    return this._client.delete(`/accounts/${accountId}/orders`, { query: { symbol, symbol_format }, ...options });
   }
 
   /**
@@ -83,10 +57,7 @@ export class Orders extends APIResource {
    * as there might be in-flight executions.
    */
   cancel(accountId: string, orderId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/accounts/${accountId}/orders/${orderId}`, {
-      ...options,
-      headers: { Accept: '*/*', ...options?.headers },
-    });
+    return this._client.delete(`/accounts/${accountId}/orders/${orderId}`, { ...options, headers: { Accept: '*/*', ...options?.headers } });
   }
 }
 
@@ -124,8 +95,10 @@ export interface OrderCreateParams {
    * - `limit`: A limit order will execute at-or-better than the limit price you
    *   specify
    * - `market`: An order that will execute at the prevailing market prices
+   * - `stop`: A stop order will result in a market order when the market price
+   *   reaches the specified stop price
    */
-  order_type: 'limit' | 'market';
+  order_type: 'limit' | 'market' | 'stop';
 
   /**
    * The maximum quantity to be executed.
@@ -136,23 +109,6 @@ export interface OrderCreateParams {
    * Buy, sell, sell-short indicator.
    */
   side: 'buy' | 'sell' | 'sell-short';
-
-  /**
-   * Strategy type used for execution, can be one of below. Note, we use sensible
-   * defaults for strategy parameters at the moment. In future, we will provide a way
-   * to provide specify these parameters.
-   *
-   * - `sor`: Smart order router
-   * - `dark`: Dark pool
-   * - `ap`: Arrival price
-   * - `pov`: Percentage of volume
-   * - `twap`: Time weighted average price
-   * - `vwap`: Volume weighted average price
-   *
-   * For more information on these strategies, please refer to our
-   * [documentation](https://docs.clearstreet.io/studio/docs/execution-strategies).
-   */
-  strategy_type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
 
   /**
    * The symbol this order is for. See `symbol_format` for supported symbol formats.
@@ -174,14 +130,13 @@ export interface OrderCreateParams {
   time_in_force: 'day' | 'ioc' | 'day-plus' | 'at-open' | 'at-close';
 
   /**
-   * Name of the broker that provided you inventory for a short-sale. Required if
-   * `side` is `sell-short`. If you procured inventory through us, you can use
-   * `CLST`.
+   * If you're short-selling and using an away broker for a locate, provide the
+   * broker name here.
    */
   locate_broker?: string;
 
   /**
-   * The price to execute at-or-better.
+   * The price to execute at-or-better for limit orders.
    */
   price?: string;
 
@@ -191,9 +146,154 @@ export interface OrderCreateParams {
   reference_id?: string;
 
   /**
+   * The price at which stop orders become marketable.
+   */
+  stop_price?: string;
+
+  /**
+   * The execution strategy to use for this order. If not provided, our smart
+   * order-router will handle execution for your order.
+   */
+  strategy?: OrderCreateParams.BaseStrategy | OrderCreateParams.BaseStrategy | OrderCreateParams.BaseStrategy | OrderCreateParams.BaseStrategy | OrderCreateParams.BaseStrategy | OrderCreateParams.BaseStrategy;
+
+  /**
    * Denotes the format of the provided `symbol` field.
    */
   symbol_format?: 'cms' | 'osi';
+}
+
+export namespace OrderCreateParams {
+  export interface BaseStrategy {
+    /**
+     * The type of strategy. This must be set to the respective strategy type.
+     */
+    type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
+
+    /**
+     * The timestamp to stop routing, defaults to market close.
+     */
+    end_at?: number;
+
+    /**
+     * The timestamp to start routing, defaults to now.
+     */
+    start_at?: number;
+
+    /**
+     * The urgency associated with the execution strategy.
+     */
+    urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
+  }
+
+  export interface BaseStrategy {
+    /**
+     * The type of strategy. This must be set to the respective strategy type.
+     */
+    type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
+
+    /**
+     * The timestamp to stop routing, defaults to market close.
+     */
+    end_at?: number;
+
+    /**
+     * The timestamp to start routing, defaults to now.
+     */
+    start_at?: number;
+
+    /**
+     * The urgency associated with the execution strategy.
+     */
+    urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
+  }
+
+  export interface BaseStrategy {
+    /**
+     * The type of strategy. This must be set to the respective strategy type.
+     */
+    type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
+
+    /**
+     * The timestamp to stop routing, defaults to market close.
+     */
+    end_at?: number;
+
+    /**
+     * The timestamp to start routing, defaults to now.
+     */
+    start_at?: number;
+
+    /**
+     * The urgency associated with the execution strategy.
+     */
+    urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
+  }
+
+  export interface BaseStrategy {
+    /**
+     * The type of strategy. This must be set to the respective strategy type.
+     */
+    type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
+
+    /**
+     * The timestamp to stop routing, defaults to market close.
+     */
+    end_at?: number;
+
+    /**
+     * The timestamp to start routing, defaults to now.
+     */
+    start_at?: number;
+
+    /**
+     * The urgency associated with the execution strategy.
+     */
+    urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
+  }
+
+  export interface BaseStrategy {
+    /**
+     * The type of strategy. This must be set to the respective strategy type.
+     */
+    type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
+
+    /**
+     * The timestamp to stop routing, defaults to market close.
+     */
+    end_at?: number;
+
+    /**
+     * The timestamp to start routing, defaults to now.
+     */
+    start_at?: number;
+
+    /**
+     * The urgency associated with the execution strategy.
+     */
+    urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
+  }
+
+  export interface BaseStrategy {
+    /**
+     * The type of strategy. This must be set to the respective strategy type.
+     */
+    type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
+
+    /**
+     * The timestamp to stop routing, defaults to market close.
+     */
+    end_at?: number;
+
+    /**
+     * The timestamp to start routing, defaults to now.
+     */
+    start_at?: number;
+
+    /**
+     * The urgency associated with the execution strategy.
+     */
+    urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
+  }
 }
 
 export interface OrderListParams {

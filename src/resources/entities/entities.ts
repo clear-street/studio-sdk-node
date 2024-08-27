@@ -1,7 +1,13 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '@clear-street/studio-sdk/resource';
+import { isRequestOptions } from '@clear-street/studio-sdk/core';
+import { APIPromise } from '@clear-street/studio-sdk/core';
 import * as Core from '@clear-street/studio-sdk/core';
+import { PnlSummaries } from './pnl-summaries';
+import { RegtMargins } from './regt-margins';
+import { PortfolioMargins } from './portfolio-margins';
+import { RegtMarginSimulations } from './regt-margin-simulations';
 import * as EntitiesAPI from '@clear-street/studio-sdk/resources/entities/entities';
 import * as PnlSummariesAPI from '@clear-street/studio-sdk/resources/entities/pnl-summaries';
 import * as PortfolioMarginsAPI from '@clear-street/studio-sdk/resources/entities/portfolio-margins';
@@ -11,11 +17,8 @@ import * as RegtMarginsAPI from '@clear-street/studio-sdk/resources/entities/reg
 export class Entities extends APIResource {
   pnlSummaries: PnlSummariesAPI.PnlSummaries = new PnlSummariesAPI.PnlSummaries(this._client);
   regtMargins: RegtMarginsAPI.RegtMargins = new RegtMarginsAPI.RegtMargins(this._client);
-  portfolioMargins: PortfolioMarginsAPI.PortfolioMargins = new PortfolioMarginsAPI.PortfolioMargins(
-    this._client,
-  );
-  regtMarginSimulations: RegtMarginSimulationsAPI.RegtMarginSimulations =
-    new RegtMarginSimulationsAPI.RegtMarginSimulations(this._client);
+  portfolioMargins: PortfolioMarginsAPI.PortfolioMargins = new PortfolioMarginsAPI.PortfolioMargins(this._client);
+  regtMarginSimulations: RegtMarginSimulationsAPI.RegtMarginSimulations = new RegtMarginSimulationsAPI.RegtMarginSimulations(this._client);
 
   /**
    * Get an entity by its ID.
