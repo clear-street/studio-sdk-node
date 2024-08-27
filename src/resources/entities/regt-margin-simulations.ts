@@ -1,6 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '@clear-street/studio-sdk/resource';
+import { isRequestOptions } from '@clear-street/studio-sdk/core';
+import { APIPromise } from '@clear-street/studio-sdk/core';
 import * as Core from '@clear-street/studio-sdk/core';
 import * as RegtMarginSimulationsAPI from '@clear-street/studio-sdk/resources/entities/regt-margin-simulations';
 import * as Shared from '@clear-street/studio-sdk/resources/shared';
@@ -15,11 +17,7 @@ export class RegtMarginSimulations extends APIResource {
    * Simulations created through the API are visible in the Studio UI under the Risk
    * & Margin section, after enabling the "Risk Simulations" toggle.
    */
-  create(
-    entityId: string,
-    body: RegtMarginSimulationCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<RegtMarginSimulationCreateResponse> {
+  create(entityId: string, body: RegtMarginSimulationCreateParams, options?: Core.RequestOptions): Core.APIPromise<RegtMarginSimulationCreateResponse> {
     return this._client.post(`/entities/${entityId}/regt-margin-simulations`, { body, ...options });
   }
 
@@ -27,11 +25,7 @@ export class RegtMarginSimulations extends APIResource {
    * Get a Reg-T margin simluation that was previously created. Note, simulations are
    * automatically deleted after 48-hours.
    */
-  retrieve(
-    entityId: string,
-    simulationId: SimulationID,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.RegtMarginSimulation> {
+  retrieve(entityId: string, simulationId: SimulationID, options?: Core.RequestOptions): Core.APIPromise<Shared.RegtMarginSimulation> {
     return this._client.get(`/entities/${entityId}/regt-margin-simulations/${simulationId}`, options);
   }
 }
@@ -39,7 +33,7 @@ export class RegtMarginSimulations extends APIResource {
 /**
  * Unique ID for a simulation.
  */
-export type SimulationID = string;
+export type SimulationID = string
 
 export interface RegtMarginSimulationCreateResponse {
   /**

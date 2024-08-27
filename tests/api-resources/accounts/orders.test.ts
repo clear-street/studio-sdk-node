@@ -1,23 +1,13 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import StudioSDK from '@clear-street/studio-sdk';
+import StudioSDK, { toFile } from '@clear-street/studio-sdk';
 import { Response } from 'node-fetch';
 
-const studioSDK = new StudioSDK({
-  bearerToken: 'My Bearer Token',
-  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
-});
+const studioSDK = new StudioSDK({ bearerToken: 'My Bearer Token', baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010' });
 
 describe('resource orders', () => {
   test('create: only required params', async () => {
-    const responsePromise = studioSDK.accounts.orders.create('x', {
-      order_type: 'limit',
-      quantity: 'x',
-      side: 'buy',
-      strategy_type: 'sor',
-      symbol: 'AAPL',
-      time_in_force: 'day',
-    });
+    const responsePromise = studioSDK.accounts.orders.create('x', { order_type: 'limit', quantity: 'x', side: 'buy', symbol: 'AAPL', time_in_force: 'day' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -28,18 +18,7 @@ describe('resource orders', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await studioSDK.accounts.orders.create('x', {
-      order_type: 'limit',
-      quantity: 'x',
-      side: 'buy',
-      strategy_type: 'sor',
-      symbol: 'AAPL',
-      time_in_force: 'day',
-      locate_broker: 'x',
-      price: 'x',
-      reference_id: 'my-order-id-123',
-      symbol_format: 'cms',
-    });
+    const response = await studioSDK.accounts.orders.create('x', { order_type: 'limit', quantity: 'x', side: 'buy', symbol: 'AAPL', time_in_force: 'day', locate_broker: 'x', price: 'x', reference_id: 'my-order-id-123', stop_price: 'x', strategy: { type: 'sor', start_at: 1710613560668, end_at: 1710613560668, urgency: 'super-passive' }, symbol_format: 'cms' });
   });
 
   test('retrieve', async () => {
@@ -55,9 +34,9 @@ describe('resource orders', () => {
 
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      studioSDK.accounts.orders.retrieve('x', 'x', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(StudioSDK.NotFoundError);
+    await expect(studioSDK.accounts.orders.retrieve('x', 'x', { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(StudioSDK.NotFoundError);
   });
 
   test('list', async () => {
@@ -73,20 +52,16 @@ describe('resource orders', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(studioSDK.accounts.orders.list('x', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      StudioSDK.NotFoundError,
-    );
+    await expect(studioSDK.accounts.orders.list('x', { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(StudioSDK.NotFoundError);
   });
 
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      studioSDK.accounts.orders.list(
-        'x',
-        { from: 1710613560668, page_size: 1, page_token: 'page_token', to: 1710613560668 },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(StudioSDK.NotFoundError);
+    await expect(studioSDK.accounts.orders.list('x', { from: 1710613560668, page_size: 1, page_token: 'page_token', to: 1710613560668 }, { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(StudioSDK.NotFoundError);
   });
 
   test('delete', async () => {
@@ -102,20 +77,16 @@ describe('resource orders', () => {
 
   test('delete: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(studioSDK.accounts.orders.delete('x', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      StudioSDK.NotFoundError,
-    );
+    await expect(studioSDK.accounts.orders.delete('x', { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(StudioSDK.NotFoundError);
   });
 
   test('delete: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      studioSDK.accounts.orders.delete(
-        'x',
-        { symbol: 'AAPL', symbol_format: 'cms' },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(StudioSDK.NotFoundError);
+    await expect(studioSDK.accounts.orders.delete('x', { symbol: 'AAPL', symbol_format: 'cms' }, { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(StudioSDK.NotFoundError);
   });
 
   test('cancel', async () => {
@@ -131,8 +102,8 @@ describe('resource orders', () => {
 
   test('cancel: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      studioSDK.accounts.orders.cancel('x', 'x', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(StudioSDK.NotFoundError);
+    await expect(studioSDK.accounts.orders.cancel('x', 'x', { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(StudioSDK.NotFoundError);
   });
 });

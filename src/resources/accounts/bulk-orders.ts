@@ -1,6 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '@clear-street/studio-sdk/resource';
+import { isRequestOptions } from '@clear-street/studio-sdk/core';
+import { APIPromise } from '@clear-street/studio-sdk/core';
 import * as Core from '@clear-street/studio-sdk/core';
 import * as BulkOrdersAPI from '@clear-street/studio-sdk/resources/accounts/bulk-orders';
 
@@ -20,11 +22,7 @@ export class BulkOrders extends APIResource {
    * submitted, that doesn't mean it was _accepted_, and may still be rejected by
    * downstream venues.
    */
-  create(
-    accountId: string,
-    body: BulkOrderCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<BulkOrderCreateResponse> {
+  create(accountId: string, body: BulkOrderCreateParams, options?: Core.RequestOptions): Core.APIPromise<BulkOrderCreateResponse> {
     return this._client.post(`/accounts/${accountId}/bulk-orders`, { body, ...options });
   }
 }
@@ -84,8 +82,10 @@ export namespace BulkOrderCreateParams {
      * - `limit`: A limit order will execute at-or-better than the limit price you
      *   specify
      * - `market`: An order that will execute at the prevailing market prices
+     * - `stop`: A stop order will result in a market order when the market price
+     *   reaches the specified stop price
      */
-    order_type: 'limit' | 'market';
+    order_type: 'limit' | 'market' | 'stop';
 
     /**
      * The maximum quantity to be executed.
@@ -96,23 +96,6 @@ export namespace BulkOrderCreateParams {
      * Buy, sell, sell-short indicator.
      */
     side: 'buy' | 'sell' | 'sell-short';
-
-    /**
-     * Strategy type used for execution, can be one of below. Note, we use sensible
-     * defaults for strategy parameters at the moment. In future, we will provide a way
-     * to provide specify these parameters.
-     *
-     * - `sor`: Smart order router
-     * - `dark`: Dark pool
-     * - `ap`: Arrival price
-     * - `pov`: Percentage of volume
-     * - `twap`: Time weighted average price
-     * - `vwap`: Volume weighted average price
-     *
-     * For more information on these strategies, please refer to our
-     * [documentation](https://docs.clearstreet.io/studio/docs/execution-strategies).
-     */
-    strategy_type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
 
     /**
      * The symbol this order is for. See `symbol_format` for supported symbol formats.
@@ -134,14 +117,13 @@ export namespace BulkOrderCreateParams {
     time_in_force: 'day' | 'ioc' | 'day-plus' | 'at-open' | 'at-close';
 
     /**
-     * Name of the broker that provided you inventory for a short-sale. Required if
-     * `side` is `sell-short`. If you procured inventory through us, you can use
-     * `CLST`.
+     * If you're short-selling and using an away broker for a locate, provide the
+     * broker name here.
      */
     locate_broker?: string;
 
     /**
-     * The price to execute at-or-better.
+     * The price to execute at-or-better for limit orders.
      */
     price?: string;
 
@@ -151,9 +133,154 @@ export namespace BulkOrderCreateParams {
     reference_id?: string;
 
     /**
+     * The price at which stop orders become marketable.
+     */
+    stop_price?: string;
+
+    /**
+     * The execution strategy to use for this order. If not provided, our smart
+     * order-router will handle execution for your order.
+     */
+    strategy?: Order.BaseStrategy | Order.BaseStrategy | Order.BaseStrategy | Order.BaseStrategy | Order.BaseStrategy | Order.BaseStrategy;
+
+    /**
      * Denotes the format of the provided `symbol` field.
      */
     symbol_format?: 'cms' | 'osi';
+  }
+
+  export namespace Order {
+    export interface BaseStrategy {
+      /**
+       * The type of strategy. This must be set to the respective strategy type.
+       */
+      type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
+
+      /**
+       * The timestamp to stop routing, defaults to market close.
+       */
+      end_at?: number;
+
+      /**
+       * The timestamp to start routing, defaults to now.
+       */
+      start_at?: number;
+
+      /**
+       * The urgency associated with the execution strategy.
+       */
+      urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
+    }
+
+    export interface BaseStrategy {
+      /**
+       * The type of strategy. This must be set to the respective strategy type.
+       */
+      type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
+
+      /**
+       * The timestamp to stop routing, defaults to market close.
+       */
+      end_at?: number;
+
+      /**
+       * The timestamp to start routing, defaults to now.
+       */
+      start_at?: number;
+
+      /**
+       * The urgency associated with the execution strategy.
+       */
+      urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
+    }
+
+    export interface BaseStrategy {
+      /**
+       * The type of strategy. This must be set to the respective strategy type.
+       */
+      type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
+
+      /**
+       * The timestamp to stop routing, defaults to market close.
+       */
+      end_at?: number;
+
+      /**
+       * The timestamp to start routing, defaults to now.
+       */
+      start_at?: number;
+
+      /**
+       * The urgency associated with the execution strategy.
+       */
+      urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
+    }
+
+    export interface BaseStrategy {
+      /**
+       * The type of strategy. This must be set to the respective strategy type.
+       */
+      type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
+
+      /**
+       * The timestamp to stop routing, defaults to market close.
+       */
+      end_at?: number;
+
+      /**
+       * The timestamp to start routing, defaults to now.
+       */
+      start_at?: number;
+
+      /**
+       * The urgency associated with the execution strategy.
+       */
+      urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
+    }
+
+    export interface BaseStrategy {
+      /**
+       * The type of strategy. This must be set to the respective strategy type.
+       */
+      type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
+
+      /**
+       * The timestamp to stop routing, defaults to market close.
+       */
+      end_at?: number;
+
+      /**
+       * The timestamp to start routing, defaults to now.
+       */
+      start_at?: number;
+
+      /**
+       * The urgency associated with the execution strategy.
+       */
+      urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
+    }
+
+    export interface BaseStrategy {
+      /**
+       * The type of strategy. This must be set to the respective strategy type.
+       */
+      type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
+
+      /**
+       * The timestamp to stop routing, defaults to market close.
+       */
+      end_at?: number;
+
+      /**
+       * The timestamp to start routing, defaults to now.
+       */
+      start_at?: number;
+
+      /**
+       * The urgency associated with the execution strategy.
+       */
+      urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
+    }
   }
 }
 
