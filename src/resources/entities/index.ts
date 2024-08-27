@@ -4,9 +4,4 @@ export { Entity, PnlSummary, PortfolioMargin, RegtMargin, EntityListResponse, En
 export { PnlSummaries } from './pnl-summaries';
 export { PortfolioMargins } from './portfolio-margins';
 export { RegtMargins } from './regt-margins';
-export {
-  SimulationID,
-  RegtMarginSimulationCreateResponse,
-  RegtMarginSimulationCreateParams,
-  RegtMarginSimulations,
-} from './regt-margin-simulations';
+export { SimulationID, RegtMarginSimulationCreateResponse, RegtMarginSimulationCreateParams, RegtMarginSimulations } from './regt-margin-simulations';

@@ -2,6 +2,7 @@
 
 import { APIResource } from '@clear-street/studio-sdk/resource';
 import { isRequestOptions } from '@clear-street/studio-sdk/core';
+import { APIPromise } from '@clear-street/studio-sdk/core';
 import * as Core from '@clear-street/studio-sdk/core';
 import * as InstrumentsAPI from '@clear-street/studio-sdk/resources/instruments';
 
@@ -9,17 +10,9 @@ export class Instruments extends APIResource {
   /**
    * Get an instrument by the given symbol
    */
-  retrieve(
-    symbol: string,
-    query?: InstrumentRetrieveParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Instrument>;
-  retrieve(symbol: string, options?: Core.RequestOptions): Core.APIPromise<Instrument>;
-  retrieve(
-    symbol: string,
-    query: InstrumentRetrieveParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Instrument> {
+  retrieve(symbol: string, query?: InstrumentRetrieveParams, options?: Core.RequestOptions): Core.APIPromise<Instrument>
+  retrieve(symbol: string, options?: Core.RequestOptions): Core.APIPromise<Instrument>
+  retrieve(symbol: string, query: InstrumentRetrieveParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<Instrument> {
     if (isRequestOptions(query)) {
       return this.retrieve(symbol, {}, query);
     }
