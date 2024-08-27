@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.6 (2024-08-27)
+
+Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
+
+### Features
+
+* **api:** update via SDK Studio ([#21](https://github.com/clear-street/studio-sdk-node/issues/21)) ([263a81c](https://github.com/clear-street/studio-sdk-node/commit/263a81c85ccdabaf193f9fe8326adefa2e9251dd))
+* **api:** update via SDK Studio ([#23](https://github.com/clear-street/studio-sdk-node/issues/23)) ([8a3ba42](https://github.com/clear-street/studio-sdk-node/commit/8a3ba42c8ee7de70b137e44afe686c51bf8d7bfc))
+
+
+### Chores
+
+* **ci:** check for build errors ([#25](https://github.com/clear-street/studio-sdk-node/issues/25)) ([8b0b570](https://github.com/clear-street/studio-sdk-node/commit/8b0b570921c493ada8ea48aa5d45cc1e1ef286c9))
+* **internal:** codegen related update ([#24](https://github.com/clear-street/studio-sdk-node/issues/24)) ([22224c7](https://github.com/clear-street/studio-sdk-node/commit/22224c7f86fc581292aabc38bb49f292631500aa))
+
 ## 0.1.0-alpha.5 (2024-07-10)
 
 Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
