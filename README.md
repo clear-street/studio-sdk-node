@@ -22,7 +22,9 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import StudioSDK from '@clear-street/studio-sdk';
 
-const client = new StudioSDK();
+const client = new StudioSDK({
+  bearerToken: process.env['STUDIO_SDK_BEARER_TOKEN'], // This is the default and can be omitted
+});
 
 async function main() {
   const entity = await client.entities.retrieve('<your_entity_id>');
@@ -41,7 +43,9 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import StudioSDK from '@clear-street/studio-sdk';
 
-const client = new StudioSDK();
+const client = new StudioSDK({
+  bearerToken: process.env['STUDIO_SDK_BEARER_TOKEN'], // This is the default and can be omitted
+});
 
 async function main() {
   const entity: StudioSDK.Entity = await client.entities.retrieve('<your_entity_id>');
