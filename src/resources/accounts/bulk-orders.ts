@@ -3,6 +3,7 @@
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
 import * as BulkOrdersAPI from './bulk-orders';
+import * as Shared from '../shared';
 
 export class BulkOrders extends APIResource {
   /**
@@ -143,152 +144,12 @@ export namespace BulkOrderCreateParams {
      * The execution strategy to use for this order. If not provided, our smart
      * order-router will handle execution for your order.
      */
-    strategy?:
-      | Order.BaseStrategy
-      | Order.BaseStrategy
-      | Order.BaseStrategy
-      | Order.BaseStrategy
-      | Order.BaseStrategy
-      | Order.BaseStrategy;
+    strategy?: Shared.Strategy;
 
     /**
      * Denotes the format of the provided `symbol` field.
      */
     symbol_format?: 'cms' | 'osi';
-  }
-
-  export namespace Order {
-    export interface BaseStrategy {
-      /**
-       * The type of strategy. This must be set to the respective strategy type.
-       */
-      type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
-
-      /**
-       * The timestamp to stop routing, defaults to market close.
-       */
-      end_at?: number;
-
-      /**
-       * The timestamp to start routing, defaults to now.
-       */
-      start_at?: number;
-
-      /**
-       * The urgency associated with the execution strategy.
-       */
-      urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
-    }
-
-    export interface BaseStrategy {
-      /**
-       * The type of strategy. This must be set to the respective strategy type.
-       */
-      type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
-
-      /**
-       * The timestamp to stop routing, defaults to market close.
-       */
-      end_at?: number;
-
-      /**
-       * The timestamp to start routing, defaults to now.
-       */
-      start_at?: number;
-
-      /**
-       * The urgency associated with the execution strategy.
-       */
-      urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
-    }
-
-    export interface BaseStrategy {
-      /**
-       * The type of strategy. This must be set to the respective strategy type.
-       */
-      type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
-
-      /**
-       * The timestamp to stop routing, defaults to market close.
-       */
-      end_at?: number;
-
-      /**
-       * The timestamp to start routing, defaults to now.
-       */
-      start_at?: number;
-
-      /**
-       * The urgency associated with the execution strategy.
-       */
-      urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
-    }
-
-    export interface BaseStrategy {
-      /**
-       * The type of strategy. This must be set to the respective strategy type.
-       */
-      type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
-
-      /**
-       * The timestamp to stop routing, defaults to market close.
-       */
-      end_at?: number;
-
-      /**
-       * The timestamp to start routing, defaults to now.
-       */
-      start_at?: number;
-
-      /**
-       * The urgency associated with the execution strategy.
-       */
-      urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
-    }
-
-    export interface BaseStrategy {
-      /**
-       * The type of strategy. This must be set to the respective strategy type.
-       */
-      type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
-
-      /**
-       * The timestamp to stop routing, defaults to market close.
-       */
-      end_at?: number;
-
-      /**
-       * The timestamp to start routing, defaults to now.
-       */
-      start_at?: number;
-
-      /**
-       * The urgency associated with the execution strategy.
-       */
-      urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
-    }
-
-    export interface BaseStrategy {
-      /**
-       * The type of strategy. This must be set to the respective strategy type.
-       */
-      type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
-
-      /**
-       * The timestamp to stop routing, defaults to market close.
-       */
-      end_at?: number;
-
-      /**
-       * The timestamp to start routing, defaults to now.
-       */
-      start_at?: number;
-
-      /**
-       * The urgency associated with the execution strategy.
-       */
-      urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
-    }
   }
 }
 

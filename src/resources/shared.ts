@@ -1,8 +1,29 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import * as EntitiesAPI from './entities/entities';
-import { type PnlSummary } from './entities/entities';
 import * as RegtMarginSimulationsAPI from './entities/regt-margin-simulations';
+
+export interface BaseStrategy {
+  /**
+   * The type of strategy. This must be set to the respective strategy type.
+   */
+  type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
+
+  /**
+   * The timestamp to stop routing, defaults to market close.
+   */
+  end_at?: number;
+
+  /**
+   * The timestamp to start routing, defaults to now.
+   */
+  start_at?: number;
+
+  /**
+   * The urgency associated with the execution strategy.
+   */
+  urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
+}
 
 export interface LocateOrder {
   /**
@@ -217,244 +238,12 @@ export interface Order {
   /**
    * The execution strategy used for this order.
    */
-  strategy?:
-    | Order.BaseStrategy
-    | Order.BaseStrategy
-    | Order.BaseStrategy
-    | Order.BaseStrategy
-    | Order.BaseStrategy
-    | Order.BaseStrategy;
+  strategy?: Strategy;
 
   /**
    * Free form text typically contains reasons for a reject.
    */
   text?: string;
-}
-
-export namespace Order {
-  export interface BaseStrategy {
-    /**
-     * The type of strategy. This must be set to the respective strategy type.
-     */
-    type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
-
-    /**
-     * The timestamp to stop routing, defaults to market close.
-     */
-    end_at?: number;
-
-    /**
-     * The timestamp to start routing, defaults to now.
-     */
-    start_at?: number;
-
-    /**
-     * The urgency associated with the execution strategy.
-     */
-    urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
-  }
-
-  export interface BaseStrategy {
-    /**
-     * The type of strategy. This must be set to the respective strategy type.
-     */
-    type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
-
-    /**
-     * The timestamp to stop routing, defaults to market close.
-     */
-    end_at?: number;
-
-    /**
-     * The timestamp to start routing, defaults to now.
-     */
-    start_at?: number;
-
-    /**
-     * The urgency associated with the execution strategy.
-     */
-    urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
-  }
-
-  export interface BaseStrategy {
-    /**
-     * The type of strategy. This must be set to the respective strategy type.
-     */
-    type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
-
-    /**
-     * The timestamp to stop routing, defaults to market close.
-     */
-    end_at?: number;
-
-    /**
-     * The timestamp to start routing, defaults to now.
-     */
-    start_at?: number;
-
-    /**
-     * The urgency associated with the execution strategy.
-     */
-    urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
-  }
-
-  export interface BaseStrategy {
-    /**
-     * The type of strategy. This must be set to the respective strategy type.
-     */
-    type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
-
-    /**
-     * The timestamp to stop routing, defaults to market close.
-     */
-    end_at?: number;
-
-    /**
-     * The timestamp to start routing, defaults to now.
-     */
-    start_at?: number;
-
-    /**
-     * The urgency associated with the execution strategy.
-     */
-    urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
-  }
-
-  export interface BaseStrategy {
-    /**
-     * The type of strategy. This must be set to the respective strategy type.
-     */
-    type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
-
-    /**
-     * The timestamp to stop routing, defaults to market close.
-     */
-    end_at?: number;
-
-    /**
-     * The timestamp to start routing, defaults to now.
-     */
-    start_at?: number;
-
-    /**
-     * The urgency associated with the execution strategy.
-     */
-    urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
-  }
-
-  export interface BaseStrategy {
-    /**
-     * The type of strategy. This must be set to the respective strategy type.
-     */
-    type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
-
-    /**
-     * The timestamp to stop routing, defaults to market close.
-     */
-    end_at?: number;
-
-    /**
-     * The timestamp to start routing, defaults to now.
-     */
-    start_at?: number;
-
-    /**
-     * The urgency associated with the execution strategy.
-     */
-    urgency?: 'super-passive' | 'passive' | 'moderate' | 'aggressive' | 'super-aggressive';
-  }
-}
-
-export interface PnlSummary {
-  /**
-   * Profit and loss from intraday trading activities.
-   */
-  day_pnl: number;
-
-  /**
-   * Entity ID for the legal entity.
-   */
-  entity_id: string;
-
-  /**
-   * Net value of instruments held in the portfolio.
-   */
-  equity: number;
-
-  /**
-   * Absolute market value of long and short market values.
-   */
-  gross_market_value: number;
-
-  /**
-   * Market value of securities positioned long.
-   */
-  long_market_value: number;
-
-  /**
-   * Market value net of long and short market values.
-   */
-  net_market_value: number;
-
-  /**
-   * `total_pnl + total_fees`
-   */
-  net_pnl: number;
-
-  /**
-   * Profit and loss from previous trading date.
-   */
-  overnight_pnl: number;
-
-  /**
-   * Profit and loss realized from position closing trading activity
-   */
-  realized_pnl: number;
-
-  /**
-   * Market value of securities positioned short.
-   */
-  short_market_value: number;
-
-  /**
-   * Net value of instruments held in the portfolio at the start of a trading day.
-   */
-  sod_equity: number;
-
-  /**
-   * Absolute market value at the start of a trading day.
-   */
-  sod_gross_market_value: number;
-
-  /**
-   * Market value of securities positioned long at the start of a trading day.
-   */
-  sod_long_market_value: number;
-
-  /**
-   * Market value of securities positioned short at the start of a trading day.
-   */
-  sod_short_market_value: number;
-
-  /**
-   * Milliseconds since epoch.
-   */
-  timestamp: number;
-
-  /**
-   * Total fees incurred from trading activities.
-   */
-  total_fees: number;
-
-  /**
-   * `realized_pnl + unrealized_pnl`
-   */
-  total_pnl: number;
-
-  /**
-   * Profit and loss from market changes.
-   */
-  unrealized_pnl: number;
 }
 
 export interface Position {
@@ -497,6 +286,14 @@ export interface RegtMarginSimulation {
    */
   simulation_id: RegtMarginSimulationsAPI.SimulationID;
 }
+
+export type Strategy =
+  | BaseStrategy
+  | BaseStrategy
+  | BaseStrategy
+  | BaseStrategy
+  | BaseStrategy
+  | BaseStrategy;
 
 export interface Trade {
   /**
