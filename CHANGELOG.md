@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.7 (2024-08-30)
+
+Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
+
+### Features
+
+* **api:** update via SDK Studio ([#30](https://github.com/clear-street/studio-sdk-node/issues/30)) ([ad826be](https://github.com/clear-street/studio-sdk-node/commit/ad826be6ea6678b03691ab72e9eb89f882772be9))
+* **api:** update via SDK Studio ([#31](https://github.com/clear-street/studio-sdk-node/issues/31)) ([6138a55](https://github.com/clear-street/studio-sdk-node/commit/6138a557b80a6cae32b1dcb2ae27d38f223e60bd))
+
+
+### Chores
+
+* **ci:** install deps via ./script/bootstrap ([#29](https://github.com/clear-street/studio-sdk-node/issues/29)) ([19b9d30](https://github.com/clear-street/studio-sdk-node/commit/19b9d3003c642234a8180f9ec82573fd1957e082))
+* run tsc as part of lint script ([#27](https://github.com/clear-street/studio-sdk-node/issues/27)) ([c2e864b](https://github.com/clear-street/studio-sdk-node/commit/c2e864b0f771fc58d577eb32b36bdd1f986e7ccc))
+
 ## 0.1.0-alpha.6 (2024-08-27)
 
 Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)

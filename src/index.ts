@@ -196,11 +196,12 @@ export namespace StudioSDK {
   export import Instrument = API.Instrument;
   export import InstrumentRetrieveParams = API.InstrumentRetrieveParams;
 
+  export import BaseStrategy = API.BaseStrategy;
   export import LocateOrder = API.LocateOrder;
   export import Order = API.Order;
-  export import PnlSummaryForAccount = API.PnlSummaryForAccount;
   export import Position = API.Position;
   export import RegtMarginSimulation = API.RegtMarginSimulation;
+  export import Strategy = API.Strategy;
   export import Trade = API.Trade;
 }
 

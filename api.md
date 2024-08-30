@@ -2,11 +2,12 @@
 
 Types:
 
+- <code><a href="./src/resources/shared.ts">BaseStrategy</a></code>
 - <code><a href="./src/resources/shared.ts">LocateOrder</a></code>
 - <code><a href="./src/resources/shared.ts">Order</a></code>
-- <code><a href="./src/resources/shared.ts">PnlSummaryForAccount</a></code>
 - <code><a href="./src/resources/shared.ts">Position</a></code>
 - <code><a href="./src/resources/shared.ts">RegtMarginSimulation</a></code>
+- <code><a href="./src/resources/shared.ts">Strategy</a></code>
 - <code><a href="./src/resources/shared.ts">Trade</a></code>
 
 # Entities
