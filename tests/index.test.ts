@@ -165,6 +165,23 @@ describe('instantiate client', () => {
       const client = new StudioSDK({ bearerToken: 'My Bearer Token' });
       expect(client.baseURL).toEqual('https://api.clearstreet.io/studio/v2');
     });
+
+    test('env variable with environment', () => {
+      process.env['STUDIO_SDK_BASE_URL'] = 'https://example.com/from_env';
+
+      expect(
+        () => new StudioSDK({ bearerToken: 'My Bearer Token', environment: 'production' }),
+      ).toThrowErrorMatchingInlineSnapshot(
+        `"Ambiguous URL; The \`baseURL\` option (or STUDIO_SDK_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
+      );
+
+      const client = new StudioSDK({
+        bearerToken: 'My Bearer Token',
+        baseURL: null,
+        environment: 'production',
+      });
+      expect(client.baseURL).toEqual('https://api.clearstreet.io/studio/v2');
+    });
   });
 
   test('maxRetries option is correctly set', () => {
