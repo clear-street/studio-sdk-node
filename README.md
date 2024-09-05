@@ -24,6 +24,7 @@ import StudioSDK from '@clear-street/studio-sdk';
 
 const client = new StudioSDK({
   bearerToken: process.env['STUDIO_SDK_BEARER_TOKEN'], // This is the default and can be omitted
+  environment: 'sandbox', // defaults to 'production'
 });
 
 async function main() {
@@ -45,6 +46,7 @@ import StudioSDK from '@clear-street/studio-sdk';
 
 const client = new StudioSDK({
   bearerToken: process.env['STUDIO_SDK_BEARER_TOKEN'], // This is the default and can be omitted
+  environment: 'sandbox', // defaults to 'production'
 });
 
 async function main() {
