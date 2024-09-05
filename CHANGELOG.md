@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.1.0-alpha.8 (2024-09-05)
+
+Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
+
+### Features
+
+* **api:** add sandbox url ([#35](https://github.com/clear-street/studio-sdk-node/issues/35)) ([b8c89d3](https://github.com/clear-street/studio-sdk-node/commit/b8c89d37a49fa427b9fe0c6e597925b916ce69cd))
+
+
+### Bug Fixes
+
+* **client:** correct File construction from node-fetch Responses ([#34](https://github.com/clear-street/studio-sdk-node/issues/34)) ([6e03d20](https://github.com/clear-street/studio-sdk-node/commit/6e03d207e097dd9897d5ab5bc8738345ca386551))
+* **uploads:** avoid making redundant memory copies ([#37](https://github.com/clear-street/studio-sdk-node/issues/37)) ([865845b](https://github.com/clear-street/studio-sdk-node/commit/865845bd96b35a15b4feafb9bc841249763fb6e4))
+
+
+### Chores
+
+* **internal:** dependency updates ([#36](https://github.com/clear-street/studio-sdk-node/issues/36)) ([9fc8102](https://github.com/clear-street/studio-sdk-node/commit/9fc8102d8f5f8596895d744550861ff9f8904ec2))
+
 ## 0.1.0-alpha.7 (2024-08-30)
 
 Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
