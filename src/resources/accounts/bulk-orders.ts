@@ -87,8 +87,10 @@ export namespace BulkOrderCreateParams {
      * - `market`: An order that will execute at the prevailing market prices
      * - `stop`: A stop order will result in a market order when the market price
      *   reaches the specified stop price
+     * - `stop-limit`: A stop limit order will result in a limit order when the market
+     *   price reaches the specified stop price
      */
-    order_type: 'limit' | 'market' | 'stop';
+    order_type: 'limit' | 'market' | 'stop' | 'stop-limit';
 
     /**
      * The maximum quantity to be executed.

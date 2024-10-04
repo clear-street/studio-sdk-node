@@ -7,7 +7,7 @@ export interface BaseStrategy {
   /**
    * The type of strategy. This must be set to the respective strategy type.
    */
-  type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap';
+  type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap' | 'dma';
 
   /**
    * The timestamp to stop routing, defaults to market close.
@@ -138,8 +138,10 @@ export interface Order {
    * - `market`: An order that will execute at the prevailing market prices
    * - `stop`: A stop order will result in a market order when the market price
    *   reaches the specified stop price
+   * - `stop-limit`: A stop limit order will result in a limit order when the market
+   *   price reaches the specified stop price
    */
-  order_type: 'limit' | 'market' | 'stop';
+  order_type: 'limit' | 'market' | 'stop' | 'stop-limit';
 
   /**
    * The requested quantity on this order.
@@ -293,7 +295,110 @@ export type Strategy =
   | BaseStrategy
   | BaseStrategy
   | BaseStrategy
-  | BaseStrategy;
+  | BaseStrategy
+  | Strategy.DmaStrategy;
+
+export namespace Strategy {
+  export interface DmaStrategy {
+    /**
+     * Order Destination.
+     *
+     * <table><thead>
+     * <tr>
+     * <th>MIC</th>
+     * <th>Exchange</th>
+     * </tr></thead>
+     * <tbody>
+     * <tr>
+     * <td>ARCX</td>
+     * <td>NYSE ARCA</td>
+     * </tr>
+     * <tr>
+     * <td>BATS</td>
+     * <td>BATS Exchange</td>
+     * </tr>
+     * <tr>
+     * <td>BATY</td>
+     * <td>BATS Y Exchange</td>
+     * </tr>
+     * <tr>
+     * <td>EDGA</td>
+     * <td>EDGA Exchange</td>
+     * </tr>
+     * <tr>
+     * <td>EDGX</td>
+     * <td>EDGX Exchange</td>
+     * </tr>
+     * <tr>
+     * <td>EPRL</td>
+     * <td>MIAX Pearl Equities</td>
+     * </tr>
+     * <tr>
+     * <td>GOTC</td>
+     * <td>ARCA Global OTC</td>
+     * </tr>
+     * <tr>
+     * <td>IEXG</td>
+     * <td>Investors' Exchange</td>
+     * </tr>
+     * <tr>
+     * <td>MEMX</td>
+     * <td>Members' Exchange</td>
+     * </tr>
+     * <tr>
+     * <td>XASE</td>
+     * <td>NYSE American</td>
+     * </tr>
+     * <tr>
+     * <td>XBOS</td>
+     * <td>NASDAQ BX Exchange</td>
+     * </tr>
+     * <tr>
+     * <td>XCIS</td>
+     * <td>NYSE National</td>
+     * </tr>
+     * <tr>
+     * <td>XCHI</td>
+     * <td>Chicago Stock Exchange</td>
+     * </tr>
+     * <tr>
+     * <td>XNMS</td>
+     * <td>NASDAQ/NMS (Global Market)</td>
+     * </tr>
+     * <tr>
+     * <td>XNYS</td>
+     * <td>New York Stock Exchange</td>
+     * </tr>
+     * <tr>
+     * <td>XPHL</td>
+     * <td>NASDAQ PHLX Exchange</td>
+     * </tr>
+     * </tbody></table>
+     */
+    destination:
+      | 'arcx'
+      | 'bats'
+      | 'baty'
+      | 'edga'
+      | 'edgx'
+      | 'eprl'
+      | 'gotc'
+      | 'iexg'
+      | 'memx'
+      | 'xase'
+      | 'xbos'
+      | 'xcis'
+      | 'xchi'
+      | 'xnms'
+      | 'xnys'
+      | 'xphl';
+
+    /**
+     * The type of strategy. This must be set to the respective strategy type.
+     */
+    type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap' | 'dma';
+  }
+}
 
 export interface Trade {
   /**
