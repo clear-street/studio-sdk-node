@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.1.0-alpha.9 (2024-10-04)
+
+Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
+
+### Features
+
+* **api:** Add DMA and Stop Limit order support ([#47](https://github.com/clear-street/studio-sdk-node/issues/47)) ([fdfa1ad](https://github.com/clear-street/studio-sdk-node/commit/fdfa1adcab9c16f72c7ee0aea11f9c46ed0b95c2))
+
+
+### Bug Fixes
+
+* **errors:** pass message through to APIConnectionError ([#45](https://github.com/clear-street/studio-sdk-node/issues/45)) ([ae4fcd9](https://github.com/clear-street/studio-sdk-node/commit/ae4fcd97f438723960a8cb94fb3af9f01f315a6c))
+
+
+### Chores
+
+* better object fallback behaviour for casting errors ([#46](https://github.com/clear-street/studio-sdk-node/issues/46)) ([3988a44](https://github.com/clear-street/studio-sdk-node/commit/3988a441c0260d3c479f17cc7a06e72ba7daa500))
+* **internal:** codegen related update ([#42](https://github.com/clear-street/studio-sdk-node/issues/42)) ([8894f9a](https://github.com/clear-street/studio-sdk-node/commit/8894f9a601f944512d6067beefe8e795f5aef6b7))
+* **internal:** codegen related update ([#44](https://github.com/clear-street/studio-sdk-node/issues/44)) ([df7afcc](https://github.com/clear-street/studio-sdk-node/commit/df7afcc4a8cd60d9c877ddefc072d960ffcb4c43))
+* **internal:** codegen related update ([#48](https://github.com/clear-street/studio-sdk-node/issues/48)) ([a58305a](https://github.com/clear-street/studio-sdk-node/commit/a58305a2d77c682034f6d2ede270ee2b3dd4d84b))
+* **internal:** codegen related update ([#49](https://github.com/clear-street/studio-sdk-node/issues/49)) ([0eb3eed](https://github.com/clear-street/studio-sdk-node/commit/0eb3eed05e41a9df41ac795168df9e7204283dea))
+
 ## 0.1.0-alpha.8 (2024-09-05)
 
 Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
