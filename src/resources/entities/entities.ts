@@ -347,7 +347,7 @@ export namespace PortfolioMargin {
       /**
        * The asset class of the symbol.
        */
-      asset_class?: 'other' | 'equity' | 'option' | 'debt';
+      asset_class?: 'other' | 'currency' | 'equity' | 'option' | 'debt' | 'fund';
 
       /**
        * Market value of the instrument.
@@ -515,7 +515,7 @@ export namespace RegtMargin {
       /**
        * The asset class of the symbol.
        */
-      asset_class: 'other' | 'equity' | 'option' | 'debt';
+      asset_class: 'other' | 'currency' | 'equity' | 'option' | 'debt' | 'fund';
 
       /**
        * Market value of the instrument.

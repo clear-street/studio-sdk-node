@@ -27,7 +27,7 @@ export namespace PnlDetailListResponse {
     /**
      * The asset class of the symbol.
      */
-    asset_class: 'other' | 'equity' | 'option' | 'debt';
+    asset_class: 'other' | 'currency' | 'equity' | 'option' | 'debt' | 'fund';
 
     /**
      * Quantity of a given instrument bought.

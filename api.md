@@ -155,6 +155,26 @@ Methods:
 
 - <code title="get /accounts/{account_id}/pnl-details">client.accounts.pnlDetails.<a href="./src/resources/accounts/pnl-details.ts">list</a>(accountId) -> PnlDetailListResponse</code>
 
+## PnlSums
+
+Types:
+
+- <code><a href="./src/resources/accounts/pnl-sums.ts">PnlSumListResponse</a></code>
+
+Methods:
+
+- <code title="get /accounts/{account_id}/pnl-sums">client.accounts.pnlSums.<a href="./src/resources/accounts/pnl-sums.ts">list</a>(accountId, { ...params }) -> PnlSumListResponse</code>
+
+## Holdings
+
+Types:
+
+- <code><a href="./src/resources/accounts/holdings.ts">HoldingListResponse</a></code>
+
+Methods:
+
+- <code title="get /accounts/{account_id}/holdings">client.accounts.holdings.<a href="./src/resources/accounts/holdings.ts">list</a>(accountId, { ...params }) -> HoldingListResponse</code>
+
 # Instruments
 
 Types:
