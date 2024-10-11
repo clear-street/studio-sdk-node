@@ -31,7 +31,7 @@ export interface Instrument {
   /**
    * The asset class of the symbol.
    */
-  asset_class: 'other' | 'equity' | 'option' | 'debt';
+  asset_class: 'other' | 'currency' | 'equity' | 'option' | 'debt' | 'fund';
 
   /**
    * A description of the instrument.
