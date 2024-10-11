@@ -334,10 +334,6 @@ export namespace Strategy {
      * <td>MIAX Pearl Equities</td>
      * </tr>
      * <tr>
-     * <td>GOTC</td>
-     * <td>ARCA Global OTC</td>
-     * </tr>
-     * <tr>
      * <td>IEXG</td>
      * <td>Investors' Exchange</td>
      * </tr>
@@ -358,20 +354,12 @@ export namespace Strategy {
      * <td>NYSE National</td>
      * </tr>
      * <tr>
-     * <td>XCHI</td>
-     * <td>Chicago Stock Exchange</td>
-     * </tr>
-     * <tr>
      * <td>XNMS</td>
      * <td>NASDAQ/NMS (Global Market)</td>
      * </tr>
      * <tr>
      * <td>XNYS</td>
      * <td>New York Stock Exchange</td>
-     * </tr>
-     * <tr>
-     * <td>XPHL</td>
-     * <td>NASDAQ PHLX Exchange</td>
      * </tr>
      * </tbody></table>
      */
@@ -382,16 +370,13 @@ export namespace Strategy {
       | 'edga'
       | 'edgx'
       | 'eprl'
-      | 'gotc'
       | 'iexg'
       | 'memx'
       | 'xase'
       | 'xbos'
       | 'xcis'
-      | 'xchi'
       | 'xnms'
-      | 'xnys'
-      | 'xphl';
+      | 'xnys';
 
     /**
      * The type of strategy. This must be set to the respective strategy type.

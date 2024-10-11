@@ -5,10 +5,12 @@ import * as Core from '../../core';
 import * as AccountsAPI from './accounts';
 import * as BulkOrdersAPI from './bulk-orders';
 import * as EasyBorrowsAPI from './easy-borrows';
+import * as HoldingsAPI from './holdings';
 import * as LocateOrdersAPI from './locate-orders';
 import * as OrdersAPI from './orders';
 import * as PnlDetailsAPI from './pnl-details';
 import * as PnlSummaryAPI from './pnl-summary';
+import * as PnlSumsAPI from './pnl-sums';
 import * as PositionsAPI from './positions';
 import * as TradesAPI from './trades';
 
@@ -21,6 +23,8 @@ export class Accounts extends APIResource {
   easyBorrows: EasyBorrowsAPI.EasyBorrows = new EasyBorrowsAPI.EasyBorrows(this._client);
   pnlSummary: PnlSummaryAPI.PnlSummary = new PnlSummaryAPI.PnlSummary(this._client);
   pnlDetails: PnlDetailsAPI.PnlDetails = new PnlDetailsAPI.PnlDetails(this._client);
+  pnlSums: PnlSumsAPI.PnlSums = new PnlSumsAPI.PnlSums(this._client);
+  holdings: HoldingsAPI.Holdings = new HoldingsAPI.Holdings(this._client);
 
   /**
    * Get an account by its ID.
@@ -84,4 +88,10 @@ export namespace Accounts {
   export import PnlSummary = PnlSummaryAPI.PnlSummary;
   export import PnlDetails = PnlDetailsAPI.PnlDetails;
   export import PnlDetailListResponse = PnlDetailsAPI.PnlDetailListResponse;
+  export import PnlSums = PnlSumsAPI.PnlSums;
+  export import PnlSumListResponse = PnlSumsAPI.PnlSumListResponse;
+  export import PnlSumListParams = PnlSumsAPI.PnlSumListParams;
+  export import Holdings = HoldingsAPI.Holdings;
+  export import HoldingListResponse = HoldingsAPI.HoldingListResponse;
+  export import HoldingListParams = HoldingsAPI.HoldingListParams;
 }
