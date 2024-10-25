@@ -175,6 +175,16 @@ Methods:
 
 - <code title="get /accounts/{account_id}/holdings">client.accounts.holdings.<a href="./src/resources/accounts/holdings.ts">list</a>(accountId, { ...params }) -> HoldingListResponse</code>
 
+## Inventories
+
+Types:
+
+- <code><a href="./src/resources/accounts/inventories.ts">InventoryRetrieveResponse</a></code>
+
+Methods:
+
+- <code title="get /accounts/{account_id}/inventories/{symbol}">client.accounts.inventories.<a href="./src/resources/accounts/inventories.ts">retrieve</a>(accountId, symbol) -> InventoryRetrieveResponse</code>
+
 # Instruments
 
 Types:
