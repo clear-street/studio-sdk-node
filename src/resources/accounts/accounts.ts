@@ -6,6 +6,7 @@ import * as AccountsAPI from './accounts';
 import * as BulkOrdersAPI from './bulk-orders';
 import * as EasyBorrowsAPI from './easy-borrows';
 import * as HoldingsAPI from './holdings';
+import * as InventoriesAPI from './inventories';
 import * as LocateOrdersAPI from './locate-orders';
 import * as OrdersAPI from './orders';
 import * as PnlDetailsAPI from './pnl-details';
@@ -25,6 +26,7 @@ export class Accounts extends APIResource {
   pnlDetails: PnlDetailsAPI.PnlDetails = new PnlDetailsAPI.PnlDetails(this._client);
   pnlSums: PnlSumsAPI.PnlSums = new PnlSumsAPI.PnlSums(this._client);
   holdings: HoldingsAPI.Holdings = new HoldingsAPI.Holdings(this._client);
+  inventories: InventoriesAPI.Inventories = new InventoriesAPI.Inventories(this._client);
 
   /**
    * Get an account by its ID.
@@ -94,4 +96,6 @@ export namespace Accounts {
   export import Holdings = HoldingsAPI.Holdings;
   export import HoldingListResponse = HoldingsAPI.HoldingListResponse;
   export import HoldingListParams = HoldingsAPI.HoldingListParams;
+  export import Inventories = InventoriesAPI.Inventories;
+  export import InventoryRetrieveResponse = InventoriesAPI.InventoryRetrieveResponse;
 }

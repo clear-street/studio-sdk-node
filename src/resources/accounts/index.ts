@@ -4,6 +4,7 @@ export { Account, AccountListResponse, Accounts } from './accounts';
 export { BulkOrderCreateResponse, BulkOrderCreateParams, BulkOrders } from './bulk-orders';
 export { EasyBorrowListResponse, EasyBorrows } from './easy-borrows';
 export { HoldingListResponse, HoldingListParams, Holdings } from './holdings';
+export { InventoryRetrieveResponse, Inventories } from './inventories';
 export {
   LocateOrderListResponse,
   LocateOrderCreateParams,
