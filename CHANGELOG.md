@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.12 (2024-11-01)
+
+Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.12](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.10...v0.1.0-alpha.12)
+
+### Features
+
+* **api:** enable inventories endpoint ([#54](https://github.com/clear-street/studio-sdk-node/issues/54)) ([8b58322](https://github.com/clear-street/studio-sdk-node/commit/8b58322a671d6f51b422b4a1ef46b36bf9c43b25))
+
 ## 0.1.0-alpha.10 (2024-10-11)
 
 Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
