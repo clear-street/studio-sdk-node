@@ -1,10 +1,20 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Errors from './error';
-import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
 import * as Core from './core';
+import * as Errors from './error';
+import * as Uploads from './uploads';
 import * as API from './resources/index';
+import { Instrument, InstrumentRetrieveParams, Instruments } from './resources/instruments';
+import { Account, AccountListResponse, Accounts } from './resources/accounts/accounts';
+import {
+  Entities,
+  Entity,
+  EntityListResponse,
+  PnlSummary,
+  PortfolioMargin,
+  RegtMargin,
+} from './resources/entities/entities';
 
 const environments = {
   production: 'https://api.clearstreet.io/studio/v2',
@@ -182,50 +192,54 @@ export class StudioSDK extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
-  StudioSDKError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} = Errors;
+export const StudioSDKError = Errors.StudioSDKError;
+export const APIError = Errors.APIError;
+export const APIConnectionError = Errors.APIConnectionError;
+export const APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
+export const APIUserAbortError = Errors.APIUserAbortError;
+export const NotFoundError = Errors.NotFoundError;
+export const ConflictError = Errors.ConflictError;
+export const RateLimitError = Errors.RateLimitError;
+export const BadRequestError = Errors.BadRequestError;
+export const AuthenticationError = Errors.AuthenticationError;
+export const InternalServerError = Errors.InternalServerError;
+export const PermissionDeniedError = Errors.PermissionDeniedError;
+export const UnprocessableEntityError = Errors.UnprocessableEntityError;
 
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
-export namespace StudioSDK {
-  export import RequestOptions = Core.RequestOptions;
+StudioSDK.Entities = Entities;
+StudioSDK.Accounts = Accounts;
+StudioSDK.Instruments = Instruments;
 
-  export import Entities = API.Entities;
-  export import Entity = API.Entity;
-  export import PnlSummary = API.PnlSummary;
-  export import PortfolioMargin = API.PortfolioMargin;
-  export import RegtMargin = API.RegtMargin;
-  export import EntityListResponse = API.EntityListResponse;
+export declare namespace StudioSDK {
+  export type RequestOptions = Core.RequestOptions;
 
-  export import Accounts = API.Accounts;
-  export import Account = API.Account;
-  export import AccountListResponse = API.AccountListResponse;
+  export {
+    Entities as Entities,
+    type Entity as Entity,
+    type PnlSummary as PnlSummary,
+    type PortfolioMargin as PortfolioMargin,
+    type RegtMargin as RegtMargin,
+    type EntityListResponse as EntityListResponse,
+  };
 
-  export import Instruments = API.Instruments;
-  export import Instrument = API.Instrument;
-  export import InstrumentRetrieveParams = API.InstrumentRetrieveParams;
+  export { Accounts as Accounts, type Account as Account, type AccountListResponse as AccountListResponse };
 
-  export import BaseStrategy = API.BaseStrategy;
-  export import LocateOrder = API.LocateOrder;
-  export import Order = API.Order;
-  export import Position = API.Position;
-  export import RegtMarginSimulation = API.RegtMarginSimulation;
-  export import Strategy = API.Strategy;
-  export import Trade = API.Trade;
+  export {
+    Instruments as Instruments,
+    type Instrument as Instrument,
+    type InstrumentRetrieveParams as InstrumentRetrieveParams,
+  };
+
+  export type BaseStrategy = API.BaseStrategy;
+  export type LocateOrder = API.LocateOrder;
+  export type Order = API.Order;
+  export type Position = API.Position;
+  export type RegtMarginSimulation = API.RegtMarginSimulation;
+  export type Strategy = API.Strategy;
+  export type Trade = API.Trade;
 }
 
 export default StudioSDK;

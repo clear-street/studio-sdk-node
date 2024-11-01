@@ -2,11 +2,19 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as EntitiesAPI from './entities';
 import * as PnlSummariesAPI from './pnl-summaries';
+import { PnlSummaries } from './pnl-summaries';
 import * as PortfolioMarginsAPI from './portfolio-margins';
+import { PortfolioMargins } from './portfolio-margins';
 import * as RegtMarginSimulationsAPI from './regt-margin-simulations';
+import {
+  RegtMarginSimulationCreateParams,
+  RegtMarginSimulationCreateResponse,
+  RegtMarginSimulations,
+  SimulationID,
+} from './regt-margin-simulations';
 import * as RegtMarginsAPI from './regt-margins';
+import { RegtMargins } from './regt-margins';
 
 export class Entities extends APIResource {
   pnlSummaries: PnlSummariesAPI.PnlSummaries = new PnlSummariesAPI.PnlSummaries(this._client);
@@ -546,17 +554,30 @@ export interface EntityListResponse {
   data?: Array<Entity>;
 }
 
-export namespace Entities {
-  export import Entity = EntitiesAPI.Entity;
-  export import PnlSummary = EntitiesAPI.PnlSummary;
-  export import PortfolioMargin = EntitiesAPI.PortfolioMargin;
-  export import RegtMargin = EntitiesAPI.RegtMargin;
-  export import EntityListResponse = EntitiesAPI.EntityListResponse;
-  export import PnlSummaries = PnlSummariesAPI.PnlSummaries;
-  export import RegtMargins = RegtMarginsAPI.RegtMargins;
-  export import PortfolioMargins = PortfolioMarginsAPI.PortfolioMargins;
-  export import RegtMarginSimulations = RegtMarginSimulationsAPI.RegtMarginSimulations;
-  export import SimulationID = RegtMarginSimulationsAPI.SimulationID;
-  export import RegtMarginSimulationCreateResponse = RegtMarginSimulationsAPI.RegtMarginSimulationCreateResponse;
-  export import RegtMarginSimulationCreateParams = RegtMarginSimulationsAPI.RegtMarginSimulationCreateParams;
+Entities.PnlSummaries = PnlSummaries;
+Entities.RegtMargins = RegtMargins;
+Entities.PortfolioMargins = PortfolioMargins;
+Entities.RegtMarginSimulations = RegtMarginSimulations;
+
+export declare namespace Entities {
+  export {
+    type Entity as Entity,
+    type PnlSummary as PnlSummary,
+    type PortfolioMargin as PortfolioMargin,
+    type RegtMargin as RegtMargin,
+    type EntityListResponse as EntityListResponse,
+  };
+
+  export { PnlSummaries as PnlSummaries };
+
+  export { RegtMargins as RegtMargins };
+
+  export { PortfolioMargins as PortfolioMargins };
+
+  export {
+    RegtMarginSimulations as RegtMarginSimulations,
+    type SimulationID as SimulationID,
+    type RegtMarginSimulationCreateResponse as RegtMarginSimulationCreateResponse,
+    type RegtMarginSimulationCreateParams as RegtMarginSimulationCreateParams,
+  };
 }

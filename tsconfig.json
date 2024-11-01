@@ -11,7 +11,7 @@
     "paths": {
       "@clear-street/studio-sdk/_shims/auto/*": ["src/_shims/auto/*-node"],
       "@clear-street/studio-sdk/*": ["src/*"],
-      "@clear-street/studio-sdk": ["src/index.ts"],
+      "@clear-street/studio-sdk": ["src/index.ts"]
     },
     "noEmit": true,
 
