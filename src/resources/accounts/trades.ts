@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as TradesAPI from './trades';
 import * as Shared from '../shared';
 
 export class Trades extends APIResource {
@@ -56,7 +55,6 @@ export interface TradeListParams {
   page_token?: string;
 }
 
-export namespace Trades {
-  export import TradeListResponse = TradesAPI.TradeListResponse;
-  export import TradeListParams = TradesAPI.TradeListParams;
+export declare namespace Trades {
+  export { type TradeListResponse as TradeListResponse, type TradeListParams as TradeListParams };
 }

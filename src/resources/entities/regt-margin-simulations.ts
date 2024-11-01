@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as RegtMarginSimulationsAPI from './regt-margin-simulations';
 import * as Shared from '../shared';
 
 export class RegtMarginSimulations extends APIResource {
@@ -120,8 +119,10 @@ export namespace RegtMarginSimulationCreateParams {
   }
 }
 
-export namespace RegtMarginSimulations {
-  export import SimulationID = RegtMarginSimulationsAPI.SimulationID;
-  export import RegtMarginSimulationCreateResponse = RegtMarginSimulationsAPI.RegtMarginSimulationCreateResponse;
-  export import RegtMarginSimulationCreateParams = RegtMarginSimulationsAPI.RegtMarginSimulationCreateParams;
+export declare namespace RegtMarginSimulations {
+  export {
+    type SimulationID as SimulationID,
+    type RegtMarginSimulationCreateResponse as RegtMarginSimulationCreateResponse,
+    type RegtMarginSimulationCreateParams as RegtMarginSimulationCreateParams,
+  };
 }

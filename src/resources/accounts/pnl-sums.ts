@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as PnlSumsAPI from './pnl-sums';
 
 export class PnlSums extends APIResource {
   /**
@@ -170,7 +169,6 @@ export interface PnlSumListParams {
   underlying_symbol?: string;
 }
 
-export namespace PnlSums {
-  export import PnlSumListResponse = PnlSumsAPI.PnlSumListResponse;
-  export import PnlSumListParams = PnlSumsAPI.PnlSumListParams;
+export declare namespace PnlSums {
+  export { type PnlSumListResponse as PnlSumListResponse, type PnlSumListParams as PnlSumListParams };
 }

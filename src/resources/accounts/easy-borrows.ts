@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as EasyBorrowsAPI from './easy-borrows';
 
 export class EasyBorrows extends APIResource {
   /**
@@ -18,6 +17,6 @@ export interface EasyBorrowListResponse {
   data: Array<string>;
 }
 
-export namespace EasyBorrows {
-  export import EasyBorrowListResponse = EasyBorrowsAPI.EasyBorrowListResponse;
+export declare namespace EasyBorrows {
+  export { type EasyBorrowListResponse as EasyBorrowListResponse };
 }

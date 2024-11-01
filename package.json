@@ -1,6 +1,6 @@
 {
   "name": "@clear-street/studio-sdk",
-  "version": "0.1.0-alpha.10",
+  "version": "0.1.0-alpha.12",
   "description": "The official TypeScript library for the Studio SDK API",
   "author": "Studio SDK <studiosupport@clearstreet.io>",
   "types": "dist/index.d.ts",
@@ -10,7 +10,7 @@
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.22",
   "files": [
-    "*"
+    "**/*"
   ],
   "private": false,
   "scripts": {
