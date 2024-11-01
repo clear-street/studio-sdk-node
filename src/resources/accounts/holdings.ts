@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as HoldingsAPI from './holdings';
 
 export class Holdings extends APIResource {
   /**
@@ -97,7 +96,6 @@ export interface HoldingListParams {
   date?: number;
 }
 
-export namespace Holdings {
-  export import HoldingListResponse = HoldingsAPI.HoldingListResponse;
-  export import HoldingListParams = HoldingsAPI.HoldingListParams;
+export declare namespace Holdings {
+  export { type HoldingListResponse as HoldingListResponse, type HoldingListParams as HoldingListParams };
 }

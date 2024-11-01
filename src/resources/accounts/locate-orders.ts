@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as LocateOrdersAPI from './locate-orders';
 import * as Shared from '../shared';
 
 export class LocateOrders extends APIResource {
@@ -87,8 +86,10 @@ export interface LocateOrderUpdateParams {
   accept: boolean;
 }
 
-export namespace LocateOrders {
-  export import LocateOrderListResponse = LocateOrdersAPI.LocateOrderListResponse;
-  export import LocateOrderCreateParams = LocateOrdersAPI.LocateOrderCreateParams;
-  export import LocateOrderUpdateParams = LocateOrdersAPI.LocateOrderUpdateParams;
+export declare namespace LocateOrders {
+  export {
+    type LocateOrderListResponse as LocateOrderListResponse,
+    type LocateOrderCreateParams as LocateOrderCreateParams,
+    type LocateOrderUpdateParams as LocateOrderUpdateParams,
+  };
 }

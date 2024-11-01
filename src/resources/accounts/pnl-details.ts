@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as PnlDetailsAPI from './pnl-details';
 
 export class PnlDetails extends APIResource {
   /**
@@ -138,6 +137,6 @@ export namespace PnlDetailListResponse {
   }
 }
 
-export namespace PnlDetails {
-  export import PnlDetailListResponse = PnlDetailsAPI.PnlDetailListResponse;
+export declare namespace PnlDetails {
+  export { type PnlDetailListResponse as PnlDetailListResponse };
 }
