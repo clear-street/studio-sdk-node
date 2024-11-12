@@ -21,7 +21,6 @@ const environments = {
   sandbox: 'https://sandbox-api.clearstreet.io/studio/v2',
 };
 type Environment = keyof typeof environments;
-
 export interface ClientOptions {
   /**
    * Defaults to process.env['STUDIO_SDK_BEARER_TOKEN'].
@@ -192,29 +191,9 @@ export class StudioSDK extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export {
-  StudioSDKError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} from './error';
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
 StudioSDK.Entities = Entities;
 StudioSDK.Accounts = Accounts;
 StudioSDK.Instruments = Instruments;
-
 export declare namespace StudioSDK {
   export type RequestOptions = Core.RequestOptions;
 
@@ -243,5 +222,22 @@ export declare namespace StudioSDK {
   export type Strategy = API.Strategy;
   export type Trade = API.Trade;
 }
+
+export { toFile, fileFromPath } from '@clear-street/studio-sdk/uploads';
+export {
+  StudioSDKError,
+  APIError,
+  APIConnectionError,
+  APIConnectionTimeoutError,
+  APIUserAbortError,
+  NotFoundError,
+  ConflictError,
+  RateLimitError,
+  BadRequestError,
+  AuthenticationError,
+  InternalServerError,
+  PermissionDeniedError,
+  UnprocessableEntityError,
+} from '@clear-street/studio-sdk/error';
 
 export default StudioSDK;
