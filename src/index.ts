@@ -223,7 +223,7 @@ export declare namespace StudioSDK {
   export type Trade = API.Trade;
 }
 
-export { toFile, fileFromPath } from '@clear-street/studio-sdk/uploads';
+export { toFile, fileFromPath } from './uploads';
 export {
   StudioSDKError,
   APIError,
@@ -238,6 +238,6 @@ export {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} from '@clear-street/studio-sdk/error';
+} from './error';
 
 export default StudioSDK;
