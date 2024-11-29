@@ -25,6 +25,7 @@ import {
   OrderDeleteResponse,
   OrderListParams,
   OrderListResponse,
+  OrderPatchParams,
   OrderRetrieveResponse,
   Orders,
 } from './orders';
@@ -115,6 +116,7 @@ export declare namespace Accounts {
     type OrderCreateParams as OrderCreateParams,
     type OrderListParams as OrderListParams,
     type OrderDeleteParams as OrderDeleteParams,
+    type OrderPatchParams as OrderPatchParams,
   };
 
   export {
