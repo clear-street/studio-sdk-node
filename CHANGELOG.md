@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.14 (2024-11-29)
+
+Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
+
+### Features
+
+* **api:** add modify orders endpoint ([#67](https://github.com/clear-street/studio-sdk-node/issues/67)) ([8e67f34](https://github.com/clear-street/studio-sdk-node/commit/8e67f342437ac40e5e3f1373194154b2e88cc81f))
+
 ## 0.1.0-alpha.13 (2024-11-28)
 
 Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
