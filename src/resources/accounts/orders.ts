@@ -87,6 +87,23 @@ export class Orders extends APIResource {
       headers: { Accept: '*/*', ...options?.headers },
     });
   }
+
+  /**
+   * Attempts to update an existing order. This can be used to update a subset of an
+   * order's attributes, for example price and quantity.
+   */
+  patch(
+    accountId: string,
+    orderId: string,
+    body: OrderPatchParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<void> {
+    return this._client.patch(`/accounts/${accountId}/orders/${orderId}`, {
+      body,
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
+  }
 }
 
 export interface OrderCreateResponse {
@@ -231,6 +248,23 @@ export interface OrderDeleteParams {
   symbol_format?: 'cms' | 'osi';
 }
 
+export interface OrderPatchParams {
+  /**
+   * The maximum quantity to be executed.
+   */
+  quantity: string;
+
+  /**
+   * The price to execute at-or-better for limit orders.
+   */
+  price?: string;
+
+  /**
+   * The price at which stop orders become marketable.
+   */
+  stop_price?: string;
+}
+
 export declare namespace Orders {
   export {
     type OrderCreateResponse as OrderCreateResponse,
@@ -240,5 +274,6 @@ export declare namespace Orders {
     type OrderCreateParams as OrderCreateParams,
     type OrderListParams as OrderListParams,
     type OrderDeleteParams as OrderDeleteParams,
+    type OrderPatchParams as OrderPatchParams,
   };
 }

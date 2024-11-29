@@ -93,6 +93,7 @@ Methods:
 - <code title="get /accounts/{account_id}/orders">client.accounts.orders.<a href="./src/resources/accounts/orders.ts">list</a>(accountId, { ...params }) -> OrderListResponse</code>
 - <code title="delete /accounts/{account_id}/orders">client.accounts.orders.<a href="./src/resources/accounts/orders.ts">delete</a>(accountId, { ...params }) -> OrderDeleteResponse</code>
 - <code title="delete /accounts/{account_id}/orders/{order_id}">client.accounts.orders.<a href="./src/resources/accounts/orders.ts">cancel</a>(accountId, orderId) -> void</code>
+- <code title="patch /accounts/{account_id}/orders/{order_id}">client.accounts.orders.<a href="./src/resources/accounts/orders.ts">patch</a>(accountId, orderId, { ...params }) -> void</code>
 
 ## Trades
 
