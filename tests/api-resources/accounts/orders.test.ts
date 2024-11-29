@@ -135,4 +135,23 @@ describe('resource orders', () => {
       client.accounts.orders.cancel('x', 'x', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(StudioSDK.NotFoundError);
   });
+
+  test('patch: only required params', async () => {
+    const responsePromise = client.accounts.orders.patch('x', 'x', { quantity: 'x' });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  test('patch: required and optional params', async () => {
+    const response = await client.accounts.orders.patch('x', 'x', {
+      quantity: 'x',
+      price: 'x',
+      stop_price: 'x',
+    });
+  });
 });

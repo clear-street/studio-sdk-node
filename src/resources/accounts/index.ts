@@ -20,6 +20,7 @@ export {
   type OrderCreateParams,
   type OrderListParams,
   type OrderDeleteParams,
+  type OrderPatchParams,
 } from './orders';
 export { PnlDetails, type PnlDetailListResponse } from './pnl-details';
 export { PnlSummary } from './pnl-summary';

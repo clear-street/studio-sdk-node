@@ -149,6 +149,11 @@ export interface Order {
   quantity: string;
 
   /**
+   * The position quantity at the time of this order.
+   */
+  running_position: string;
+
+  /**
    * Buy, sell, sell-short indicator.
    */
   side: 'buy' | 'sell' | 'sell-short';
@@ -405,6 +410,11 @@ export interface Trade {
    * The amount that was traded.
    */
   quantity: string;
+
+  /**
+   * The position quantity at the time of this trade.
+   */
+  running_position: string;
 
   /**
    * The side this trade occurred on.
