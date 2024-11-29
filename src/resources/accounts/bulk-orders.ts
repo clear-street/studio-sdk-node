@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as BulkOrdersAPI from './bulk-orders';
 import * as Shared from '../shared';
 
 export class BulkOrders extends APIResource {
@@ -155,7 +154,9 @@ export namespace BulkOrderCreateParams {
   }
 }
 
-export namespace BulkOrders {
-  export import BulkOrderCreateResponse = BulkOrdersAPI.BulkOrderCreateResponse;
-  export import BulkOrderCreateParams = BulkOrdersAPI.BulkOrderCreateParams;
+export declare namespace BulkOrders {
+  export {
+    type BulkOrderCreateResponse as BulkOrderCreateResponse,
+    type BulkOrderCreateParams as BulkOrderCreateParams,
+  };
 }

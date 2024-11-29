@@ -3,7 +3,6 @@
 import { APIResource } from '../resource';
 import { isRequestOptions } from '../core';
 import * as Core from '../core';
-import * as InstrumentsAPI from './instruments';
 
 export class Instruments extends APIResource {
   /**
@@ -64,7 +63,6 @@ export interface InstrumentRetrieveParams {
   symbol_format?: 'cms' | 'osi';
 }
 
-export namespace Instruments {
-  export import Instrument = InstrumentsAPI.Instrument;
-  export import InstrumentRetrieveParams = InstrumentsAPI.InstrumentRetrieveParams;
+export declare namespace Instruments {
+  export { type Instrument as Instrument, type InstrumentRetrieveParams as InstrumentRetrieveParams };
 }

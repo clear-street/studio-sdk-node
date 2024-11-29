@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as InventoriesAPI from './inventories';
 
 export class Inventories extends APIResource {
   /**
@@ -41,6 +40,6 @@ export interface InventoryRetrieveResponse {
   used?: string;
 }
 
-export namespace Inventories {
-  export import InventoryRetrieveResponse = InventoriesAPI.InventoryRetrieveResponse;
+export declare namespace Inventories {
+  export { type InventoryRetrieveResponse as InventoryRetrieveResponse };
 }

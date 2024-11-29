@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as PositionsAPI from './positions';
 import * as Shared from '../shared';
 
 export class Positions extends APIResource {
@@ -60,7 +59,6 @@ export interface PositionListParams {
   page_token?: string;
 }
 
-export namespace Positions {
-  export import PositionListResponse = PositionsAPI.PositionListResponse;
-  export import PositionListParams = PositionsAPI.PositionListParams;
+export declare namespace Positions {
+  export { type PositionListResponse as PositionListResponse, type PositionListParams as PositionListParams };
 }

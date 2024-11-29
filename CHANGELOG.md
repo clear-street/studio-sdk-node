@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.1.0-alpha.13 (2024-11-28)
+
+Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
+
+### Features
+
+* **internal:** make git install file structure match npm ([#65](https://github.com/clear-street/studio-sdk-node/issues/65)) ([0a97e8d](https://github.com/clear-street/studio-sdk-node/commit/0a97e8dac6a65c9354d80fd3da7d4ba0add30ad3))
+
+
+### Chores
+
+* **internal:** version bump ([#56](https://github.com/clear-street/studio-sdk-node/issues/56)) ([edbfb81](https://github.com/clear-street/studio-sdk-node/commit/edbfb81a999c641559f5509af03c904223d26340))
+* rebuild project due to codegen change ([#58](https://github.com/clear-street/studio-sdk-node/issues/58)) ([9de16eb](https://github.com/clear-street/studio-sdk-node/commit/9de16eb6782a634457f9d1c301764637f5296e52))
+* rebuild project due to codegen change ([#59](https://github.com/clear-street/studio-sdk-node/issues/59)) ([d4c4b6b](https://github.com/clear-street/studio-sdk-node/commit/d4c4b6bc92160bbe6d011723502688ccb4a93a76))
+* rebuild project due to codegen change ([#60](https://github.com/clear-street/studio-sdk-node/issues/60)) ([3e9fb2b](https://github.com/clear-street/studio-sdk-node/commit/3e9fb2bc4de1b0ca2506ce46b010fba1b70492ab))
+* rebuild project due to codegen change ([#61](https://github.com/clear-street/studio-sdk-node/issues/61)) ([677ee27](https://github.com/clear-street/studio-sdk-node/commit/677ee2768857d7f3e1a6312d4b6adaaccb84bb7b))
+* rebuild project due to codegen change ([#62](https://github.com/clear-street/studio-sdk-node/issues/62)) ([bfe87b7](https://github.com/clear-street/studio-sdk-node/commit/bfe87b739732e335dbb66c77d5a5ca17ded60d4a))
+* remove redundant word in comment ([#64](https://github.com/clear-street/studio-sdk-node/issues/64)) ([cc8bab8](https://github.com/clear-street/studio-sdk-node/commit/cc8bab80186d5f5a0c1ffcac082c62f18c5dc231))
+
+
+### Documentation
+
+* remove suggestion to use `npm` call out ([#63](https://github.com/clear-street/studio-sdk-node/issues/63)) ([face38a](https://github.com/clear-street/studio-sdk-node/commit/face38a396911e3f80722c99ceb49254e1a6149c))
+
 ## 0.1.0-alpha.12 (2024-11-01)
 
 Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.12](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.10...v0.1.0-alpha.12)

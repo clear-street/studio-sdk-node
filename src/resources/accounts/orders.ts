@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as OrdersAPI from './orders';
 import * as Shared from '../shared';
 
 export class Orders extends APIResource {
@@ -232,12 +231,14 @@ export interface OrderDeleteParams {
   symbol_format?: 'cms' | 'osi';
 }
 
-export namespace Orders {
-  export import OrderCreateResponse = OrdersAPI.OrderCreateResponse;
-  export import OrderRetrieveResponse = OrdersAPI.OrderRetrieveResponse;
-  export import OrderListResponse = OrdersAPI.OrderListResponse;
-  export import OrderDeleteResponse = OrdersAPI.OrderDeleteResponse;
-  export import OrderCreateParams = OrdersAPI.OrderCreateParams;
-  export import OrderListParams = OrdersAPI.OrderListParams;
-  export import OrderDeleteParams = OrdersAPI.OrderDeleteParams;
+export declare namespace Orders {
+  export {
+    type OrderCreateResponse as OrderCreateResponse,
+    type OrderRetrieveResponse as OrderRetrieveResponse,
+    type OrderListResponse as OrderListResponse,
+    type OrderDeleteResponse as OrderDeleteResponse,
+    type OrderCreateParams as OrderCreateParams,
+    type OrderListParams as OrderListParams,
+    type OrderDeleteParams as OrderDeleteParams,
+  };
 }
