@@ -23,6 +23,11 @@ export interface InventoryRetrieveResponse {
   account_id?: string;
 
   /**
+   * Account number for the account.
+   */
+  account_number?: string;
+
+  /**
    * String representation of quantity.
    */
   available?: string;

@@ -23,6 +23,11 @@ export interface PnlSumListResponse {
    */
   account_id?: string;
 
+  /**
+   * Account number for the account.
+   */
+  account_number?: string;
+
   data?: Array<PnlSumListResponse.Data>;
 
   /**
