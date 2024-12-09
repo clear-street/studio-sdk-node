@@ -24,6 +24,11 @@ export namespace PnlDetailListResponse {
     account_id: string;
 
     /**
+     * Account number for the account.
+     */
+    account_number: string;
+
+    /**
      * The asset class of the symbol.
      */
     asset_class: 'other' | 'currency' | 'equity' | 'option' | 'debt' | 'fund';
