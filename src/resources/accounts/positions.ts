@@ -7,7 +7,7 @@ import * as Shared from '../shared';
 
 export class Positions extends APIResource {
   /**
-   * Get current positions for a given account for a given symbol.
+   * Get current position for a given account for a given symbol.
    */
   retrieve(
     accountId: string,

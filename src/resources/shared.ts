@@ -32,6 +32,11 @@ export interface LocateOrder {
   account_id: string;
 
   /**
+   * Account number for the account.
+   */
+  account_number: string;
+
+  /**
    * Unique locate ID assigned by us.
    */
   locate_order_id: string;
@@ -114,6 +119,11 @@ export interface Order {
    * Account ID for the account.
    */
   account_id: string;
+
+  /**
+   * Account number for the account.
+   */
+  account_number: string;
 
   /**
    * When the order was created in milliseconds since epoch.
@@ -258,6 +268,11 @@ export interface Position {
    * Account ID for the account.
    */
   account_id?: string;
+
+  /**
+   * Account number for the account.
+   */
+  account_number?: string;
 
   /**
    * String representation of quantity.
@@ -430,6 +445,11 @@ export interface Trade {
    * Account ID for the account.
    */
   account_id?: string;
+
+  /**
+   * Account number for the account.
+   */
+  account_number?: string;
 
   /**
    * The symbol this trade was for.
