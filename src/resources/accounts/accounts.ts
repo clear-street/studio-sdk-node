@@ -54,7 +54,7 @@ export class Accounts extends APIResource {
   inventories: InventoriesAPI.Inventories = new InventoriesAPI.Inventories(this._client);
 
   /**
-   * Get an account by its ID.
+   * Get an account by its ID or number.
    */
   retrieve(accountId: string, options?: Core.RequestOptions): Core.APIPromise<Account> {
     return this._client.get(`/accounts/${accountId}`, options);
@@ -73,6 +73,11 @@ export interface Account {
    * Account ID for the account.
    */
   account_id: string;
+
+  /**
+   * Account number for the account.
+   */
+  account_number: string;
 
   /**
    * Entity ID for the legal entity.

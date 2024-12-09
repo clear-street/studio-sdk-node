@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.15 (2024-12-09)
+
+Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
+
+### Features
+
+* **api:** account number support ([#70](https://github.com/clear-street/studio-sdk-node/issues/70)) ([884f5a7](https://github.com/clear-street/studio-sdk-node/commit/884f5a785ea47610ca690acba42b68d3af2a6517))
+
 ## 0.1.0-alpha.14 (2024-11-29)
 
 Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
