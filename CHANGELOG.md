@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.16 (2024-12-10)
+
+Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
+
+### Chores
+
+* **internal:** remove unnecessary getRequestClient function ([#73](https://github.com/clear-street/studio-sdk-node/issues/73)) ([bc28efe](https://github.com/clear-street/studio-sdk-node/commit/bc28efeed973ea9104eaf4f5144877d0133eeecd))
+
 ## 0.1.0-alpha.15 (2024-12-09)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
