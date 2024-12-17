@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0-alpha.16 (2024-12-17)
+
+Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
+
+### Chores
+
+* **internal:** codegen related update ([#75](https://github.com/clear-street/studio-sdk-node/issues/75)) ([8512182](https://github.com/clear-street/studio-sdk-node/commit/85121825823399954cdcba771f4d3757e739edac))
+* **internal:** codegen related update ([#76](https://github.com/clear-street/studio-sdk-node/issues/76)) ([2f50957](https://github.com/clear-street/studio-sdk-node/commit/2f509570c4480ecf015e78e5497d20de817d1b8a))
+* **internal:** remove unnecessary getRequestClient function ([#73](https://github.com/clear-street/studio-sdk-node/issues/73)) ([bc28efe](https://github.com/clear-street/studio-sdk-node/commit/bc28efeed973ea9104eaf4f5144877d0133eeecd))
+
 ## 0.1.0-alpha.15 (2024-12-09)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
