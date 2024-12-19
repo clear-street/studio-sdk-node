@@ -267,19 +267,24 @@ export interface Position {
   /**
    * Account ID for the account.
    */
-  account_id?: string;
+  account_id: string;
 
   /**
    * Account number for the account.
    */
-  account_number?: string;
+  account_number: string;
+
+  /**
+   * The average cost of the position.
+   */
+  average_cost: number;
 
   /**
    * String representation of quantity.
    */
-  quantity?: string;
+  quantity: string;
 
-  symbol?: string;
+  symbol: string;
 }
 
 export interface RegtMarginSimulation {
