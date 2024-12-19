@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.17 (2024-12-19)
+
+Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
+
+### Features
+
+* **api:** add average cost to positions ([#78](https://github.com/clear-street/studio-sdk-node/issues/78)) ([10bd7e6](https://github.com/clear-street/studio-sdk-node/commit/10bd7e6221af9757041df1115ffbb60fc591f6b6))
+
 ## 0.1.0-alpha.16 (2024-12-17)
 
 Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
