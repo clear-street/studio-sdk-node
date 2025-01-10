@@ -21,6 +21,7 @@ const environments = {
   sandbox: 'https://sandbox-api.clearstreet.io/studio/v2',
 };
 type Environment = keyof typeof environments;
+
 export interface ClientOptions {
   /**
    * Defaults to process.env['STUDIO_SDK_BEARER_TOKEN'].
