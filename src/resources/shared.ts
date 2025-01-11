@@ -1,5 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import * as Shared from './shared';
 import * as EntitiesAPI from './entities/entities';
 import * as RegtMarginSimulationsAPI from './entities/regt-margin-simulations';
 
@@ -316,14 +317,72 @@ export interface RegtMarginSimulation {
 
 export type Strategy =
   | BaseStrategy
-  | BaseStrategy
-  | BaseStrategy
-  | BaseStrategy
-  | BaseStrategy
-  | BaseStrategy
+  | Strategy.VwapStrategy
+  | Strategy.TwapStrategy
+  | Strategy.ApStrategy
+  | Strategy.PovStrategy
+  | Strategy.DarkStrategy
   | Strategy.DmaStrategy;
 
 export namespace Strategy {
+  export interface VwapStrategy extends Shared.BaseStrategy {
+    /**
+     * The maximum percentage of market volume. Must be an integer between 0 and 50
+     * (inclusive).
+     */
+    max_percent?: number;
+
+    /**
+     * The minimum percentage of market volume. Must be an integer between 0 and 100
+     * (inclusive).
+     */
+    min_percent?: number;
+  }
+
+  export interface TwapStrategy extends Shared.BaseStrategy {
+    /**
+     * The maximum percentage of market volume. Must be an integer between 0 and 50
+     * (inclusive).
+     */
+    max_percent?: number;
+
+    /**
+     * The minimum percentage of market volume. Must be an integer between 0 and 100
+     * (inclusive).
+     */
+    min_percent?: number;
+  }
+
+  export interface ApStrategy extends Shared.BaseStrategy {
+    /**
+     * The maximum percentage of market volume. Must be an integer between 0 and 100
+     * (inclusive).
+     */
+    max_percent?: number;
+
+    /**
+     * The minimum percentage of market volume. Must be an integer between 0 and 100
+     * (inclusive).
+     */
+    min_percent?: number;
+  }
+
+  export interface PovStrategy extends Shared.BaseStrategy {
+    /**
+     * The target percentage of market volume. Must be an integer between 0 and 100
+     * (inclusive).
+     */
+    target_percent: number;
+  }
+
+  export interface DarkStrategy extends Shared.BaseStrategy {
+    /**
+     * The maximum percentage of market volume. Must be an integer between 0 and 100
+     * (inclusive).
+     */
+    max_percent?: number;
+  }
+
   export interface DmaStrategy {
     /**
      * Order Destination.
