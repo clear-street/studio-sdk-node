@@ -8,7 +8,17 @@ export class PnlSummary extends APIResource {
   /**
    * Get PNL summary for a given account.
    */
-  retrieve(accountId: string, options?: Core.RequestOptions): Core.APIPromise<EntitiesAPI.PnlSummary> {
+  retrieve(accountId: string, options?: Core.RequestOptions): Core.APIPromise<PnlSummaryRetrieveResponse> {
     return this._client.get(`/accounts/${accountId}/pnl-summary`, options);
   }
+}
+
+export interface PnlSummaryRetrieveResponse extends EntitiesAPI.PnlSummary {
+  account_id: string;
+
+  account_number: string;
+}
+
+export declare namespace PnlSummary {
+  export { type PnlSummaryRetrieveResponse as PnlSummaryRetrieveResponse };
 }
