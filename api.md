@@ -142,9 +142,13 @@ Methods:
 
 ## PnlSummary
 
+Types:
+
+- <code><a href="./src/resources/accounts/pnl-summary.ts">PnlSummaryRetrieveResponse</a></code>
+
 Methods:
 
-- <code title="get /accounts/{account_id}/pnl-summary">client.accounts.pnlSummary.<a href="./src/resources/accounts/pnl-summary.ts">retrieve</a>(accountId) -> PnlSummary</code>
+- <code title="get /accounts/{account_id}/pnl-summary">client.accounts.pnlSummary.<a href="./src/resources/accounts/pnl-summary.ts">retrieve</a>(accountId) -> PnlSummaryRetrieveResponse</code>
 
 ## PnlDetails
 
