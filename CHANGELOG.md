@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.1.0-alpha.18 (2025-02-14)
+
+Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
+
+### Features
+
+* **client:** send `X-Stainless-Timeout` header ([#90](https://github.com/clear-street/studio-sdk-node/issues/90)) ([31a25ac](https://github.com/clear-street/studio-sdk-node/commit/31a25ac1f96aacfa78592e87bcdd7705d02806ea))
+
+
+### Bug Fixes
+
+* **api:** better support union schemas with common properties ([#86](https://github.com/clear-street/studio-sdk-node/issues/86)) ([2edb7eb](https://github.com/clear-street/studio-sdk-node/commit/2edb7eb496b2c755640620ac2d22d45ec75b63fe))
+* **client:** fix export map for index exports ([#91](https://github.com/clear-street/studio-sdk-node/issues/91)) ([016a526](https://github.com/clear-street/studio-sdk-node/commit/016a526fd5d9528e8eea14289b270df3a32bd53e))
+* deduplicate unknown entries in union ([#89](https://github.com/clear-street/studio-sdk-node/issues/89)) ([e790d44](https://github.com/clear-street/studio-sdk-node/commit/e790d4440d147c4ccfeaa288dcf2d61dc6fe5b37))
+
+
+### Chores
+
+* **internal:** add test ([#88](https://github.com/clear-street/studio-sdk-node/issues/88)) ([7c4a077](https://github.com/clear-street/studio-sdk-node/commit/7c4a0774f384260586ea67d14467bda9d0d64785))
+* **internal:** change formatting ([#85](https://github.com/clear-street/studio-sdk-node/issues/85)) ([9680cdf](https://github.com/clear-street/studio-sdk-node/commit/9680cdff61fdefd63045ce6d7faf03b7a88ca8fd))
+* **internal:** codegen related update ([#83](https://github.com/clear-street/studio-sdk-node/issues/83)) ([6b79c53](https://github.com/clear-street/studio-sdk-node/commit/6b79c53b35d00122b3f17057975f08a3864b1e76))
+* **internal:** codegen related update ([#84](https://github.com/clear-street/studio-sdk-node/issues/84)) ([bfd74b4](https://github.com/clear-street/studio-sdk-node/commit/bfd74b4dd90c608ffe931fcd433975907035bcbe))
+* **internal:** codegen related update ([#87](https://github.com/clear-street/studio-sdk-node/issues/87)) ([edeef4d](https://github.com/clear-street/studio-sdk-node/commit/edeef4db2d98a5a621053548aa589117cbe2a183))
+
+
+### Documentation
+
+* minor formatting changes ([#81](https://github.com/clear-street/studio-sdk-node/issues/81)) ([b768b9b](https://github.com/clear-street/studio-sdk-node/commit/b768b9b0b3f461ade603908aba3ac7e164488f60))
+
 ## 0.1.0-alpha.17 (2024-12-19)
 
 Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
