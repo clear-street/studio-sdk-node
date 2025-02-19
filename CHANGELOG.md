@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.19 (2025-02-19)
+
+Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
+
+### Features
+
+* **api:** remove symbol filtering from pnl-sums ([#93](https://github.com/clear-street/studio-sdk-node/issues/93)) ([bd2f33c](https://github.com/clear-street/studio-sdk-node/commit/bd2f33ca43d3fe407fa61f7792d6929821c968c1))
+
 ## 0.1.0-alpha.18 (2025-02-14)
 
 Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
