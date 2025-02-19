@@ -27,8 +27,6 @@ describe('resource pnlSums', () => {
     const response = await client.accounts.pnlSums.list('x', {
       ending_date: 20240101,
       starting_date: 20240101,
-      symbol: 'AAPL',
-      underlying_symbol: 'AAPL',
     });
   });
 });

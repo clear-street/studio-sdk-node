@@ -75,19 +75,9 @@ export interface PnlSumListResponse {
   starting_equity?: number;
 
   /**
-   * Echoed back from the provided query param.
-   */
-  symbol?: string;
-
-  /**
    * `realized_pnl + unrealized_pnl`
    */
   total_pnl?: number;
-
-  /**
-   * Echoed back from the provided query param.
-   */
-  underlying_symbol?: string;
 
   /**
    * Sum of profit and loss from market changes across all symbols.
@@ -161,17 +151,6 @@ export interface PnlSumListParams {
    * The starting date to accumulate PNL data for.
    */
   starting_date: number;
-
-  /**
-   * Filters for a specific symbol.
-   */
-  symbol?: string;
-
-  /**
-   * Filters for a specific underlying symbol, e.g. all options for a particular
-   * underlying.
-   */
-  underlying_symbol?: string;
 }
 
 export declare namespace PnlSums {
