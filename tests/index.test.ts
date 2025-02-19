@@ -96,6 +96,15 @@ describe('instantiate client', () => {
     expect(response).toEqual({ url: 'http://localhost:5000/foo', custom: true });
   });
 
+  test('explicit global fetch', async () => {
+    // make sure the global fetch type is assignable to our Fetch type
+    const client = new StudioSDK({
+      baseURL: 'http://localhost:5000/',
+      bearerToken: 'My Bearer Token',
+      fetch: defaultFetch,
+    });
+  });
+
   test('custom signal', async () => {
     const client = new StudioSDK({
       baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
@@ -120,6 +129,23 @@ describe('instantiate client', () => {
 
     await expect(client.get('/foo', { signal: controller.signal })).rejects.toThrowError(APIUserAbortError);
     expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  test('normalized method', async () => {
+    let capturedRequest: RequestInit | undefined;
+    const testFetch = async (url: RequestInfo, init: RequestInit = {}): Promise<Response> => {
+      capturedRequest = init;
+      return new Response(JSON.stringify({}), { headers: { 'Content-Type': 'application/json' } });
+    };
+
+    const client = new StudioSDK({
+      baseURL: 'http://localhost:5000/',
+      bearerToken: 'My Bearer Token',
+      fetch: testFetch,
+    });
+
+    await client.patch('/foo');
+    expect(capturedRequest?.method).toEqual('PATCH');
   });
 
   describe('baseUrl', () => {

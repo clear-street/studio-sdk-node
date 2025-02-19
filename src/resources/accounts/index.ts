@@ -23,7 +23,7 @@ export {
   type OrderPatchParams,
 } from './orders';
 export { PnlDetails, type PnlDetailListResponse } from './pnl-details';
-export { PnlSummary } from './pnl-summary';
+export { PnlSummary, type PnlSummaryRetrieveResponse } from './pnl-summary';
 export { PnlSums, type PnlSumListResponse, type PnlSumListParams } from './pnl-sums';
 export { Positions, type PositionListResponse, type PositionListParams } from './positions';
 export { Trades, type TradeListResponse, type TradeListParams } from './trades';

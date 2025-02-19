@@ -32,7 +32,7 @@ import {
 import * as PnlDetailsAPI from './pnl-details';
 import { PnlDetailListResponse, PnlDetails } from './pnl-details';
 import * as PnlSummaryAPI from './pnl-summary';
-import { PnlSummary } from './pnl-summary';
+import { PnlSummary, PnlSummaryRetrieveResponse } from './pnl-summary';
 import * as PnlSumsAPI from './pnl-sums';
 import { PnlSumListParams, PnlSumListResponse, PnlSums } from './pnl-sums';
 import * as PositionsAPI from './positions';
@@ -145,7 +145,7 @@ export declare namespace Accounts {
 
   export { EasyBorrows as EasyBorrows, type EasyBorrowListResponse as EasyBorrowListResponse };
 
-  export { PnlSummary as PnlSummary };
+  export { PnlSummary as PnlSummary, type PnlSummaryRetrieveResponse as PnlSummaryRetrieveResponse };
 
   export { PnlDetails as PnlDetails, type PnlDetailListResponse as PnlDetailListResponse };
 
