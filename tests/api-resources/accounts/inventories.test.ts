@@ -10,7 +10,7 @@ const client = new StudioSDK({
 
 describe('resource inventories', () => {
   test('retrieve', async () => {
-    const responsePromise = client.accounts.inventories.retrieve('100000', 'AAPL');
+    const responsePromise = client.accounts.inventories.retrieve('x', 'AAPL');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -23,7 +23,7 @@ describe('resource inventories', () => {
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.accounts.inventories.retrieve('100000', 'AAPL', { path: '/_stainless_unknown_path' }),
+      client.accounts.inventories.retrieve('x', 'AAPL', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(StudioSDK.NotFoundError);
   });
 });

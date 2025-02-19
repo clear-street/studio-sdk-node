@@ -10,9 +10,9 @@ const client = new StudioSDK({
 
 describe('resource locateOrders', () => {
   test('create: only required params', async () => {
-    const responsePromise = client.accounts.locateOrders.create('100000', {
+    const responsePromise = client.accounts.locateOrders.create('x', {
       mpid: 'x',
-      quantity: '100',
+      quantity: 'x',
       reference_id: 'my-order-id-123',
       symbol: 'AAPL',
     });
@@ -26,9 +26,9 @@ describe('resource locateOrders', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await client.accounts.locateOrders.create('100000', {
+    const response = await client.accounts.locateOrders.create('x', {
       mpid: 'x',
-      quantity: '100',
+      quantity: 'x',
       reference_id: 'my-order-id-123',
       symbol: 'AAPL',
       comments: 'comments',
@@ -36,7 +36,7 @@ describe('resource locateOrders', () => {
   });
 
   test('retrieve', async () => {
-    const responsePromise = client.accounts.locateOrders.retrieve('100000', '12390213');
+    const responsePromise = client.accounts.locateOrders.retrieve('x', 'x');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -49,12 +49,12 @@ describe('resource locateOrders', () => {
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.accounts.locateOrders.retrieve('100000', '12390213', { path: '/_stainless_unknown_path' }),
+      client.accounts.locateOrders.retrieve('x', 'x', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(StudioSDK.NotFoundError);
   });
 
   test('update: only required params', async () => {
-    const responsePromise = client.accounts.locateOrders.update('100000', '12390213', { accept: true });
+    const responsePromise = client.accounts.locateOrders.update('x', 'x', { accept: true });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -65,11 +65,11 @@ describe('resource locateOrders', () => {
   });
 
   test('update: required and optional params', async () => {
-    const response = await client.accounts.locateOrders.update('100000', '12390213', { accept: true });
+    const response = await client.accounts.locateOrders.update('x', 'x', { accept: true });
   });
 
   test('list', async () => {
-    const responsePromise = client.accounts.locateOrders.list('100000');
+    const responsePromise = client.accounts.locateOrders.list('x');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -82,7 +82,7 @@ describe('resource locateOrders', () => {
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.accounts.locateOrders.list('100000', { path: '/_stainless_unknown_path' }),
+      client.accounts.locateOrders.list('x', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(StudioSDK.NotFoundError);
   });
 });

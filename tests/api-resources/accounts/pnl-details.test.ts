@@ -10,7 +10,7 @@ const client = new StudioSDK({
 
 describe('resource pnlDetails', () => {
   test('list', async () => {
-    const responsePromise = client.accounts.pnlDetails.list('100000');
+    const responsePromise = client.accounts.pnlDetails.list('x');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,8 +22,8 @@ describe('resource pnlDetails', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.accounts.pnlDetails.list('100000', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(StudioSDK.NotFoundError);
+    await expect(client.accounts.pnlDetails.list('x', { path: '/_stainless_unknown_path' })).rejects.toThrow(
+      StudioSDK.NotFoundError,
+    );
   });
 });

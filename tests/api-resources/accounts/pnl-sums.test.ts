@@ -10,7 +10,7 @@ const client = new StudioSDK({
 
 describe('resource pnlSums', () => {
   test('list: only required params', async () => {
-    const responsePromise = client.accounts.pnlSums.list('100000', {
+    const responsePromise = client.accounts.pnlSums.list('x', {
       ending_date: 20240101,
       starting_date: 20240101,
     });
@@ -24,7 +24,7 @@ describe('resource pnlSums', () => {
   });
 
   test('list: required and optional params', async () => {
-    const response = await client.accounts.pnlSums.list('100000', {
+    const response = await client.accounts.pnlSums.list('x', {
       ending_date: 20240101,
       starting_date: 20240101,
     });
