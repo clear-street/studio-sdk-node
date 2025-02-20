@@ -10,8 +10,8 @@ const client = new StudioSDK({
 
 describe('resource bulkOrders', () => {
   test('create: only required params', async () => {
-    const responsePromise = client.accounts.bulkOrders.create('x', {
-      orders: [{ order_type: 'limit', quantity: 'x', side: 'buy', symbol: 'AAPL', time_in_force: 'day' }],
+    const responsePromise = client.accounts.bulkOrders.create('100000', {
+      orders: [{ order_type: 'limit', quantity: '100', side: 'buy', symbol: 'AAPL', time_in_force: 'day' }],
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -23,18 +23,18 @@ describe('resource bulkOrders', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await client.accounts.bulkOrders.create('x', {
+    const response = await client.accounts.bulkOrders.create('100000', {
       orders: [
         {
           order_type: 'limit',
-          quantity: 'x',
+          quantity: '100',
           side: 'buy',
           symbol: 'AAPL',
           time_in_force: 'day',
           locate_broker: 'x',
-          price: 'x',
+          price: '123.99',
           reference_id: 'my-order-id-123',
-          stop_price: 'x',
+          stop_price: '123.99',
           strategy: { type: 'sor', end_at: 1710613560668, start_at: 1710613560668, urgency: 'super-passive' },
           symbol_format: 'cms',
         },

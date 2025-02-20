@@ -10,7 +10,7 @@ const client = new StudioSDK({
 
 describe('resource holdings', () => {
   test('list', async () => {
-    const responsePromise = client.accounts.holdings.list('x');
+    const responsePromise = client.accounts.holdings.list('100000');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,15 +22,15 @@ describe('resource holdings', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.accounts.holdings.list('x', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      StudioSDK.NotFoundError,
-    );
+    await expect(
+      client.accounts.holdings.list('100000', { path: '/_stainless_unknown_path' }),
+    ).rejects.toThrow(StudioSDK.NotFoundError);
   });
 
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.accounts.holdings.list('x', { date: 20240101 }, { path: '/_stainless_unknown_path' }),
+      client.accounts.holdings.list('100000', { date: 20240101 }, { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(StudioSDK.NotFoundError);
   });
 });
