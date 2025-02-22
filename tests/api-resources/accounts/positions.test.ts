@@ -10,7 +10,7 @@ const client = new StudioSDK({
 
 describe('resource positions', () => {
   test('retrieve', async () => {
-    const responsePromise = client.accounts.positions.retrieve('x', 'AAPL');
+    const responsePromise = client.accounts.positions.retrieve('100000', 'AAPL');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -23,12 +23,12 @@ describe('resource positions', () => {
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.accounts.positions.retrieve('x', 'AAPL', { path: '/_stainless_unknown_path' }),
+      client.accounts.positions.retrieve('100000', 'AAPL', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(StudioSDK.NotFoundError);
   });
 
   test('list', async () => {
-    const responsePromise = client.accounts.positions.list('x');
+    const responsePromise = client.accounts.positions.list('100000');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -40,16 +40,16 @@ describe('resource positions', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.accounts.positions.list('x', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      StudioSDK.NotFoundError,
-    );
+    await expect(
+      client.accounts.positions.list('100000', { path: '/_stainless_unknown_path' }),
+    ).rejects.toThrow(StudioSDK.NotFoundError);
   });
 
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.accounts.positions.list(
-        'x',
+        '100000',
         { page_size: 1, page_token: 'page_token' },
         { path: '/_stainless_unknown_path' },
       ),
