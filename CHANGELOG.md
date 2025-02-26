@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.0-alpha.20 (2025-02-26)
+
+Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
+
+### Features
+
+* **api:** fix tests ([#99](https://github.com/clear-street/studio-sdk-node/issues/99)) ([d358218](https://github.com/clear-street/studio-sdk-node/commit/d3582186300f769171c398303912e9f03577d7d3))
+* **api:** manual updates ([#101](https://github.com/clear-street/studio-sdk-node/issues/101)) ([055ea7d](https://github.com/clear-street/studio-sdk-node/commit/055ea7d9fb14f1f37dfddd040ed9763c143337f7))
+* **api:** manual updates ([#96](https://github.com/clear-street/studio-sdk-node/issues/96)) ([679e10b](https://github.com/clear-street/studio-sdk-node/commit/679e10bbdace496e21f011569c368b16bf6aee40))
+* **api:** manual updates ([#98](https://github.com/clear-street/studio-sdk-node/issues/98)) ([b80af3b](https://github.com/clear-street/studio-sdk-node/commit/b80af3bbe5266473459e8b7c3af2f9827a8c1c4e))
+
+
+### Chores
+
+* **internal:** fix devcontainers setup ([#100](https://github.com/clear-street/studio-sdk-node/issues/100)) ([9be8032](https://github.com/clear-street/studio-sdk-node/commit/9be8032898d73e090da83660293b09f4f815b020))
+
 ## 0.1.0-alpha.19 (2025-02-19)
 
 Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
