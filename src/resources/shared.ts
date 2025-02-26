@@ -476,7 +476,7 @@ export namespace Strategy {
      * For more information on these strategies, please refer to our
      * [documentation](https://docs.clearstreet.io/studio/docs/execution-strategies).
      */
-    type: 'dma';
+    type: 'sor' | 'dark' | 'ap' | 'pov' | 'twap' | 'vwap' | 'dma';
   }
 }
 
