@@ -10,7 +10,7 @@ const client = new StudioSDK({
 
 describe('resource regtMarginSimulations', () => {
   test('create: only required params', async () => {
-    const responsePromise = client.entities.regtMarginSimulations.create('x', { name: 'name' });
+    const responsePromise = client.entities.regtMarginSimulations.create('100000', { name: 'name' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,17 +21,17 @@ describe('resource regtMarginSimulations', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await client.entities.regtMarginSimulations.create('x', {
+    const response = await client.entities.regtMarginSimulations.create('100000', {
       name: 'name',
       ignore_existing: true,
-      prices: [{ price: 'x', symbol: 'AAPL', symbol_format: 'cms' }],
-      trades: [{ price: 'x', quantity: 'x', side: 'buy', symbol: 'AAPL', symbol_format: 'cms' }],
+      prices: [{ price: '123.99', symbol: 'AAPL', symbol_format: 'cms' }],
+      trades: [{ price: '123.99', quantity: '100', side: 'buy', symbol: 'AAPL', symbol_format: 'cms' }],
     });
   });
 
   test('retrieve', async () => {
     const responsePromise = client.entities.regtMarginSimulations.retrieve(
-      'x',
+      '100000',
       '6460030d-8ed4-19d3-818e-e87b36e90005',
     );
     const rawResponse = await responsePromise.asResponse();
@@ -46,7 +46,7 @@ describe('resource regtMarginSimulations', () => {
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.entities.regtMarginSimulations.retrieve('x', '6460030d-8ed4-19d3-818e-e87b36e90005', {
+      client.entities.regtMarginSimulations.retrieve('100000', '6460030d-8ed4-19d3-818e-e87b36e90005', {
         path: '/_stainless_unknown_path',
       }),
     ).rejects.toThrow(StudioSDK.NotFoundError);
