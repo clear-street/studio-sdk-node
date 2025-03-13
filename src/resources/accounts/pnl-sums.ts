@@ -53,6 +53,11 @@ export interface PnlSumListResponse {
   entity_id?: string;
 
   /**
+   * `P&L after netting all realized and unrealized P&L, adjustments, dividends, change in accruals, income and expenses`
+   */
+  net_pnl?: number;
+
+  /**
    * Sum of profit and loss from previous trading date across all symbols.
    */
   position_pnl?: number;
@@ -106,6 +111,11 @@ export namespace PnlSumListResponse {
      * Sum of profit and loss from intraday trading activities for the given date range
      */
     day_pnl?: number;
+
+    /**
+     * `P&L after netting all realized and unrealized P&L, adjustments, dividends, change in accruals, income and expenses`
+     */
+    net_pnl?: number;
 
     /**
      * Sum of profit and loss from previous trading date.
