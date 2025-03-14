@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.1.0-alpha.21 (2025-03-14)
+
+Full Changelog: [v0.1.0-alpha.20...v0.1.0-alpha.21](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.20...v0.1.0-alpha.21)
+
+### Features
+
+* add SKIP_BREW env var to ./scripts/bootstrap ([#105](https://github.com/clear-street/studio-sdk-node/issues/105)) ([26ee748](https://github.com/clear-street/studio-sdk-node/commit/26ee74858b4d2cec4c82b38c7f859380d20cd644))
+* **api:** add net pnl to pnl-sums ([#107](https://github.com/clear-street/studio-sdk-node/issues/107)) ([c389a53](https://github.com/clear-street/studio-sdk-node/commit/c389a534e92f8e2b326a27e5dc357af4a4175c07))
+* **client:** accept RFC6838 JSON content types ([#106](https://github.com/clear-street/studio-sdk-node/issues/106)) ([ae32d47](https://github.com/clear-street/studio-sdk-node/commit/ae32d47e377b885dcbeffef3d31bce5d764a8cda))
+
+
+### Bug Fixes
+
+* **exports:** ensure resource imports don't require /index ([#109](https://github.com/clear-street/studio-sdk-node/issues/109)) ([ee8f728](https://github.com/clear-street/studio-sdk-node/commit/ee8f728eccc58bc59055fa7fe13fa32c8110c535))
+
+
+### Chores
+
+* **internal:** remove extra empty newlines ([#108](https://github.com/clear-street/studio-sdk-node/issues/108)) ([eea3816](https://github.com/clear-street/studio-sdk-node/commit/eea38168b423bd10b1d9b4e71a3a3670c964d5c9))
+
+
+### Documentation
+
+* update URLs from stainlessapi.com to stainless.com ([#103](https://github.com/clear-street/studio-sdk-node/issues/103)) ([6ad1d78](https://github.com/clear-street/studio-sdk-node/commit/6ad1d780261d25d12ec912244a94057c8644d5a5))
+
 ## 0.1.0-alpha.20 (2025-02-26)
 
 Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
