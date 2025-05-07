@@ -8,6 +8,14 @@ import * as Shared from '../shared';
 export class Trades extends APIResource {
   /**
    * Get trade a trade by its unique trade ID.
+   *
+   * @example
+   * ```ts
+   * const trade = await client.accounts.trades.retrieve(
+   *   '100000',
+   *   '12390213',
+   * );
+   * ```
    */
   retrieve(accountId: string, tradeId: string, options?: Core.RequestOptions): Core.APIPromise<Shared.Trade> {
     return this._client.get(`/accounts/${accountId}/trades/${tradeId}`, options);
@@ -15,6 +23,11 @@ export class Trades extends APIResource {
 
   /**
    * List trades for a given account for the current trading day.
+   *
+   * @example
+   * ```ts
+   * const trades = await client.accounts.trades.list('100000');
+   * ```
    */
   list(
     accountId: string,

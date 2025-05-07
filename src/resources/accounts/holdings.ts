@@ -12,6 +12,13 @@ export class Holdings extends APIResource {
    * returned from the Execution API. While the Execution API returns positions based
    * on trading activity within Studio, our custodial system returns all positions
    * regardless of where trades occur.
+   *
+   * @example
+   * ```ts
+   * const holdings = await client.accounts.holdings.list(
+   *   '100000',
+   * );
+   * ```
    */
   list(
     accountId: string,

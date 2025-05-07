@@ -7,6 +7,13 @@ export class EasyBorrows extends APIResource {
   /**
    * List all current easy-to-borrow stock symbols. This list changes dynamically
    * daily.
+   *
+   * @example
+   * ```ts
+   * const easyBorrows = await client.accounts.easyBorrows.list(
+   *   '100000',
+   * );
+   * ```
    */
   list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<EasyBorrowListResponse> {
     return this._client.get(`/accounts/${accountId}/easy-borrows`, options);

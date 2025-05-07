@@ -7,6 +7,17 @@ import * as Shared from '../shared';
 export class LocateOrders extends APIResource {
   /**
    * Create locate order to borrow inventory for short-selling.
+   *
+   * @example
+   * ```ts
+   * const locateOrder =
+   *   await client.accounts.locateOrders.create('100000', {
+   *     mpid: 'x',
+   *     quantity: '100',
+   *     reference_id: 'my-order-id-123',
+   *     symbol: 'AAPL',
+   *   });
+   * ```
    */
   create(
     accountId: string,
@@ -18,6 +29,15 @@ export class LocateOrders extends APIResource {
 
   /**
    * Get locate order by its unique locate order ID.
+   *
+   * @example
+   * ```ts
+   * const locateOrder =
+   *   await client.accounts.locateOrders.retrieve(
+   *     '100000',
+   *     '12390213',
+   *   );
+   * ```
    */
   retrieve(
     accountId: string,
@@ -29,6 +49,15 @@ export class LocateOrders extends APIResource {
 
   /**
    * Accept or decline locate order that has been offered.
+   *
+   * @example
+   * ```ts
+   * await client.accounts.locateOrders.update(
+   *   '100000',
+   *   '12390213',
+   *   { accept: true },
+   * );
+   * ```
    */
   update(
     accountId: string,
@@ -45,6 +74,12 @@ export class LocateOrders extends APIResource {
 
   /**
    * List all locate orders
+   *
+   * @example
+   * ```ts
+   * const locateOrders =
+   *   await client.accounts.locateOrders.list('100000');
+   * ```
    */
   list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<LocateOrderListResponse> {
     return this._client.get(`/accounts/${accountId}/locate-orders`, options);

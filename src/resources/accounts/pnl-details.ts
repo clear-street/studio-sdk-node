@@ -6,6 +6,13 @@ import * as Core from '../../core';
 export class PnlDetails extends APIResource {
   /**
    * List PNL details for a given account.
+   *
+   * @example
+   * ```ts
+   * const pnlDetails = await client.accounts.pnlDetails.list(
+   *   '100000',
+   * );
+   * ```
    */
   list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<PnlDetailListResponse> {
     return this._client.get(`/accounts/${accountId}/pnl-details`, options);
