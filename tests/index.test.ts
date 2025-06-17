@@ -208,6 +208,31 @@ describe('instantiate client', () => {
       });
       expect(client.baseURL).toEqual('https://api.clearstreet.io/studio/v2');
     });
+
+    test('in request options', () => {
+      const client = new StudioSDK({ bearerToken: 'My Bearer Token' });
+      expect(client.buildURL('/foo', null, 'http://localhost:5000/option')).toEqual(
+        'http://localhost:5000/option/foo',
+      );
+    });
+
+    test('in request options overridden by client options', () => {
+      const client = new StudioSDK({
+        bearerToken: 'My Bearer Token',
+        baseURL: 'http://localhost:5000/client',
+      });
+      expect(client.buildURL('/foo', null, 'http://localhost:5000/option')).toEqual(
+        'http://localhost:5000/client/foo',
+      );
+    });
+
+    test('in request options overridden by env variable', () => {
+      process.env['STUDIO_SDK_BASE_URL'] = 'http://localhost:5000/env';
+      const client = new StudioSDK({ bearerToken: 'My Bearer Token' });
+      expect(client.buildURL('/foo', null, 'http://localhost:5000/option')).toEqual(
+        'http://localhost:5000/env/foo',
+      );
+    });
   });
 
   test('maxRetries option is correctly set', () => {

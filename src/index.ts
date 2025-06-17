@@ -141,6 +141,7 @@ export class StudioSDK extends Core.APIClient {
 
     super({
       baseURL: options.baseURL || environments[options.environment || 'production'],
+      baseURLOverridden: baseURL ? baseURL !== environments[options.environment || 'production'] : false,
       timeout: options.timeout ?? 60000 /* 1 minute */,
       httpAgent: options.httpAgent,
       maxRetries: options.maxRetries,
@@ -155,6 +156,13 @@ export class StudioSDK extends Core.APIClient {
   entities: API.Entities = new API.Entities(this);
   accounts: API.Accounts = new API.Accounts(this);
   instruments: API.Instruments = new API.Instruments(this);
+
+  /**
+   * Check whether the base URL is set to its default.
+   */
+  #baseURLOverridden(): boolean {
+    return this.baseURL !== environments[this._options.environment || 'production'];
+  }
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
