@@ -58,10 +58,6 @@
     "./shims/web.js",
     "./shims/web.mjs"
   ],
-  "imports": {
-    "@clear-street/studio-sdk": ".",
-    "@clear-street/studio-sdk/*": "./src/*"
-  },
   "exports": {
     "./_shims/auto/*": {
       "deno": {
