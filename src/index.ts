@@ -205,6 +205,7 @@ export class StudioSDK extends Core.APIClient {
 StudioSDK.Entities = Entities;
 StudioSDK.Accounts = Accounts;
 StudioSDK.Instruments = Instruments;
+
 export declare namespace StudioSDK {
   export type RequestOptions = Core.RequestOptions;
 
