@@ -1,5 +1,80 @@
 # Changelog
 
+## 0.1.0-alpha.22 (2025-10-10)
+
+Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)
+
+### Features
+
+* **api:** add list instruments endpoint ([714169e](https://github.com/clear-street/studio-sdk-node/commit/714169e48b531ff468a12c46e63ce47d00e76eb3))
+* **client:** add support for endpoint-specific base URLs ([38c4492](https://github.com/clear-street/studio-sdk-node/commit/38c4492f0a4504a4e489089d96d9a9ae638eaaeb))
+
+
+### Bug Fixes
+
+* **api:** improve type resolution when importing as a package ([#119](https://github.com/clear-street/studio-sdk-node/issues/119)) ([8027080](https://github.com/clear-street/studio-sdk-node/commit/8027080d0a3e8a515e6232c435725efa1aaa974e))
+* avoid type error in certain environments ([#115](https://github.com/clear-street/studio-sdk-node/issues/115)) ([440ba72](https://github.com/clear-street/studio-sdk-node/commit/440ba72ddb616bcc4098a8fad5d728dcce679554))
+* **ci:** release-doctor — report correct token name ([4217502](https://github.com/clear-street/studio-sdk-node/commit/4217502aeec911686712763a54c953c20922b3c2))
+* **client:** don't send `Content-Type` for bodyless methods ([b261832](https://github.com/clear-street/studio-sdk-node/commit/b2618322311d593fb3a478c2d6aa30a9dfacae17))
+* **client:** send `X-Stainless-Timeout` in seconds ([#117](https://github.com/clear-street/studio-sdk-node/issues/117)) ([df478a8](https://github.com/clear-street/studio-sdk-node/commit/df478a895eae015073a77410f7ed0f8d5e593262))
+* coerce nullable values to undefined ([3c536bb](https://github.com/clear-street/studio-sdk-node/commit/3c536bb8e1da794a23741d93d6e8d15d41c30758))
+* **internal:** work around https://github.com/vercel/next.js/issues/76881 ([#116](https://github.com/clear-street/studio-sdk-node/issues/116)) ([dec542c](https://github.com/clear-street/studio-sdk-node/commit/dec542ce447f50f35576e0d6d0e83c1b2442995d))
+* **mcp:** remove unused tools.ts ([#120](https://github.com/clear-street/studio-sdk-node/issues/120)) ([a7766fb](https://github.com/clear-street/studio-sdk-node/commit/a7766fb25e94f47740402dd61f853b18f691f8ed))
+* publish script — handle NPM errors correctly ([ddfeec3](https://github.com/clear-street/studio-sdk-node/commit/ddfeec33999471a5213d80eae2cb9051a3598cdd))
+
+
+### Performance Improvements
+
+* faster formatting ([2d8cf95](https://github.com/clear-street/studio-sdk-node/commit/2d8cf9528bda88f51faabf27b12a615a4eff7903))
+
+
+### Chores
+
+* ci build action ([1fcddba](https://github.com/clear-street/studio-sdk-node/commit/1fcddba9ffaa381e01a36853a3ab1a09fe285ece))
+* **ci:** add timeout thresholds for CI jobs ([a3c9f17](https://github.com/clear-street/studio-sdk-node/commit/a3c9f176462a7d162482eb16bbbae3d056a9f0db))
+* **ci:** bump node version for release workflows ([e0239fd](https://github.com/clear-street/studio-sdk-node/commit/e0239fd611ba254e2c8fd0d934478be026ef4e63))
+* **ci:** enable for pull requests ([8da1fa5](https://github.com/clear-street/studio-sdk-node/commit/8da1fa526ee20f47ecfb6d3b91ab1c0772558da7))
+* **ci:** only run for pushes and fork pull requests ([806caa2](https://github.com/clear-street/studio-sdk-node/commit/806caa25d413d49005787815ffd1b72728acf8ed))
+* **ci:** only use depot for staging repos ([8a395b6](https://github.com/clear-street/studio-sdk-node/commit/8a395b65059718cdd9070ba2bb17a46e66fe680f))
+* **client:** minor internal fixes ([80ef89e](https://github.com/clear-street/studio-sdk-node/commit/80ef89e346b59144bf301db0c5f8d11f87a302f5))
+* **deps:** update dependency node-fetch to v2.6.13 ([5eca985](https://github.com/clear-street/studio-sdk-node/commit/5eca98586af671dbbd58c3109f5f03201f55c0a6))
+* do not install brew dependencies in ./scripts/bootstrap by default ([461090d](https://github.com/clear-street/studio-sdk-node/commit/461090db7a80698a0cd6352e58045b46cbf0dc4d))
+* **docs:** grammar improvements ([4f4b88d](https://github.com/clear-street/studio-sdk-node/commit/4f4b88d7a1e4832cd2102cd8a80cb1ac62a6369c))
+* **docs:** use top-level-await in example snippets ([34b520b](https://github.com/clear-street/studio-sdk-node/commit/34b520b3a0b45554bea24b0cd5c6f7a3083dfccf))
+* **exports:** cleaner resource index imports ([#111](https://github.com/clear-street/studio-sdk-node/issues/111)) ([b501220](https://github.com/clear-street/studio-sdk-node/commit/b501220f9ac557c525e9e355400a1d537f3c1304))
+* **exports:** stop using path fallbacks ([#113](https://github.com/clear-street/studio-sdk-node/issues/113)) ([5833300](https://github.com/clear-street/studio-sdk-node/commit/583330097ba51fc533ccf3bcf10a6e0e56bfd0c3))
+* improve publish-npm script --latest tag logic ([77ae63a](https://github.com/clear-street/studio-sdk-node/commit/77ae63a5efd51870428a078e8e17aceeb4c1d912))
+* **internal:** add aliases for Record and Array ([#118](https://github.com/clear-street/studio-sdk-node/issues/118)) ([90a250a](https://github.com/clear-street/studio-sdk-node/commit/90a250ae8177482165e45dd34334d8ea45a3a037))
+* **internal:** codegen related update ([e1c9b51](https://github.com/clear-street/studio-sdk-node/commit/e1c9b518ddc2ea337778cfd12be664e81814cbfe))
+* **internal:** codegen related update ([121231c](https://github.com/clear-street/studio-sdk-node/commit/121231c120050da4d0b03c500026f298e6dbc88c))
+* **internal:** fix incremental formatting in some cases ([7c629ac](https://github.com/clear-street/studio-sdk-node/commit/7c629ac9bed3f18c6923f87e3c59d31220fe11d6))
+* **internal:** formatting change ([545b22a](https://github.com/clear-street/studio-sdk-node/commit/545b22ae3498e05592512b4b96bb5d527f1479a7))
+* **internal:** ignore .eslintcache ([80b0f4c](https://github.com/clear-street/studio-sdk-node/commit/80b0f4c0929dcbfbd2db66c161681d8575c2f2be))
+* **internal:** make base APIResource abstract ([53c05c3](https://github.com/clear-street/studio-sdk-node/commit/53c05c3b8691d1d97641febe0bee2137f42e9833))
+* **internal:** move publish config ([7b4aa51](https://github.com/clear-street/studio-sdk-node/commit/7b4aa51b79e4134db85dafed2a85c26a4230738e))
+* **internal:** reduce CI branch coverage ([6be6d25](https://github.com/clear-street/studio-sdk-node/commit/6be6d25646710e51ec2527c88175fb5d3b7a8dc8))
+* **internal:** remove .eslintcache ([331f724](https://github.com/clear-street/studio-sdk-node/commit/331f724c2fc1529c5e40503c6d0b891e6a45fbb2))
+* **internal:** remove deprecated `compilerOptions.baseUrl` from tsconfig.json ([7c28822](https://github.com/clear-street/studio-sdk-node/commit/7c288220d3e6b28f0fba8bf7a6f6c5d1886dafcc))
+* **internal:** remove redundant imports config ([ebf7beb](https://github.com/clear-street/studio-sdk-node/commit/ebf7beb85756d33a297e45e0001bf1536cd02f85))
+* **internal:** update comment in script ([70a9e08](https://github.com/clear-street/studio-sdk-node/commit/70a9e0855768aa7ff522c83b36e5ee445a81ea8a))
+* **internal:** upload builds and expand CI branch coverage ([d068a7f](https://github.com/clear-street/studio-sdk-node/commit/d068a7fbacdf693f58fdd446bf47a814244ec598))
+* **internal:** use npm pack for build uploads ([9a49351](https://github.com/clear-street/studio-sdk-node/commit/9a4935156ccbac33ce1cdbffa4ea6382a69ab79c))
+* make some internal functions async ([1c5f371](https://github.com/clear-street/studio-sdk-node/commit/1c5f371aef78eb1b57b8e2c8bcdd0eb9869e08d2))
+* mention unit type in timeout docs ([8fff549](https://github.com/clear-street/studio-sdk-node/commit/8fff549abe57caaf5e71c215cdb716e6bea6cc20))
+* update @stainless-api/prism-cli to v5.15.0 ([1bfbb70](https://github.com/clear-street/studio-sdk-node/commit/1bfbb70e50403ad231f0c7aca8221b725ec040b5))
+* update CI script ([b974c79](https://github.com/clear-street/studio-sdk-node/commit/b974c79d56e1d10c12127110b3a236ecc53a8f28))
+
+
+### Documentation
+
+* add examples to tsdocs ([7ecdece](https://github.com/clear-street/studio-sdk-node/commit/7ecdece7fab0f3c7e86fa95c1f3d0eb6e2d712d4))
+* **readme:** fix typo ([72dc4bd](https://github.com/clear-street/studio-sdk-node/commit/72dc4bd05976ecd17589bd7b55c6c4bc19e7b80b))
+
+
+### Refactors
+
+* **types:** replace Record with mapped types ([b0fa935](https://github.com/clear-street/studio-sdk-node/commit/b0fa935f8f1179cdc6b5a7d2738cd79a2b0fd2f4))
+
 ## 0.1.0-alpha.21 (2025-03-14)
 
 Full Changelog: [v0.1.0-alpha.20...v0.1.0-alpha.21](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.20...v0.1.0-alpha.21)
