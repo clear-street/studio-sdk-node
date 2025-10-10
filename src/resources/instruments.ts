@@ -24,6 +24,13 @@ export class Instruments extends APIResource {
     }
     return this._client.get(`/instruments/${symbol}`, { query, ...options });
   }
+
+  /**
+   * List all available instruments.
+   */
+  list(options?: Core.RequestOptions): Core.APIPromise<InstrumentListResponse> {
+    return this._client.get('/instruments', options);
+  }
 }
 
 export interface Instrument {
@@ -56,6 +63,10 @@ export namespace Instrument {
   }
 }
 
+export interface InstrumentListResponse {
+  data?: Array<Instrument>;
+}
+
 export interface InstrumentRetrieveParams {
   /**
    * The format of the provided symbol.
@@ -64,5 +75,9 @@ export interface InstrumentRetrieveParams {
 }
 
 export declare namespace Instruments {
-  export { type Instrument as Instrument, type InstrumentRetrieveParams as InstrumentRetrieveParams };
+  export {
+    type Instrument as Instrument,
+    type InstrumentListResponse as InstrumentListResponse,
+    type InstrumentRetrieveParams as InstrumentRetrieveParams,
+  };
 }

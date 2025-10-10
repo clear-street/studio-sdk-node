@@ -5,7 +5,12 @@ import * as Core from './core';
 import * as Errors from './error';
 import * as Uploads from './uploads';
 import * as API from './resources/index';
-import { Instrument, InstrumentRetrieveParams, Instruments } from './resources/instruments';
+import {
+  Instrument,
+  InstrumentListResponse,
+  InstrumentRetrieveParams,
+  Instruments,
+} from './resources/instruments';
 import { Account, AccountListResponse, Accounts } from './resources/accounts/accounts';
 import {
   Entities,
@@ -223,6 +228,7 @@ export declare namespace StudioSDK {
   export {
     Instruments as Instruments,
     type Instrument as Instrument,
+    type InstrumentListResponse as InstrumentListResponse,
     type InstrumentRetrieveParams as InstrumentRetrieveParams,
   };
 
