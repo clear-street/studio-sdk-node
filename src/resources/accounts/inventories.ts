@@ -6,6 +6,15 @@ import * as Core from '../../core';
 export class Inventories extends APIResource {
   /**
    * Get located inventory for a symbol.
+   *
+   * @example
+   * ```ts
+   * const inventory =
+   *   await client.accounts.inventories.retrieve(
+   *     '100000',
+   *     'AAPL',
+   *   );
+   * ```
    */
   retrieve(
     accountId: string,

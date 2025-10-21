@@ -19,6 +19,24 @@ export class BulkOrders extends APIResource {
    * the orders you provided in the request. Again, note that even if your order was
    * submitted, that doesn't mean it was _accepted_, and may still be rejected by
    * downstream venues.
+   *
+   * @example
+   * ```ts
+   * const bulkOrder = await client.accounts.bulkOrders.create(
+   *   '100000',
+   *   {
+   *     orders: [
+   *       {
+   *         order_type: 'limit',
+   *         quantity: '100',
+   *         side: 'buy',
+   *         symbol: 'AAPL',
+   *         time_in_force: 'day',
+   *       },
+   *     ],
+   *   },
+   * );
+   * ```
    */
   create(
     accountId: string,

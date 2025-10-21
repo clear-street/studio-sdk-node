@@ -11,6 +11,20 @@ export class Orders extends APIResource {
    * successful call to this endpoint does not necessarily mean your order has been
    * accepted, e.g. a downstream venue might reject your order. You should therefore
    * utilize our WebSocket APIs to listen for changes in order lifecycle events.
+   *
+   * @example
+   * ```ts
+   * const order = await client.accounts.orders.create(
+   *   '100000',
+   *   {
+   *     order_type: 'limit',
+   *     quantity: '100',
+   *     side: 'buy',
+   *     symbol: 'AAPL',
+   *     time_in_force: 'day',
+   *   },
+   * );
+   * ```
    */
   create(
     accountId: string,
@@ -22,6 +36,14 @@ export class Orders extends APIResource {
 
   /**
    * Get an order that was previously created.
+   *
+   * @example
+   * ```ts
+   * const order = await client.accounts.orders.retrieve(
+   *   '100000',
+   *   '12390213',
+   * );
+   * ```
    */
   retrieve(
     accountId: string,
@@ -34,6 +56,11 @@ export class Orders extends APIResource {
   /**
    * List orders for a given account for the current trading day, filtered on the
    * given query parameters.
+   *
+   * @example
+   * ```ts
+   * const orders = await client.accounts.orders.list('100000');
+   * ```
    */
   list(
     accountId: string,
@@ -55,6 +82,11 @@ export class Orders extends APIResource {
   /**
    * Attempts to cancel all open orders for a given account. Cancelling an order
    * cannot be guaranteed as there might be in-flight executions.
+   *
+   * @example
+   * ```ts
+   * const order = await client.accounts.orders.delete('100000');
+   * ```
    */
   delete(
     accountId: string,
@@ -80,6 +112,11 @@ export class Orders extends APIResource {
   /**
    * Attempts to cancel an existing order. Cancelling an order cannot be guaranteed
    * as there might be in-flight executions.
+   *
+   * @example
+   * ```ts
+   * await client.accounts.orders.cancel('100000', '12390213');
+   * ```
    */
   cancel(accountId: string, orderId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
     return this._client.delete(`/accounts/${accountId}/orders/${orderId}`, {
@@ -91,6 +128,13 @@ export class Orders extends APIResource {
   /**
    * Attempts to update an existing order. This can be used to update a subset of an
    * order's attributes, for example price and quantity.
+   *
+   * @example
+   * ```ts
+   * await client.accounts.orders.patch('100000', '12390213', {
+   *   quantity: '100',
+   * });
+   * ```
    */
   patch(
     accountId: string,

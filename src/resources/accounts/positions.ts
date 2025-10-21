@@ -8,6 +8,14 @@ import * as Shared from '../shared';
 export class Positions extends APIResource {
   /**
    * Get current position for a given account for a given symbol.
+   *
+   * @example
+   * ```ts
+   * const position = await client.accounts.positions.retrieve(
+   *   '100000',
+   *   'AAPL',
+   * );
+   * ```
    */
   retrieve(
     accountId: string,
@@ -19,6 +27,13 @@ export class Positions extends APIResource {
 
   /**
    * List current positions for a given account.
+   *
+   * @example
+   * ```ts
+   * const positions = await client.accounts.positions.list(
+   *   '100000',
+   * );
+   * ```
    */
   list(
     accountId: string,

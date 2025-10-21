@@ -16,7 +16,7 @@ export interface BaseStrategy {
   end_at?: number;
 
   /**
-   * The timestamp to start routing, defaults to now.
+   * The timestamp to start routing.
    */
   start_at?: number;
 

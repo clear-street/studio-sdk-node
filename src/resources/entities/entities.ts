@@ -341,7 +341,7 @@ export namespace PortfolioMargin {
     /**
      * Maps shock scenarios to their resulting pnl.
      */
-    shocks?: Record<string, number>;
+    shocks?: { [key: string]: number };
 
     /**
      * Margin requirements based on value-at-risk over any 5-day period in a 2 year
@@ -377,7 +377,7 @@ export namespace PortfolioMargin {
       /**
        * Maps shock scenarios to their resulting pnl.
        */
-      shocks?: Record<string, number>;
+      shocks?: { [key: string]: number };
 
       /**
        * The symbol for the instrument.

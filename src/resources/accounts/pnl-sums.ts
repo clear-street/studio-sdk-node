@@ -7,6 +7,14 @@ export class PnlSums extends APIResource {
   /**
    * List historical PNL summations for a given account over a given date range,
    * filtered on the given query parameters.
+   *
+   * @example
+   * ```ts
+   * const pnlSums = await client.accounts.pnlSums.list(
+   *   '100000',
+   *   { ending_date: 20240101, starting_date: 20240101 },
+   * );
+   * ```
    */
   list(
     accountId: string,

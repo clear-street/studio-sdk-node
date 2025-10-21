@@ -2,7 +2,7 @@
 
 import type { StudioSDK } from './index';
 
-export class APIResource {
+export abstract class APIResource {
   protected _client: StudioSDK;
 
   constructor(client: StudioSDK) {

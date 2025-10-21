@@ -5,7 +5,12 @@ import * as Core from './core';
 import * as Errors from './error';
 import * as Uploads from './uploads';
 import * as API from './resources/index';
-import { Instrument, InstrumentRetrieveParams, Instruments } from './resources/instruments';
+import {
+  Instrument,
+  InstrumentListResponse,
+  InstrumentRetrieveParams,
+  Instruments,
+} from './resources/instruments';
 import { Account, AccountListResponse, Accounts } from './resources/accounts/accounts';
 import {
   Entities,
@@ -50,6 +55,8 @@ export interface ClientOptions {
    *
    * Note that request timeouts are retried by default, so in a worst-case scenario you may wait
    * much longer than this timeout before the promise succeeds or fails.
+   *
+   * @unit milliseconds
    */
   timeout?: number | undefined;
 
@@ -141,6 +148,7 @@ export class StudioSDK extends Core.APIClient {
 
     super({
       baseURL: options.baseURL || environments[options.environment || 'production'],
+      baseURLOverridden: baseURL ? baseURL !== environments[options.environment || 'production'] : false,
       timeout: options.timeout ?? 60000 /* 1 minute */,
       httpAgent: options.httpAgent,
       maxRetries: options.maxRetries,
@@ -155,6 +163,13 @@ export class StudioSDK extends Core.APIClient {
   entities: API.Entities = new API.Entities(this);
   accounts: API.Accounts = new API.Accounts(this);
   instruments: API.Instruments = new API.Instruments(this);
+
+  /**
+   * Check whether the base URL is set to its default.
+   */
+  #baseURLOverridden(): boolean {
+    return this.baseURL !== environments[this._options.environment || 'production'];
+  }
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -195,6 +210,7 @@ export class StudioSDK extends Core.APIClient {
 StudioSDK.Entities = Entities;
 StudioSDK.Accounts = Accounts;
 StudioSDK.Instruments = Instruments;
+
 export declare namespace StudioSDK {
   export type RequestOptions = Core.RequestOptions;
 
@@ -212,6 +228,7 @@ export declare namespace StudioSDK {
   export {
     Instruments as Instruments,
     type Instrument as Instrument,
+    type InstrumentListResponse as InstrumentListResponse,
     type InstrumentRetrieveParams as InstrumentRetrieveParams,
   };
 

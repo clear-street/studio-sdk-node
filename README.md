@@ -27,13 +27,9 @@ const client = new StudioSDK({
   environment: 'sandbox', // defaults to 'production'
 });
 
-async function main() {
-  const entity = await client.entities.retrieve('<your_entity_id>');
+const entity = await client.entities.retrieve('<your_entity_id>');
 
-  console.log(entity.entity_id);
-}
-
-main();
+console.log(entity.entity_id);
 ```
 
 ### Request & Response types
@@ -49,11 +45,7 @@ const client = new StudioSDK({
   environment: 'sandbox', // defaults to 'production'
 });
 
-async function main() {
-  const entity: StudioSDK.Entity = await client.entities.retrieve('<your_entity_id>');
-}
-
-main();
+const entity: StudioSDK.Entity = await client.entities.retrieve('<your_entity_id>');
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -66,22 +58,18 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const entity = await client.entities.retrieve('<your_entity_id>').catch(async (err) => {
-    if (err instanceof StudioSDK.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
-}
-
-main();
+const entity = await client.entities.retrieve('<your_entity_id>').catch(async (err) => {
+  if (err instanceof StudioSDK.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
-Error codes are as followed:
+Error codes are as follows:
 
 | Status Code | Error Type                 |
 | ----------- | -------------------------- |

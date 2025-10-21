@@ -55,6 +55,11 @@ export class Accounts extends APIResource {
 
   /**
    * Get an account by its ID or number.
+   *
+   * @example
+   * ```ts
+   * const account = await client.accounts.retrieve('100000');
+   * ```
    */
   retrieve(accountId: string, options?: Core.RequestOptions): Core.APIPromise<Account> {
     return this._client.get(`/accounts/${accountId}`, options);
@@ -62,6 +67,11 @@ export class Accounts extends APIResource {
 
   /**
    * List all available accounts.
+   *
+   * @example
+   * ```ts
+   * const accounts = await client.accounts.list();
+   * ```
    */
   list(options?: Core.RequestOptions): Core.APIPromise<AccountListResponse> {
     return this._client.get('/accounts', options);

@@ -10,4 +10,9 @@ export {
   type RegtMargin,
   type EntityListResponse,
 } from './entities/entities';
-export { Instruments, type Instrument, type InstrumentRetrieveParams } from './instruments';
+export {
+  Instruments,
+  type Instrument,
+  type InstrumentListResponse,
+  type InstrumentRetrieveParams,
+} from './instruments';

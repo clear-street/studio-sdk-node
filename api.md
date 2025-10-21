@@ -195,7 +195,9 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/instruments.ts">Instrument</a></code>
+- <code><a href="./src/resources/instruments.ts">InstrumentListResponse</a></code>
 
 Methods:
 
 - <code title="get /instruments/{symbol}">client.instruments.<a href="./src/resources/instruments.ts">retrieve</a>(symbol, { ...params }) -> Instrument</code>
+- <code title="get /instruments">client.instruments.<a href="./src/resources/instruments.ts">list</a>() -> InstrumentListResponse</code>
