@@ -140,7 +140,9 @@ const response = await client.entities.retrieve('<your_entity_id>').asResponse()
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: entity, response: raw } = await client.entities.retrieve('<your_entity_id>').withResponse();
+const { data: entity, response: raw } = await client.entities
+  .retrieve('<your_entity_id>')
+  .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(entity.entity_id);
 ```

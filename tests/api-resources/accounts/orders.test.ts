@@ -37,7 +37,12 @@ describe('resource orders', () => {
       price: '123.99',
       reference_id: 'my-order-id-123',
       stop_price: '123.99',
-      strategy: { type: 'sor', end_at: 1710613560668, start_at: 1710613560668, urgency: 'super-passive' },
+      strategy: {
+        type: 'sor',
+        end_at: 1710613560668,
+        start_at: 1710613560668,
+        urgency: 'super-passive',
+      },
       symbol_format: 'cms',
     });
   });
@@ -83,7 +88,12 @@ describe('resource orders', () => {
     await expect(
       client.accounts.orders.list(
         '100000',
-        { from: 1710613560668, page_size: 1, page_token: 'page_token', to: 1710613560668 },
+        {
+          from: 1710613560668,
+          page_size: 1,
+          page_token: 'page_token',
+          to: 1710613560668,
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(StudioSDK.NotFoundError);
