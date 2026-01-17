@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.1.0-alpha.23 (2026-01-17)
+
+Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)
+
+### Bug Fixes
+
+* **mcp:** correct code tool API endpoint ([d4bd6f5](https://github.com/clear-street/studio-sdk-node/commit/d4bd6f55542cf529d936a96e43bd61744699ced7))
+* **mcp:** return correct lines on typescript errors ([0c0ef68](https://github.com/clear-street/studio-sdk-node/commit/0c0ef68e2dd4ff18d59763046fe274db2074e6da))
+
+
+### Chores
+
+* break long lines in snippets into multiline ([27f92ea](https://github.com/clear-street/studio-sdk-node/commit/27f92ead8432e5a1e4b05d8102aec9490d866239))
+* **internal:** codegen related update ([67cff3d](https://github.com/clear-street/studio-sdk-node/commit/67cff3deee16bf96bf265884c710a7c94185dca2))
+* **internal:** codegen related update ([1863ee0](https://github.com/clear-street/studio-sdk-node/commit/1863ee0ced1a16b923aa7f2714709ab09b813db4))
+* **internal:** codegen related update ([62b3132](https://github.com/clear-street/studio-sdk-node/commit/62b3132c74cf68b47f21e7db27b279da29c14e18))
+* **internal:** update `actions/checkout` version ([ad458b4](https://github.com/clear-street/studio-sdk-node/commit/ad458b4ae779e6bbc52c3f3927b1418fd44438dc))
+* **internal:** upgrade babel, qs, js-yaml ([4ee1a8d](https://github.com/clear-street/studio-sdk-node/commit/4ee1a8d47f2d4a8a4359bfece4721756c9484e85))
+
 ## 0.1.0-alpha.22 (2025-10-10)
 
 Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)
