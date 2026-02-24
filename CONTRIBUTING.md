@@ -60,7 +60,7 @@ $ yarn link @clear-street/studio-sdk
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global @clear-street/studio-sdk
+$ pnpm link --global @clear-street/studio-sdk
 ```
 
 ## Running tests
