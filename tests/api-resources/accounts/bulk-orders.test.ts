@@ -40,7 +40,7 @@ describe('resource bulkOrders', () => {
           symbol: 'AAPL',
           time_in_force: 'day',
           locate_broker: 'x',
-          open_close_indicator: {},
+          open_close_indicator: 'open',
           price: '123.99',
           reference_id: 'my-order-id-123',
           stop_price: '123.99',
