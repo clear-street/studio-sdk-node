@@ -24,8 +24,22 @@ describe('resource regtMarginSimulations', () => {
     const response = await client.entities.regtMarginSimulations.create('100000', {
       name: 'name',
       ignore_existing: true,
-      prices: [{ price: '123.99', symbol: 'AAPL', symbol_format: 'cms' }],
-      trades: [{ price: '123.99', quantity: '100', side: 'buy', symbol: 'AAPL', symbol_format: 'cms' }],
+      prices: [
+        {
+          price: '123.99',
+          symbol: 'AAPL',
+          symbol_format: 'cms',
+        },
+      ],
+      trades: [
+        {
+          price: '123.99',
+          quantity: '100',
+          side: 'buy',
+          symbol: 'AAPL',
+          symbol_format: 'cms',
+        },
+      ],
     });
   });
 

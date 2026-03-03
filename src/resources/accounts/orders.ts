@@ -227,6 +227,11 @@ export interface OrderCreateParams {
   locate_broker?: string;
 
   /**
+   * Open/Close indicator for option orders.
+   */
+  open_close_indicator?: 'open' | 'close';
+
+  /**
    * The price to execute at-or-better for limit orders.
    */
   price?: string;

@@ -234,9 +234,14 @@ export interface Order {
   average_price?: number;
 
   /**
+   * Open/Close indicator for option orders.
+   */
+  open_close_indicator?: 'open' | 'close';
+
+  /**
    * The last reason why this order was updated
    */
-  order_update_reason?: 'place' | 'modify' | 'cancel' | 'execution-report' | 'cancel-reject';
+  order_update_reason?: 'place' | 'modify' | 'cancel' | 'execution-report' | 'cancel-reject' | 'reject';
 
   /**
    * The requested limit price on this order.
