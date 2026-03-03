@@ -236,7 +236,7 @@ export interface Order {
   /**
    * Open/Close indicator for option orders.
    */
-  open_close_indicator?: 'open' | 'close';
+  open_close_indicator?: unknown;
 
   /**
    * The last reason why this order was updated

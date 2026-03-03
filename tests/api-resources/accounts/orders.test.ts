@@ -34,7 +34,7 @@ describe('resource orders', () => {
       symbol: 'AAPL',
       time_in_force: 'day',
       locate_broker: 'x',
-      open_close_indicator: 'open',
+      open_close_indicator: {},
       price: '123.99',
       reference_id: 'my-order-id-123',
       stop_price: '123.99',

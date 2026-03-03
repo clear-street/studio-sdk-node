@@ -147,7 +147,7 @@ export namespace BulkOrderCreateParams {
     /**
      * Open/Close indicator for option orders.
      */
-    open_close_indicator?: 'open' | 'close';
+    open_close_indicator?: unknown;
 
     /**
      * The price to execute at-or-better for limit orders.
