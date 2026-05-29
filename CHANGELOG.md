@@ -1,5 +1,45 @@
 # Changelog
 
+## 0.1.0-alpha.24 (2026-05-13)
+
+Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
+
+### Features
+
+* **api:** manual updates ([3db676a](https://github.com/clear-street/studio-sdk-node/commit/3db676a6c538b363d7ee14de0db1c9a7786b063f))
+* **api:** version update ([46eefc0](https://github.com/clear-street/studio-sdk-node/commit/46eefc09c1f8109a50f27d676feb5665a3cd2ba9))
+* support setting headers via env ([74b20cb](https://github.com/clear-street/studio-sdk-node/commit/74b20cb331cd6f3cc33f510d6b08a27d81343781))
+
+
+### Bug Fixes
+
+* **client:** preserve URL params already embedded in path ([fb81a53](https://github.com/clear-street/studio-sdk-node/commit/fb81a53dd865209bd0a1bbb2e07328af984365a4))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([77978fa](https://github.com/clear-street/studio-sdk-node/commit/77978fad0d85285b3b06c0e205f32e8e04b331d8))
+* **ci:** skip uploading artifacts on stainless-internal branches ([8432284](https://github.com/clear-street/studio-sdk-node/commit/84322844f805f92fdc4cf24724f4855cc9058abb))
+* **internal:** codegen related update ([042a054](https://github.com/clear-street/studio-sdk-node/commit/042a054be8918e74fc1607bb64d141916ed05acd))
+* **internal:** codegen related update ([12f1cce](https://github.com/clear-street/studio-sdk-node/commit/12f1cce66d8743e0400a5e20d3db22950bb8e64f))
+* **internal:** more robust bootstrap script ([6cf4343](https://github.com/clear-street/studio-sdk-node/commit/6cf43433f18d1168b554c5da68d7057f80596c43))
+* **internal:** tweak CI branches ([750d163](https://github.com/clear-street/studio-sdk-node/commit/750d163a7d07f09ee0085d42718791929b605847))
+* **internal:** update gitignore ([ba5a3cf](https://github.com/clear-street/studio-sdk-node/commit/ba5a3cfa56e3d5f0a03272f69c4dcf29206cda3a))
+* **internal:** update multipart form array serialization ([2678e95](https://github.com/clear-street/studio-sdk-node/commit/2678e9551a56ada486668a5f41c7cff435e8ef2c))
+* **test:** do not count install time for mock server timeout ([806a5a9](https://github.com/clear-street/studio-sdk-node/commit/806a5a987f1806a2b359f31c301649a4b98cb879))
+* **tests:** bump steady to v0.19.4 ([f2208e8](https://github.com/clear-street/studio-sdk-node/commit/f2208e87bea6d5a2e285e916d34407cb3aefca02))
+* **tests:** bump steady to v0.19.5 ([c1f5cb1](https://github.com/clear-street/studio-sdk-node/commit/c1f5cb183c9f672147d1f157c241ffc698e1d9f2))
+* **tests:** bump steady to v0.19.6 ([2d09683](https://github.com/clear-street/studio-sdk-node/commit/2d096832d4eee8ba8f6c1b3e2ef5b0fef4967408))
+* **tests:** bump steady to v0.19.7 ([b99d435](https://github.com/clear-street/studio-sdk-node/commit/b99d43516eef9f3e986d3009520baeb3fc5481a7))
+* **tests:** bump steady to v0.20.1 ([3235a54](https://github.com/clear-street/studio-sdk-node/commit/3235a54a5b8c67d4f8cea24e741089c90bf4155a))
+* **tests:** bump steady to v0.20.2 ([92745eb](https://github.com/clear-street/studio-sdk-node/commit/92745eb66d89abab26413abf5be1a025639318e1))
+* **tests:** bump steady to v0.22.1 ([c126e4d](https://github.com/clear-street/studio-sdk-node/commit/c126e4d56bb2ef1f911a2791905233f2f9592af4))
+
+
+### Refactors
+
+* **tests:** switch from prism to steady ([8ea8c43](https://github.com/clear-street/studio-sdk-node/commit/8ea8c43e92c75c6876a37e5dbd59b7a422b7c54f))
+
 ## 0.1.0-alpha.23 (2026-03-03)
 
 Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)
