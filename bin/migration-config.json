@@ -1,6 +1,6 @@
 {
   "pkg": "@clear-street/studio-sdk",
-  "githubRepo": "https://github.com/stainless-sdks/studio-sdk-typescript",
+  "githubRepo": "https://github.com/clear-street/studio-sdk-node",
   "clientClass": "StudioSDK",
   "methods": [
     {
