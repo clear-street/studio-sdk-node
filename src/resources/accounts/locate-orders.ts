@@ -1,8 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
+import { APIPromise } from '../../core/api-promise';
+import { buildHeaders } from '../../internal/headers';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class LocateOrders extends APIResource {
   /**
@@ -20,11 +23,11 @@ export class LocateOrders extends APIResource {
    * ```
    */
   create(
-    accountId: string,
+    accountID: string,
     body: LocateOrderCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.LocateOrder> {
-    return this._client.post(`/accounts/${accountId}/locate-orders`, { body, ...options });
+    options?: RequestOptions,
+  ): APIPromise<Shared.LocateOrder> {
+    return this._client.post(path`/accounts/${accountID}/locate-orders`, { body, ...options });
   }
 
   /**
@@ -33,18 +36,18 @@ export class LocateOrders extends APIResource {
    * @example
    * ```ts
    * const locateOrder =
-   *   await client.accounts.locateOrders.retrieve(
-   *     '100000',
-   *     '12390213',
-   *   );
+   *   await client.accounts.locateOrders.retrieve('12390213', {
+   *     account_id: '100000',
+   *   });
    * ```
    */
   retrieve(
-    accountId: string,
-    locateOrderId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.LocateOrder> {
-    return this._client.get(`/accounts/${accountId}/locate-orders/${locateOrderId}`, options);
+    locateOrderID: string,
+    params: LocateOrderRetrieveParams,
+    options?: RequestOptions,
+  ): APIPromise<Shared.LocateOrder> {
+    const { account_id } = params;
+    return this._client.get(path`/accounts/${account_id}/locate-orders/${locateOrderID}`, options);
   }
 
   /**
@@ -52,23 +55,18 @@ export class LocateOrders extends APIResource {
    *
    * @example
    * ```ts
-   * await client.accounts.locateOrders.update(
-   *   '100000',
-   *   '12390213',
-   *   { accept: true },
-   * );
+   * await client.accounts.locateOrders.update('12390213', {
+   *   account_id: '100000',
+   *   accept: true,
+   * });
    * ```
    */
-  update(
-    accountId: string,
-    locateOrderId: string,
-    body: LocateOrderUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<void> {
-    return this._client.patch(`/accounts/${accountId}/locate-orders/${locateOrderId}`, {
+  update(locateOrderID: string, params: LocateOrderUpdateParams, options?: RequestOptions): APIPromise<void> {
+    const { account_id, ...body } = params;
+    return this._client.patch(path`/accounts/${account_id}/locate-orders/${locateOrderID}`, {
       body,
       ...options,
-      headers: { Accept: '*/*', ...options?.headers },
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
     });
   }
 
@@ -81,8 +79,8 @@ export class LocateOrders extends APIResource {
    *   await client.accounts.locateOrders.list('100000');
    * ```
    */
-  list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<LocateOrderListResponse> {
-    return this._client.get(`/accounts/${accountId}/locate-orders`, options);
+  list(accountID: string, options?: RequestOptions): APIPromise<LocateOrderListResponse> {
+    return this._client.get(path`/accounts/${accountID}/locate-orders`, options);
   }
 }
 
@@ -114,9 +112,21 @@ export interface LocateOrderCreateParams {
   comments?: string;
 }
 
+export interface LocateOrderRetrieveParams {
+  /**
+   * The account ID or account number to get the locate order for.
+   */
+  account_id: string;
+}
+
 export interface LocateOrderUpdateParams {
   /**
-   * Accept or decline the locate order.
+   * Path param: The account ID or account number to update the locate order for.
+   */
+  account_id: string;
+
+  /**
+   * Body param: Accept or decline the locate order.
    */
   accept: boolean;
 }
@@ -125,6 +135,7 @@ export declare namespace LocateOrders {
   export {
     type LocateOrderListResponse as LocateOrderListResponse,
     type LocateOrderCreateParams as LocateOrderCreateParams,
+    type LocateOrderRetrieveParams as LocateOrderRetrieveParams,
     type LocateOrderUpdateParams as LocateOrderUpdateParams,
   };
 }

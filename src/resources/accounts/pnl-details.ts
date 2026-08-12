@@ -1,7 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class PnlDetails extends APIResource {
   /**
@@ -14,8 +16,8 @@ export class PnlDetails extends APIResource {
    * );
    * ```
    */
-  list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<PnlDetailListResponse> {
-    return this._client.get(`/accounts/${accountId}/pnl-details`, options);
+  list(accountID: string, options?: RequestOptions): APIPromise<PnlDetailListResponse> {
+    return this._client.get(path`/accounts/${accountID}/pnl-details`, options);
   }
 }
 

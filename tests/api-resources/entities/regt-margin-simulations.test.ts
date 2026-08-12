@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import StudioSDK from '@clear-street/studio-sdk';
-import { Response } from 'node-fetch';
 
 const client = new StudioSDK({
   bearerToken: 'My Bearer Token',
@@ -43,10 +42,10 @@ describe('resource regtMarginSimulations', () => {
     });
   });
 
-  test('retrieve', async () => {
+  test('retrieve: only required params', async () => {
     const responsePromise = client.entities.regtMarginSimulations.retrieve(
-      '100000',
       '6460030d-8ed4-19d3-818e-e87b36e90005',
+      { entity_id: '100000' },
     );
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -57,12 +56,10 @@ describe('resource regtMarginSimulations', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('retrieve: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.entities.regtMarginSimulations.retrieve('100000', '6460030d-8ed4-19d3-818e-e87b36e90005', {
-        path: '/_stainless_unknown_path',
-      }),
-    ).rejects.toThrow(StudioSDK.NotFoundError);
+  test('retrieve: required and optional params', async () => {
+    const response = await client.entities.regtMarginSimulations.retrieve(
+      '6460030d-8ed4-19d3-818e-e87b36e90005',
+      { entity_id: '100000' },
+    );
   });
 });

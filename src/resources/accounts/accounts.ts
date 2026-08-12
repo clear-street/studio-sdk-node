@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as BulkOrdersAPI from './bulk-orders';
 import { BulkOrderCreateParams, BulkOrderCreateResponse, BulkOrders } from './bulk-orders';
 import * as EasyBorrowsAPI from './easy-borrows';
@@ -9,16 +8,18 @@ import { EasyBorrowListResponse, EasyBorrows } from './easy-borrows';
 import * as HoldingsAPI from './holdings';
 import { HoldingListParams, HoldingListResponse, Holdings } from './holdings';
 import * as InventoriesAPI from './inventories';
-import { Inventories, InventoryRetrieveResponse } from './inventories';
+import { Inventories, InventoryRetrieveParams, InventoryRetrieveResponse } from './inventories';
 import * as LocateOrdersAPI from './locate-orders';
 import {
   LocateOrderCreateParams,
   LocateOrderListResponse,
+  LocateOrderRetrieveParams,
   LocateOrderUpdateParams,
   LocateOrders,
 } from './locate-orders';
 import * as OrdersAPI from './orders';
 import {
+  OrderCancelParams,
   OrderCreateParams,
   OrderCreateResponse,
   OrderDeleteParams,
@@ -26,6 +27,7 @@ import {
   OrderListParams,
   OrderListResponse,
   OrderPatchParams,
+  OrderRetrieveParams,
   OrderRetrieveResponse,
   Orders,
 } from './orders';
@@ -36,9 +38,12 @@ import { PnlSummary, PnlSummaryRetrieveResponse } from './pnl-summary';
 import * as PnlSumsAPI from './pnl-sums';
 import { PnlSumListParams, PnlSumListResponse, PnlSums } from './pnl-sums';
 import * as PositionsAPI from './positions';
-import { PositionListParams, PositionListResponse, Positions } from './positions';
+import { PositionListParams, PositionListResponse, PositionRetrieveParams, Positions } from './positions';
 import * as TradesAPI from './trades';
-import { TradeListParams, TradeListResponse, Trades } from './trades';
+import { TradeListParams, TradeListResponse, TradeRetrieveParams, Trades } from './trades';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class Accounts extends APIResource {
   bulkOrders: BulkOrdersAPI.BulkOrders = new BulkOrdersAPI.BulkOrders(this._client);
@@ -61,8 +66,8 @@ export class Accounts extends APIResource {
    * const account = await client.accounts.retrieve('100000');
    * ```
    */
-  retrieve(accountId: string, options?: Core.RequestOptions): Core.APIPromise<Account> {
-    return this._client.get(`/accounts/${accountId}`, options);
+  retrieve(accountID: string, options?: RequestOptions): APIPromise<Account> {
+    return this._client.get(path`/accounts/${accountID}`, options);
   }
 
   /**
@@ -73,7 +78,7 @@ export class Accounts extends APIResource {
    * const accounts = await client.accounts.list();
    * ```
    */
-  list(options?: Core.RequestOptions): Core.APIPromise<AccountListResponse> {
+  list(options?: RequestOptions): APIPromise<AccountListResponse> {
     return this._client.get('/accounts', options);
   }
 }
@@ -129,20 +134,24 @@ export declare namespace Accounts {
     type OrderListResponse as OrderListResponse,
     type OrderDeleteResponse as OrderDeleteResponse,
     type OrderCreateParams as OrderCreateParams,
+    type OrderRetrieveParams as OrderRetrieveParams,
     type OrderListParams as OrderListParams,
     type OrderDeleteParams as OrderDeleteParams,
+    type OrderCancelParams as OrderCancelParams,
     type OrderPatchParams as OrderPatchParams,
   };
 
   export {
     Trades as Trades,
     type TradeListResponse as TradeListResponse,
+    type TradeRetrieveParams as TradeRetrieveParams,
     type TradeListParams as TradeListParams,
   };
 
   export {
     Positions as Positions,
     type PositionListResponse as PositionListResponse,
+    type PositionRetrieveParams as PositionRetrieveParams,
     type PositionListParams as PositionListParams,
   };
 
@@ -150,6 +159,7 @@ export declare namespace Accounts {
     LocateOrders as LocateOrders,
     type LocateOrderListResponse as LocateOrderListResponse,
     type LocateOrderCreateParams as LocateOrderCreateParams,
+    type LocateOrderRetrieveParams as LocateOrderRetrieveParams,
     type LocateOrderUpdateParams as LocateOrderUpdateParams,
   };
 
@@ -171,5 +181,9 @@ export declare namespace Accounts {
     type HoldingListParams as HoldingListParams,
   };
 
-  export { Inventories as Inventories, type InventoryRetrieveResponse as InventoryRetrieveResponse };
+  export {
+    Inventories as Inventories,
+    type InventoryRetrieveResponse as InventoryRetrieveResponse,
+    type InventoryRetrieveParams as InventoryRetrieveParams,
+  };
 }

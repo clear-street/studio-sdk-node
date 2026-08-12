@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import StudioSDK from '@clear-street/studio-sdk';
-import { Response } from 'node-fetch';
 
 const client = new StudioSDK({
   bearerToken: 'My Bearer Token',
@@ -35,8 +34,8 @@ describe('resource locateOrders', () => {
     });
   });
 
-  test('retrieve', async () => {
-    const responsePromise = client.accounts.locateOrders.retrieve('100000', '12390213');
+  test('retrieve: only required params', async () => {
+    const responsePromise = client.accounts.locateOrders.retrieve('12390213', { account_id: '100000' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -46,15 +45,15 @@ describe('resource locateOrders', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('retrieve: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.accounts.locateOrders.retrieve('100000', '12390213', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(StudioSDK.NotFoundError);
+  test('retrieve: required and optional params', async () => {
+    const response = await client.accounts.locateOrders.retrieve('12390213', { account_id: '100000' });
   });
 
   test('update: only required params', async () => {
-    const responsePromise = client.accounts.locateOrders.update('100000', '12390213', { accept: true });
+    const responsePromise = client.accounts.locateOrders.update('12390213', {
+      account_id: '100000',
+      accept: true,
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -65,7 +64,10 @@ describe('resource locateOrders', () => {
   });
 
   test('update: required and optional params', async () => {
-    const response = await client.accounts.locateOrders.update('100000', '12390213', { accept: true });
+    const response = await client.accounts.locateOrders.update('12390213', {
+      account_id: '100000',
+      accept: true,
+    });
   });
 
   test('list', async () => {
@@ -77,12 +79,5 @@ describe('resource locateOrders', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('list: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.accounts.locateOrders.list('100000', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(StudioSDK.NotFoundError);
   });
 });

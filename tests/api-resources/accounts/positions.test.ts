@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import StudioSDK from '@clear-street/studio-sdk';
-import { Response } from 'node-fetch';
 
 const client = new StudioSDK({
   bearerToken: 'My Bearer Token',
@@ -9,8 +8,8 @@ const client = new StudioSDK({
 });
 
 describe('resource positions', () => {
-  test('retrieve', async () => {
-    const responsePromise = client.accounts.positions.retrieve('100000', 'AAPL');
+  test('retrieve: only required params', async () => {
+    const responsePromise = client.accounts.positions.retrieve('AAPL', { account_id: '100000' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -20,11 +19,8 @@ describe('resource positions', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('retrieve: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.accounts.positions.retrieve('100000', 'AAPL', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(StudioSDK.NotFoundError);
+  test('retrieve: required and optional params', async () => {
+    const response = await client.accounts.positions.retrieve('AAPL', { account_id: '100000' });
   });
 
   test('list', async () => {
@@ -36,13 +32,6 @@ describe('resource positions', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('list: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.accounts.positions.list('100000', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(StudioSDK.NotFoundError);
   });
 
   test('list: request options and params are passed correctly', async () => {

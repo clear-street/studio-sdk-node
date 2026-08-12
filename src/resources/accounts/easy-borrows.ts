@@ -1,7 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class EasyBorrows extends APIResource {
   /**
@@ -15,8 +17,8 @@ export class EasyBorrows extends APIResource {
    * );
    * ```
    */
-  list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<EasyBorrowListResponse> {
-    return this._client.get(`/accounts/${accountId}/easy-borrows`, options);
+  list(accountID: string, options?: RequestOptions): APIPromise<EasyBorrowListResponse> {
+    return this._client.get(path`/accounts/${accountID}/easy-borrows`, options);
   }
 }
 

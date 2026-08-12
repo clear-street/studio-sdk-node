@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import StudioSDK from '@clear-street/studio-sdk';
-import { Response } from 'node-fetch';
 
 const client = new StudioSDK({
   bearerToken: 'My Bearer Token',

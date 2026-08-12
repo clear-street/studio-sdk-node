@@ -1,9 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
+import { APIPromise } from '../../core/api-promise';
+import { buildHeaders } from '../../internal/headers';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class Orders extends APIResource {
   /**
@@ -27,11 +29,11 @@ export class Orders extends APIResource {
    * ```
    */
   create(
-    accountId: string,
+    accountID: string,
     body: OrderCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OrderCreateResponse> {
-    return this._client.post(`/accounts/${accountId}/orders`, { body, ...options });
+    options?: RequestOptions,
+  ): APIPromise<OrderCreateResponse> {
+    return this._client.post(path`/accounts/${accountID}/orders`, { body, ...options });
   }
 
   /**
@@ -40,17 +42,18 @@ export class Orders extends APIResource {
    * @example
    * ```ts
    * const order = await client.accounts.orders.retrieve(
-   *   '100000',
    *   '12390213',
+   *   { account_id: '100000' },
    * );
    * ```
    */
   retrieve(
-    accountId: string,
-    orderId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OrderRetrieveResponse> {
-    return this._client.get(`/accounts/${accountId}/orders/${orderId}`, options);
+    orderID: string,
+    params: OrderRetrieveParams,
+    options?: RequestOptions,
+  ): APIPromise<OrderRetrieveResponse> {
+    const { account_id } = params;
+    return this._client.get(path`/accounts/${account_id}/orders/${orderID}`, options);
   }
 
   /**
@@ -63,20 +66,11 @@ export class Orders extends APIResource {
    * ```
    */
   list(
-    accountId: string,
-    query?: OrderListParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OrderListResponse>;
-  list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<OrderListResponse>;
-  list(
-    accountId: string,
-    query: OrderListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OrderListResponse> {
-    if (isRequestOptions(query)) {
-      return this.list(accountId, {}, query);
-    }
-    return this._client.get(`/accounts/${accountId}/orders`, { query, ...options });
+    accountID: string,
+    query: OrderListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<OrderListResponse> {
+    return this._client.get(path`/accounts/${accountID}/orders`, { query, ...options });
   }
 
   /**
@@ -89,21 +83,12 @@ export class Orders extends APIResource {
    * ```
    */
   delete(
-    accountId: string,
-    params?: OrderDeleteParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OrderDeleteResponse>;
-  delete(accountId: string, options?: Core.RequestOptions): Core.APIPromise<OrderDeleteResponse>;
-  delete(
-    accountId: string,
-    params: OrderDeleteParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OrderDeleteResponse> {
-    if (isRequestOptions(params)) {
-      return this.delete(accountId, {}, params);
-    }
-    const { symbol, symbol_format } = params;
-    return this._client.delete(`/accounts/${accountId}/orders`, {
+    accountID: string,
+    params: OrderDeleteParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<OrderDeleteResponse> {
+    const { symbol, symbol_format } = params ?? {};
+    return this._client.delete(path`/accounts/${accountID}/orders`, {
       query: { symbol, symbol_format },
       ...options,
     });
@@ -115,13 +100,16 @@ export class Orders extends APIResource {
    *
    * @example
    * ```ts
-   * await client.accounts.orders.cancel('100000', '12390213');
+   * await client.accounts.orders.cancel('12390213', {
+   *   account_id: '100000',
+   * });
    * ```
    */
-  cancel(accountId: string, orderId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/accounts/${accountId}/orders/${orderId}`, {
+  cancel(orderID: string, params: OrderCancelParams, options?: RequestOptions): APIPromise<void> {
+    const { account_id } = params;
+    return this._client.delete(path`/accounts/${account_id}/orders/${orderID}`, {
       ...options,
-      headers: { Accept: '*/*', ...options?.headers },
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
     });
   }
 
@@ -131,21 +119,18 @@ export class Orders extends APIResource {
    *
    * @example
    * ```ts
-   * await client.accounts.orders.patch('100000', '12390213', {
+   * await client.accounts.orders.patch('12390213', {
+   *   account_id: '100000',
    *   quantity: '100',
    * });
    * ```
    */
-  patch(
-    accountId: string,
-    orderId: string,
-    body: OrderPatchParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<void> {
-    return this._client.patch(`/accounts/${accountId}/orders/${orderId}`, {
+  patch(orderID: string, params: OrderPatchParams, options?: RequestOptions): APIPromise<void> {
+    const { account_id, ...body } = params;
+    return this._client.patch(path`/accounts/${account_id}/orders/${orderID}`, {
       body,
       ...options,
-      headers: { Accept: '*/*', ...options?.headers },
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
     });
   }
 }
@@ -258,6 +243,13 @@ export interface OrderCreateParams {
   symbol_format?: 'cms' | 'osi';
 }
 
+export interface OrderRetrieveParams {
+  /**
+   * The account ID or account number to get the order for.
+   */
+  account_id: string;
+}
+
 export interface OrderListParams {
   /**
    * Milliseconds since epoch timestamp. This will constrain the search for orders
@@ -297,19 +289,31 @@ export interface OrderDeleteParams {
   symbol_format?: 'cms' | 'osi';
 }
 
+export interface OrderCancelParams {
+  /**
+   * The account ID or account number to attempt to cancel the order for.
+   */
+  account_id: string;
+}
+
 export interface OrderPatchParams {
   /**
-   * The maximum quantity to be executed.
+   * Path param: The account ID or account number to attempt to update the order for.
+   */
+  account_id: string;
+
+  /**
+   * Body param: The maximum quantity to be executed.
    */
   quantity: string;
 
   /**
-   * The price to execute at-or-better for limit orders.
+   * Body param: The price to execute at-or-better for limit orders.
    */
   price?: string;
 
   /**
-   * The price at which stop orders become marketable.
+   * Body param: The price at which stop orders become marketable.
    */
   stop_price?: string;
 }
@@ -321,8 +325,10 @@ export declare namespace Orders {
     type OrderListResponse as OrderListResponse,
     type OrderDeleteResponse as OrderDeleteResponse,
     type OrderCreateParams as OrderCreateParams,
+    type OrderRetrieveParams as OrderRetrieveParams,
     type OrderListParams as OrderListParams,
     type OrderDeleteParams as OrderDeleteParams,
+    type OrderCancelParams as OrderCancelParams,
     type OrderPatchParams as OrderPatchParams,
   };
 }

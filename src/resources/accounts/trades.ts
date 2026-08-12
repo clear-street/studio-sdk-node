@@ -1,9 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class Trades extends APIResource {
   /**
@@ -12,13 +13,14 @@ export class Trades extends APIResource {
    * @example
    * ```ts
    * const trade = await client.accounts.trades.retrieve(
-   *   '100000',
    *   '12390213',
+   *   { account_id: '100000' },
    * );
    * ```
    */
-  retrieve(accountId: string, tradeId: string, options?: Core.RequestOptions): Core.APIPromise<Shared.Trade> {
-    return this._client.get(`/accounts/${accountId}/trades/${tradeId}`, options);
+  retrieve(tradeID: string, params: TradeRetrieveParams, options?: RequestOptions): APIPromise<Shared.Trade> {
+    const { account_id } = params;
+    return this._client.get(path`/accounts/${account_id}/trades/${tradeID}`, options);
   }
 
   /**
@@ -30,20 +32,11 @@ export class Trades extends APIResource {
    * ```
    */
   list(
-    accountId: string,
-    query?: TradeListParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<TradeListResponse>;
-  list(accountId: string, options?: Core.RequestOptions): Core.APIPromise<TradeListResponse>;
-  list(
-    accountId: string,
-    query: TradeListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<TradeListResponse> {
-    if (isRequestOptions(query)) {
-      return this.list(accountId, {}, query);
-    }
-    return this._client.get(`/accounts/${accountId}/trades`, { query, ...options });
+    accountID: string,
+    query: TradeListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<TradeListResponse> {
+    return this._client.get(path`/accounts/${accountID}/trades`, { query, ...options });
   }
 }
 
@@ -54,6 +47,13 @@ export interface TradeListResponse {
    * Cursor for the next page of results.
    */
   next_page_token?: string;
+}
+
+export interface TradeRetrieveParams {
+  /**
+   * The account ID or account number to get the trade for.
+   */
+  account_id: string;
 }
 
 export interface TradeListParams {
@@ -69,5 +69,9 @@ export interface TradeListParams {
 }
 
 export declare namespace Trades {
-  export { type TradeListResponse as TradeListResponse, type TradeListParams as TradeListParams };
+  export {
+    type TradeListResponse as TradeListResponse,
+    type TradeRetrieveParams as TradeRetrieveParams,
+    type TradeListParams as TradeListParams,
+  };
 }
