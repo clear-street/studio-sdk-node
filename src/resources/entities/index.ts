@@ -15,5 +15,6 @@ export {
   type SimulationID,
   type RegtMarginSimulationCreateResponse,
   type RegtMarginSimulationCreateParams,
+  type RegtMarginSimulationRetrieveParams,
 } from './regt-margin-simulations';
 export { RegtMargins } from './regt-margins';

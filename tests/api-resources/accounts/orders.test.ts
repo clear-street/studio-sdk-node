@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import StudioSDK from '@clear-street/studio-sdk';
-import { Response } from 'node-fetch';
 
 const client = new StudioSDK({
   bearerToken: 'My Bearer Token',
@@ -48,8 +47,8 @@ describe('resource orders', () => {
     });
   });
 
-  test('retrieve', async () => {
-    const responsePromise = client.accounts.orders.retrieve('100000', '12390213');
+  test('retrieve: only required params', async () => {
+    const responsePromise = client.accounts.orders.retrieve('12390213', { account_id: '100000' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -59,11 +58,8 @@ describe('resource orders', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('retrieve: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.accounts.orders.retrieve('100000', '12390213', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(StudioSDK.NotFoundError);
+  test('retrieve: required and optional params', async () => {
+    const response = await client.accounts.orders.retrieve('12390213', { account_id: '100000' });
   });
 
   test('list', async () => {
@@ -75,13 +71,6 @@ describe('resource orders', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('list: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.accounts.orders.list('100000', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      StudioSDK.NotFoundError,
-    );
   });
 
   test('list: request options and params are passed correctly', async () => {
@@ -111,13 +100,6 @@ describe('resource orders', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('delete: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.accounts.orders.delete('100000', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(StudioSDK.NotFoundError);
-  });
-
   test('delete: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -129,8 +111,8 @@ describe('resource orders', () => {
     ).rejects.toThrow(StudioSDK.NotFoundError);
   });
 
-  test('cancel', async () => {
-    const responsePromise = client.accounts.orders.cancel('100000', '12390213');
+  test('cancel: only required params', async () => {
+    const responsePromise = client.accounts.orders.cancel('12390213', { account_id: '100000' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -140,15 +122,15 @@ describe('resource orders', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('cancel: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.accounts.orders.cancel('100000', '12390213', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(StudioSDK.NotFoundError);
+  test('cancel: required and optional params', async () => {
+    const response = await client.accounts.orders.cancel('12390213', { account_id: '100000' });
   });
 
   test('patch: only required params', async () => {
-    const responsePromise = client.accounts.orders.patch('100000', '12390213', { quantity: '100' });
+    const responsePromise = client.accounts.orders.patch('12390213', {
+      account_id: '100000',
+      quantity: '100',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -159,7 +141,8 @@ describe('resource orders', () => {
   });
 
   test('patch: required and optional params', async () => {
-    const response = await client.accounts.orders.patch('100000', '12390213', {
+    const response = await client.accounts.orders.patch('12390213', {
+      account_id: '100000',
       quantity: '100',
       price: '123.99',
       stop_price: '123.99',

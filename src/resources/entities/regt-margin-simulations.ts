@@ -1,8 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class RegtMarginSimulations extends APIResource {
   /**
@@ -15,11 +17,11 @@ export class RegtMarginSimulations extends APIResource {
    * & Margin section, after enabling the "Risk Simulations" toggle.
    */
   create(
-    entityId: string,
+    entityID: string,
     body: RegtMarginSimulationCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<RegtMarginSimulationCreateResponse> {
-    return this._client.post(`/entities/${entityId}/regt-margin-simulations`, { body, ...options });
+    options?: RequestOptions,
+  ): APIPromise<RegtMarginSimulationCreateResponse> {
+    return this._client.post(path`/entities/${entityID}/regt-margin-simulations`, { body, ...options });
   }
 
   /**
@@ -27,11 +29,12 @@ export class RegtMarginSimulations extends APIResource {
    * automatically deleted after 48-hours.
    */
   retrieve(
-    entityId: string,
-    simulationId: SimulationID,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.RegtMarginSimulation> {
-    return this._client.get(`/entities/${entityId}/regt-margin-simulations/${simulationId}`, options);
+    simulationID: SimulationID,
+    params: RegtMarginSimulationRetrieveParams,
+    options?: RequestOptions,
+  ): APIPromise<Shared.RegtMarginSimulation> {
+    const { entity_id } = params;
+    return this._client.get(path`/entities/${entity_id}/regt-margin-simulations/${simulationID}`, options);
   }
 }
 
@@ -119,10 +122,18 @@ export namespace RegtMarginSimulationCreateParams {
   }
 }
 
+export interface RegtMarginSimulationRetrieveParams {
+  /**
+   * Entity ID for the legal entity.
+   */
+  entity_id: string;
+}
+
 export declare namespace RegtMarginSimulations {
   export {
     type SimulationID as SimulationID,
     type RegtMarginSimulationCreateResponse as RegtMarginSimulationCreateResponse,
     type RegtMarginSimulationCreateParams as RegtMarginSimulationCreateParams,
+    type RegtMarginSimulationRetrieveParams as RegtMarginSimulationRetrieveParams,
   };
 }

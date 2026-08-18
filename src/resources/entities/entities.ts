@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as PnlSummariesAPI from './pnl-summaries';
 import { PnlSummaries } from './pnl-summaries';
 import * as PortfolioMarginsAPI from './portfolio-margins';
@@ -10,11 +9,15 @@ import * as RegtMarginSimulationsAPI from './regt-margin-simulations';
 import {
   RegtMarginSimulationCreateParams,
   RegtMarginSimulationCreateResponse,
+  RegtMarginSimulationRetrieveParams,
   RegtMarginSimulations,
   SimulationID,
 } from './regt-margin-simulations';
 import * as RegtMarginsAPI from './regt-margins';
 import { RegtMargins } from './regt-margins';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class Entities extends APIResource {
   pnlSummaries: PnlSummariesAPI.PnlSummaries = new PnlSummariesAPI.PnlSummaries(this._client);
@@ -28,14 +31,14 @@ export class Entities extends APIResource {
   /**
    * Get an entity by its ID.
    */
-  retrieve(entityId: string, options?: Core.RequestOptions): Core.APIPromise<Entity> {
-    return this._client.get(`/entities/${entityId}`, options);
+  retrieve(entityID: string, options?: RequestOptions): APIPromise<Entity> {
+    return this._client.get(path`/entities/${entityID}`, options);
   }
 
   /**
    * List all available entities.
    */
-  list(options?: Core.RequestOptions): Core.APIPromise<EntityListResponse> {
+  list(options?: RequestOptions): APIPromise<EntityListResponse> {
     return this._client.get('/entities', options);
   }
 }
@@ -579,5 +582,6 @@ export declare namespace Entities {
     type SimulationID as SimulationID,
     type RegtMarginSimulationCreateResponse as RegtMarginSimulationCreateResponse,
     type RegtMarginSimulationCreateParams as RegtMarginSimulationCreateParams,
+    type RegtMarginSimulationRetrieveParams as RegtMarginSimulationRetrieveParams,
   };
 }

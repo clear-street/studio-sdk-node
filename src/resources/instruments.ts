@@ -1,8 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import { isRequestOptions } from '../core';
-import * as Core from '../core';
+import { APIResource } from '../core/resource';
+import { APIPromise } from '../core/api-promise';
+import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class Instruments extends APIResource {
   /**
@@ -10,25 +11,16 @@ export class Instruments extends APIResource {
    */
   retrieve(
     symbol: string,
-    query?: InstrumentRetrieveParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Instrument>;
-  retrieve(symbol: string, options?: Core.RequestOptions): Core.APIPromise<Instrument>;
-  retrieve(
-    symbol: string,
-    query: InstrumentRetrieveParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Instrument> {
-    if (isRequestOptions(query)) {
-      return this.retrieve(symbol, {}, query);
-    }
-    return this._client.get(`/instruments/${symbol}`, { query, ...options });
+    query: InstrumentRetrieveParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<Instrument> {
+    return this._client.get(path`/instruments/${symbol}`, { query, ...options });
   }
 
   /**
    * List all available instruments.
    */
-  list(options?: Core.RequestOptions): Core.APIPromise<InstrumentListResponse> {
+  list(options?: RequestOptions): APIPromise<InstrumentListResponse> {
     return this._client.get('/instruments', options);
   }
 }

@@ -1,8 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class BulkOrders extends APIResource {
   /**
@@ -39,11 +41,11 @@ export class BulkOrders extends APIResource {
    * ```
    */
   create(
-    accountId: string,
+    accountID: string,
     body: BulkOrderCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<BulkOrderCreateResponse> {
-    return this._client.post(`/accounts/${accountId}/bulk-orders`, { body, ...options });
+    options?: RequestOptions,
+  ): APIPromise<BulkOrderCreateResponse> {
+    return this._client.post(path`/accounts/${accountID}/bulk-orders`, { body, ...options });
   }
 }
 
