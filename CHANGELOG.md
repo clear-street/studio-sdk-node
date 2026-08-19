@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.1 (2026-08-19)
+
+Full Changelog: [v0.1.0...v0.1.1](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0...v0.1.1)
+
+### Features
+
+* **api:** documentation updates ([e5fb498](https://github.com/clear-street/studio-sdk-node/commit/e5fb49899c26f934c2bdbbfeef5247f4dc032c36))
+* **api:** Typescript publish config updates ([4fa2a00](https://github.com/clear-street/studio-sdk-node/commit/4fa2a00c3a4776f40dfd10afc2d5d2da3964cded))
+
 ## 0.1.0 (2026-08-18)
 
 Full Changelog: [v0.0.1...v0.1.0](https://github.com/clear-street/studio-sdk-node/compare/v0.0.1...v0.1.0)

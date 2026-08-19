@@ -5,7 +5,7 @@ const { spawnSync } = require('child_process');
 const commands = {
   migrate: {
     description:
-      'Run migrations to update your code using @clear-street/studio-sdk@0.1.0-alpha.23 to be compatible with @clear-street/studio-sdk@0.1.0-alpha.24',
+      'Run migrations to update your code using @clear-street/studio-sdk@0.1.0-alpha.23 to be compatible with @clear-street/studio-sdk@0.1.1',
     fn: () => {
       const result = spawnSync(
         'npx',
