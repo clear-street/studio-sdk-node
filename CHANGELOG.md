@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.2.0](https://github.com/clear-street/studio-sdk-node/compare/v0.1.1...v0.2.0) (2026-08-31)
+
+
+### Features
+
+* initial stlc build ([2837567](https://github.com/clear-street/studio-sdk-node/commit/28375678b4b6ee2f2acc01ddcdb101e9b7e2921a))
+
+
+### Chores
+
+* add release workflow ([81045e1](https://github.com/clear-street/studio-sdk-node/commit/81045e12b0b0bc5c1c48d59f1fcfb8f66acc55ed))
+* add stlc workflows ([5eef957](https://github.com/clear-street/studio-sdk-node/commit/5eef95738ea443786807f1591d07fcc0ceb5931a))
+* add sync workflow ([d403f77](https://github.com/clear-street/studio-sdk-node/commit/d403f77e6a8dedeb8cf178f7457d9c106cfcc833))
+* use internal stlc mirrors repos ([b36ac6e](https://github.com/clear-street/studio-sdk-node/commit/b36ac6e1caeb9b9d34394829355f5e49687c329b))
+* **WALLE-2824:** Update action version and token ([4563576](https://github.com/clear-street/studio-sdk-node/commit/45635767a3de47186a5f2d9ccc3b791a3665dfd5))
+* **WALLE-2824:** Update demo environment URL ([1164f6b](https://github.com/clear-street/studio-sdk-node/commit/1164f6bce9df8c814bf81a1ab1b9308158ca5dce))
+
 ## 0.1.1 (2026-08-19)
 
 Full Changelog: [v0.1.0...v0.1.1](https://github.com/clear-street/studio-sdk-node/compare/v0.1.0...v0.1.1)
